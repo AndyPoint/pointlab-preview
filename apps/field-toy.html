@@ -10,8 +10,33 @@ canvas{display:block;width:100%;height:100%}
 #ui button{font:inherit;letter-spacing:inherit;color:inherit;background:rgba(6,7,7,.6);border:1px solid #233;padding:9px 11px;cursor:pointer}
 #ui button.on{color:#060707;background:var(--a,#35F2C2);border-color:var(--a,#35F2C2)}
 body:not(.play) #ui{opacity:0;pointer-events:none}
+/* ===== MOCK APP MENUS — placeholder only. =====
+   They stand in for the Codelab system's own tool menus, which sit in the corners and sides like the homepage
+   menus. They belong to THIS app (inside the iframe), are not built by or shared with the homepage engine,
+   and only demonstrate that an embedded code project keeps its own menus as-is. Replace with the real app. */
+.mock-btn{position:fixed;top:16px;height:44px;padding:0 14px;font:11px/44px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;
+  color:#e6ecea;background:rgba(6,7,7,.7);border:1px solid #233;cursor:pointer;transition:opacity .3s}
+#appMenuBtn{left:16px} #appToolsBtn{right:16px}
+.mock-panel{position:fixed;top:0;bottom:0;width:260px;background:#0b1010;border:0 solid #233;color:#c7d1cf;padding:76px 28px 24px;
+  font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;transition:transform .15s;box-sizing:border-box}
+#appDrawer{left:0;border-right-width:1px;transform:translateX(-101%)} #appTools{right:0;border-left-width:1px;transform:translateX(101%)}
+body.menu #appDrawer,body.tools #appTools{transform:none}
+.mock-panel h2{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7d8a88;margin:0 0 12px;font-weight:400}
+.mock-panel button{display:block;width:100%;min-height:44px;text-align:left;font:inherit;color:inherit;background:none;border:0;border-top:1px solid #1a2221;cursor:pointer}
+.mock-panel button.on{color:var(--a,#35F2C2)}
+.mock-panel small{display:block;color:#56625f;margin-top:16px}
+body:not(.play) .mock-btn,body:not(.play) .mock-panel{opacity:0;pointer-events:none}
 </style></head><body>
 <canvas id="c"></canvas>
+<!-- MOCK app menus (see the note in the style block) -->
+<button id="appMenuBtn" class="mock-btn" aria-expanded="false" aria-controls="appDrawer">≡ App</button>
+<button id="appToolsBtn" class="mock-btn" aria-expanded="false" aria-controls="appTools">Tools</button>
+<aside id="appDrawer" class="mock-panel" aria-label="Field Toy menu (mock)"><h2>Field Toy · app menu (mock)</h2>
+  <button data-mock="new">New session</button><button data-mock="export">Export PNG</button><button data-mock="about">About this app</button>
+  <small>Mock menu inside the embedded app. Not part of the homepage.</small></aside>
+<aside id="appTools" class="mock-panel" aria-label="Field Toy tools (mock)"><h2>Tools (mock)</h2>
+  <button data-law="0" class="on">Law 1 · Orbit</button><button data-law="1">Law 2 · Flow</button><button data-law="2">Law 3 · Repel</button>
+  <button data-mock="trails">Trails</button><small>Mock tool panel inside the embedded app.</small></aside>
 <div id="ui"><button data-law="0" class="on">1 Orbit</button><button data-law="1">2 Flow</button><button data-law="2">3 Repel</button><button id="clr">Space Clear</button></div>
 <script>
 (function(){
@@ -26,19 +51,28 @@ addEventListener('resize',size);size();
 function laws(){document.querySelectorAll('[data-law]').forEach(b=>b.classList.toggle('on',+b.dataset.law===law))}
 document.querySelectorAll('[data-law]').forEach(b=>b.onclick=e=>{e.stopPropagation();law=+b.dataset.law;laws()});
 document.getElementById('clr').onclick=e=>{e.stopPropagation();attr=[];c.fillStyle=bg;c.fillRect(0,0,W,H)};
-cv.addEventListener('pointerdown',e=>{if(!play)return;ptr={x:e.clientX,y:e.clientY,t:performance.now()};cv.setPointerCapture(e.pointerId)});
+/* mock menu state lives only in this app */
+const B=document.body,mb=document.getElementById('appMenuBtn'),tb=document.getElementById('appToolsBtn');
+function menu(which){const m=which==='menu'&&!B.classList.contains('menu'),t=which==='tools'&&!B.classList.contains('tools');
+  B.classList.toggle('menu',m);B.classList.toggle('tools',t);mb.setAttribute('aria-expanded',m);tb.setAttribute('aria-expanded',t);}
+mb.onclick=e=>{e.stopPropagation();menu('menu')};tb.onclick=e=>{e.stopPropagation();menu('tools')};
+document.querySelectorAll('[data-mock]').forEach(b=>b.onclick=e=>{e.stopPropagation();b.classList.toggle('on');window.__mockLast=b.dataset.mock});
+window.__appMenus=()=>({menu:B.classList.contains('menu'),tools:B.classList.contains('tools'),last:window.__mockLast||null});
+cv.addEventListener('pointerdown',e=>{if(!play)return;menu(null);ptr={x:e.clientX,y:e.clientY,t:performance.now()};cv.setPointerCapture(e.pointerId)});
 cv.addEventListener('pointermove',e=>{if(ptr){ptr.x=e.clientX;ptr.y=e.clientY}});
 cv.addEventListener('pointerup',e=>{if(ptr&&performance.now()-ptr.t<250)attr.push({x:ptr.x,y:ptr.y});if(attr.length>6)attr.shift();ptr=null});
 addEventListener('wheel',e=>{if(play)e.preventDefault()},{passive:false});
 addEventListener('keydown',e=>{
   if(play&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','Home','End',' '].includes(e.key))e.preventDefault();
-  if(e.key==='Escape'){parent.postMessage({type:'pl-exit-play'},'*');return}
+  if(e.key==='Escape'){if(B.classList.contains('menu')||B.classList.contains('tools')){menu(null);return}parent.postMessage({type:'pl-exit-play'},'*');return}
+  /* embed protocol (optional): hand ←/→ to the host so it can leave the app slide */
+  if(play&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){parent.postMessage({type:'pl-nav',dir:e.key==='ArrowLeft'?-1:1},'*');return}
   if(!play)return;
   if(e.key>='1'&&e.key<='3'){law=+e.key-1;laws()}
   if(e.key===' '){attr=[];c.fillStyle=bg;c.fillRect(0,0,W,H);e.preventDefault()}
 });
 addEventListener('message',e=>{const d=e.data||{};
-  if(d.type==='pl-play'){play=!!d.on;document.body.classList.toggle('play',play);if(play)window.focus()}
+  if(d.type==='pl-play'){play=!!d.on;document.body.classList.toggle('play',play);if(play)window.focus();else menu(null)}
   if(d.type==='pl-theme'&&d.accent)setAcc(d.accent)});
 parent.postMessage({type:'pl-ready'},'*');
 function rgba(h,a){const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}

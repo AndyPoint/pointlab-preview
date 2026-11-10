@@ -1,4 +1,5 @@
-/* POINTLAB ENGINE v2.1 — one shared engine for every subsite, rebuilt on the anttipiste index
+/* POINTLAB ENGINE v2.2 — LEFT ≡ = the current project (context), RIGHT ||| = site navigation; embedded apps keep their OWN menus.
+   Based on v2.1 — one shared engine for every subsite, rebuilt on the anttipiste index
    (typography, Kehä hero, suites × slides) with JUST SITTING's side panels.
    Rules (Andy, v2.1): NO information on top of projects — over project content only the bare
    ≡ / ||| symbols and ▶ on live-app slides. Titles, numbers and captions live in the left panel and
@@ -29,7 +30,7 @@ const pad2=n=>String(n).padStart(2,'0');
 const TXM=Object.assign({mode:'logo',anims:['logo'],scope:'all',rotateEvery:4500,speed:22,hold:2600},S.text||{});
 const COVER=TXM.mode==='cover',hasA=a=>(TXM.anims||[]).includes(a);
 const TEXT_TYPES=['concept','tutorial','text','notes'];
-const UI=Object.assign({hideAfter:2000,tapHideAfter:3000,revealBand:72,cornerFree:120,tapZone:[.15,.85]},S.ui||{});
+const UI=Object.assign({playExit:'top-center',hideAfter:2000,tapHideAfter:3000,revealBand:72,cornerFree:120,tapZone:[.15,.85]},S.ui||{});
 
 /* ---------- 1. identity layer (theme) ---------- */
 Object.entries(S.theme.vars||{}).forEach(([k,v])=>root.style.setProperty(k,v));
@@ -144,47 +145,87 @@ S.projects.forEach((p,pi)=>{
 /* corner symbols + play symbol + edge arrows + drawers */
 const ICON={menu:'<svg class="g" viewBox="0 0 18 18"><path d="M2 4.5h14M2 9h14M2 13.5h14"/></svg>',
   dir:'<svg class="g" viewBox="0 0 18 18"><path d="M4.5 2v14M9 2v14M13.5 2v14"/></svg>',x:'<svg class="x" viewBox="0 0 18 18"><path d="M3.5 3.5l11 11M14.5 3.5l-11 11"/></svg>'};
-const symL=el('button','sym',body,ICON.menu+ICON.x);symL.id='symL';symL.setAttribute('aria-label','Index: projects and slides');
-const symR=el('button','sym',body,ICON.dir+ICON.x);symR.id='symR';symR.setAttribute('aria-label','Pointlab sites');
+const symL=el('button','sym',body,ICON.menu+ICON.x);symL.id='symL';symL.setAttribute('aria-label','About this project');
+const symR=el('button','sym',body,ICON.dir+ICON.x);symR.id='symR';symR.setAttribute('aria-label','Site navigation');
 const symP=el('button','sym',body,'<svg class="tri" viewBox="0 0 18 18"><path d="M5 3l10 6-10 6z"/></svg><svg class="pause" viewBox="0 0 18 18"><path d="M6 3v12M12 3v12"/></svg>');
 symP.id='symP';symP.setAttribute('aria-label','Play mode: give input to the web app');symP.setAttribute('aria-pressed','false');
 [symL,symR].forEach(b=>b.setAttribute('aria-expanded','false'));
 const edgeL=el('button','edge l',body,'<svg viewBox="0 0 16 32"><path d="M13 2L3 16l10 14"/></svg>');edgeL.setAttribute('aria-label','Previous slide');
 const edgeR=el('button','edge r',body,'<svg viewBox="0 0 16 32"><path d="M3 2l10 14L3 30"/></svg>');edgeR.setAttribute('aria-label','Next slide');
-/* side panels (JUST SITTING): dark surface, no veil, no glitch banner, equal 320 px width,
+/* side panels (JUST SITTING): dark surface, no veil, no glitch banner, equal 320 px width, bare ×,
    flat collapsible groups (one level), 44 px targets, 120 ms slide-in.
-   Left (≡) = this site: one group per project with its slides (current one highlighted), About.
-   Right (|||) = all Pointlab sites. */
+   v2.2 (Andy): LEFT ≡  = the CURRENT PROJECT — name, explanation, info, artist, links, project settings, its slides.
+                          On the top page / interludes: the site + artist; on a news article: that entry.
+                RIGHT ||| = SITE NAVIGATION — projects, Pointlab hub, subsites, News, About, Contact, site settings, tools.
+   Embedded web apps are NOT part of either panel: they keep their own menus (see play mode). */
 const head=label=>`<div class="p-head"><span class="p-lab">${esc(label)}</span><button class="p-x" data-close aria-label="Close ${esc(label)}">×</button></div>`;
 let gid=0;
-const group=(title,inner,o={})=>{const id='pg'+(++gid);return `<div class="p-grp${o.cls?' '+o.cls:''}"${o.si!=null?` data-si="${o.si}"`:''}><h3 class="p-gh"><button class="p-tog" aria-expanded="${o.open?'true':'false'}" aria-controls="${id}">
+const group=(title,inner,o={})=>{const id='pg'+(++gid);return `<div class="p-grp${o.cls?' '+o.cls:''}"${o.si!=null?` data-si="${o.si}"`:''}${o.key?` data-grp="${o.key}"`:''}><h3 class="p-gh"><button class="p-tog" aria-expanded="${o.open?'true':'false'}" aria-controls="${id}">
   <span class="p-gt">${esc(title)}</span>${o.n!=null?`<small>${pad2(o.n)}</small>`:''}<i aria-hidden="true"></i></button></h3><div class="p-items" id="${id}"${o.open?'':' hidden'}>${inner}</div></div>`;};
-const dL=el('nav','panel left',body);dL.id='drawerL';dL.setAttribute('aria-label',S.name+' index');dL.setAttribute('aria-hidden','true');
-const dR=el('nav','panel right',body);dR.id='drawerR';dR.setAttribute('aria-label','Tools, settings and contact');dR.setAttribute('aria-hidden','true');
-/* LEFT ≡ : information + navigation — projects (info, facts, every slide), About, all Pointlab sites */
-const facts=p=>{const f=p.facts||((p.slides||[]).find(x=>x.type==='concept')||{}).meta||[];return f.length?`<dl class="p-facts">${f.map(m=>`<div><dt>${esc(m[0])}</dt><dd>${esc(m[1])}</dd></div>`).join('')}</dl>`:'';};
+const dL=el('nav','panel left',body);dL.id='drawerL';dL.setAttribute('aria-label','About this project');dL.setAttribute('aria-hidden','true');
+const dR=el('nav','panel right',body);dR.id='drawerR';dR.setAttribute('aria-label','Site navigation');dR.setAttribute('aria-hidden','true');
+const sw=(attr,label,on)=>`<li><button class="p-sw" role="switch" ${attr} aria-checked="${on}"><span>${esc(label)}</span><i aria-hidden="true"></i></button></li>`;
 const hub=REG.find(r=>r.id==='hub');
-const sitesList=`<ul>${REG.filter(r=>r.href).map(r=>r.id===S.id?`<li><span class="cur" aria-current="page">${esc(r.name)}<small>here</small></span></li>`:`<li><a href="${esc(r.href)}">${esc(r.name)}<small>${esc(r.id==='hub'?'hub':r.role)}</small></a></li>`).join('')}
-  ${REG.filter(r=>!r.href).map(r=>`<li><span class="off">${esc(r.name)}<small>planned</small></span></li>`).join('')}</ul>`;
-dL.innerHTML=head(S.name)+(S.identity.line?`<p class="p-line">${esc(S.identity.line)}</p>`:'')+
-  `<ul class="p-top">${S.hero?`<li><button data-go="0,0">${esc(S.labels&&S.labels.top||'Top')}</button></li>`:''}${hub&&S.id!=='hub'?`<li><a href="${esc(hub.href)}" class="p-hub">← Pointlab hub</a></li>`:''}</ul>`+
-  secs.map((s,si)=>s.proj?group(s.proj.title,`${s.proj.info?`<p class="p-p p-info">${esc(s.proj.info)}</p>`:''}${facts(s.proj)}<ul>${s.SL.map((sl,i)=>`<li><button data-go="${si},${i}"><b>${pad2(i+1)}</b><span>${esc(tt(sl.title)||LABEL[sl.type])}</span>${sl.date?`<small>${esc(sl.date)}</small>`:''}</button></li>`).join('')}</ul>`,{si,n:s.slides.length}):'').join('')+
-  (S.identity.blocks||[]).map(b=>group(b.h,`<p class="p-p">${esc(b.p)}</p>`,{cls:'about'})).join('')+
-  group('Pointlab sites',sitesList,{cls:'sites',n:REG.length});
-/* RIGHT ||| : shared tools, settings and contact (same on every site; contact from window.PL_SHARED) */
-const sw=(id,label,on)=>`<li><button class="p-sw" role="switch" data-pref="${id}" aria-checked="${on}"><span>${esc(label)}</span><i aria-hidden="true"></i></button></li>`;
+const isHub=S.id==='hub';
+const newsSi=secs.findIndex(x=>x.proj&&x.proj.kind==='news');
+const ARTIST=S.artist||null;
+
+/* ---- LEFT: project context ---- */
+const concept=p=>(p.slides||[]).find(x=>x.type==='concept')||{};
+const facts=f=>f&&f.length?`<dl class="p-facts">${f.map(m=>`<div><dt>${esc(m[0])}</dt><dd>${esc(m[1])}</dd></div>`).join('')}</dl>`:'';
+const artistBlock=a=>a?`<div class="p-artist">${a.portrait?`<img class="p-portrait" src="${esc(a.portrait)}" alt="${esc(a.name)}">`:`<div class="p-portrait slot" role="img" aria-label="Portrait slot">portrait</div>`}
+  <div><b class="p-an">${esc(a.name)}</b>${a.role?`<small class="p-ar">${esc(a.role)}</small>`:''}<p class="p-p">${esc(a.bio||'')}</p></div></div>`:'';
+const linkList=L=>`<ul>${L.map(l=>l.href?`<li><a href="${esc(l.href)}"${/^https?:|\.html$|\.mp4$/.test(l.href)?' target="_blank" rel="noopener"':''}>${esc(l.label)}<small>${esc(l.kind||'')}</small></a></li>`:`<li><span class="off">${esc(l.label)}<small>${esc(l.kind||'placeholder')}</small></span></li>`).join('')}</ul>`;
+/* project settings: declared in config (project.settings), stored per browser, applied by the engine — never sent into an app */
+const PSET={autoplay:{label:'Autoplay videos',def:true},whole:{label:'Show images whole (no crop)',def:false}};
+const pget=(pid,k)=>{const v=PREF.get('p.'+pid+'.'+k);return v==null?PSET[k].def:v==='on';};
+function applyProjSettings(){secs.forEach(x=>{if(!x.proj)return;const pid=x.proj.id;x.el.classList.toggle('fit-whole',(x.proj.settings||[]).includes('whole')&&pget(pid,'whole'));});}
+function slidesList(si){const x=secs[si];return `<ul class="p-slides">${x.SL.map((sl,i)=>`<li><button data-go="${si},${i}"><b>${pad2(i+1)}</b><span>${esc(tt(sl.title)||LABEL[sl.type])}</span>${sl.date?`<small>${esc(sl.date)}</small>`:''}</button></li>`).join('')}</ul>`;}
+function leftSite(){dL.dataset.ctx='site';
+  return head(S.name)+`<div class="p-kick">${esc(isHub?'Pointlab':'Pointlab · '+S.name)}</div>`+(S.identity.line?`<p class="p-line">${esc(S.identity.line)}</p>`:'')+
+    (S.identity.blocks||[]).map(b=>`<p class="p-p p-expl">${esc(b.p)}</p>`).join('')+
+    (ARTIST?group('Artist',artistBlock(ARTIST),{open:true,key:'artist'}):'')+
+    group('Projects on this site',`<ul>${secs.map((x,si)=>x.proj?`<li><button data-go="${si},0"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span></button></li>`:'').join('')}</ul>`,{open:true,key:'slides'});}
+function leftProject(si,i){const x=secs[si],p=x.proj,c=concept(p);dL.dataset.ctx='project:'+(p.id||x.pi);
+  const sl=x.SL[i]||{};
+  if(sl.type==='article'){dL.dataset.ctx='news:'+(i);
+    return head(sl.title)+`<div class="p-kick">${esc(p.title)} · ${esc(sl.date)}</div>`+(sl.lede?`<p class="p-line">${esc(sl.lede)}</p>`:'')+
+      facts([['Date',sl.date],['Section',p.title]].concat(sl.facts||[]))+(sl.links?group('Links',linkList(sl.links),{open:true,key:'links'}):'')+
+      group('All entries',slidesList(si),{open:true,key:'slides',n:x.slides.length});}
+  const expl=p.info||c.lede||'';const art=p.artist||ARTIST;const sets=(p.settings||[]).filter(k=>PSET[k]);
+  return head(p.title)+`<div class="p-kick">${esc('Project '+pad2(x.pi+1))}</div>`+(expl?`<p class="p-line p-expl">${esc(expl)}</p>`:'')+
+    facts(p.facts||c.meta||[])+
+    (art?group('Artist',artistBlock(art),{open:true,key:'artist'}):'')+
+    (p.links&&p.links.length?group('Links',linkList(p.links),{open:true,key:'links',n:p.links.length}):'')+
+    (sets.length?group('Project settings',`<ul>${sets.map(k=>sw(`data-pset="${esc(p.id)}:${k}"`,PSET[k].label,pget(p.id,k))).join('')}</ul>`,{open:true,key:'psettings'}):'')+
+    group('Slides',slidesList(si),{open:true,key:'slides',n:x.slides.length});}
+let leftKey='';
+function renderLeft(si,i){const x=secs[si];const key=x&&x.proj?si+':'+(x.SL[i]&&x.SL[i].type==='article'?i:'p'):'site';
+  if(key!==leftKey){leftKey=key;dL.innerHTML=x&&x.proj?leftProject(si,i):leftSite();dL.setAttribute('aria-label',x&&x.proj?'About '+x.proj.title:'About '+S.name);}}
+
+/* ---- RIGHT: site navigation (static) ---- */
 const CONTACT=SHARED.contact||[];
-dR.innerHTML=head(SHARED.toolsLabel||'Tools')+
-  group('Settings',`<ul>${sw('motion','Animations',!motionOff)}${sw('autohide','Auto-hide symbols',PREF.get('autohide')!=='off')}</ul>`,{open:true})+
+const siteLinks=`<ul>${REG.filter(r=>r.href).map(r=>r.id===S.id?`<li><span class="cur" aria-current="page">${esc(r.name)}<small>here</small></span></li>`:`<li><a href="${esc(r.href)}">${esc(r.name)}<small>${esc(r.id==='hub'?'hub':r.role)}</small></a></li>`).join('')}
+  ${REG.filter(r=>!r.href).map(r=>`<li><span class="off">${esc(r.name)}<small>planned</small></span></li>`).join('')}</ul>`;
+dR.innerHTML=head(S.name)+
+  group('Projects',`<ul>${secs.map((x,si)=>x.proj?`<li><button data-go="${si},0" data-proj="${si}"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span><small>${pad2(x.slides.length)}</small></button></li>`:'').join('')}</ul>`,{open:true,key:'projects',n:S.projects.length})+
+  `<ul class="p-top">${isHub?`<li><button data-go="0,0" class="p-hub">Pointlab hub · top</button></li>`:`<li><a href="${esc(hub?hub.href:'index.html')}" class="p-hub">← Pointlab hub</a></li>`}
+    <li>${isHub&&newsSi>=0?`<button data-go="${newsSi},0" class="p-news">News</button>`:`<a href="${esc(hub?hub.href:'index.html')}#proj=news" class="p-news">News</a>`}</li></ul>`+
+  group('Sites',siteLinks,{key:'sites',n:REG.length})+
+  group('About',`${S.identity.line?`<p class="p-p">${esc(S.identity.line)}</p>`:''}${(S.identity.blocks||[]).map(b=>`<p class="p-p">${esc(b.p)}</p>`).join('')}`,{key:'about'})+
+  (CONTACT.length?group('Contact',`<ul>${CONTACT.map(c=>c.href?`<li><a href="${esc(c.href)}"${/^https?:/.test(c.href)?' target="_blank" rel="noopener"':''}>${esc(c.label)}<small>${esc(c.value)}</small></a></li>`:`<li><span class="off">${esc(c.label)}<small>${esc(c.value)}</small></span></li>`).join('')}</ul>`,{key:'contact'}):'')+
+  group('Settings',`<ul>${sw('data-pref="motion"','Animations',!motionOff)}${sw('data-pref="autohide"','Auto-hide symbols',PREF.get('autohide')!=='off')}</ul>`,{key:'settings'})+
   group('Tools',`<ul><li><button data-tool="copy"><span>Copy link to this page</span><small class="t-msg"></small></button></li>${doc.fullscreenEnabled?'<li><button data-tool="fs"><span>Full screen</span></button></li>':''}</ul>
-    <p class="p-p p-keys">Keys: ↑↓ projects · ←→ slides · I index · W tools · Esc close</p>`)+
-  (CONTACT.length?group('Contact',`<ul>${CONTACT.map(c=>c.href?`<li><a href="${esc(c.href)}"${/^https?:/.test(c.href)?' target="_blank" rel="noopener"':''}>${esc(c.label)}<small>${esc(c.value)}</small></a></li>`:`<li><span class="off">${esc(c.label)}<small>${esc(c.value)}</small></span></li>`).join('')}</ul>`):'');
-dR.addEventListener('click',e=>{const b=e.target.closest('.p-sw');if(b){const on=b.getAttribute('aria-checked')!=='true';b.setAttribute('aria-checked',on);const k=b.dataset.pref;PREF.set(k,on?'on':'off');
+    <p class="p-p p-keys">Keys: ↑↓ projects · ←→ slides · I project · W navigation · Esc close</p>`,{key:'tools'});
+dR.addEventListener('click',e=>{const b=e.target.closest('.p-sw[data-pref]');if(b){const on=b.getAttribute('aria-checked')!=='true';b.setAttribute('aria-checked',on);const k=b.dataset.pref;PREF.set(k,on?'on':'off');
     if(k==='motion'){window.PL_REDUCED=!on;setTimeout(()=>location.reload(),150);}if(k==='autohide'){if(!on){clearTimeout(hideT);showUI();}}return;}
   const t=e.target.closest('[data-tool]');if(!t)return;
   if(t.dataset.tool==='copy'){const m=t.querySelector('.t-msg');const done=x=>{m.textContent=x;setTimeout(()=>m.textContent='',1600);};
     try{navigator.clipboard.writeText(location.href).then(()=>done('copied'),()=>done(location.hash||'#'));}catch(_){done(location.hash||'#');}}
   if(t.dataset.tool==='fs'){doc.fullscreenElement?doc.exitFullscreen():root.requestFullscreen().catch(()=>{});}});
+dL.addEventListener('click',e=>{const b=e.target.closest('.p-sw[data-pset]');if(!b)return;const on=b.getAttribute('aria-checked')!=='true';b.setAttribute('aria-checked',on);
+  const [pid,k]=b.dataset.pset.split(':');PREF.set('p.'+pid+'.'+k,on?'on':'off');applyProjSettings();if(k==='autoplay')syncVideos();});
+applyProjSettings();
 function toggleGroup(btn,force){const on=force!=null?force:btn.getAttribute('aria-expanded')!=='true';btn.setAttribute('aria-expanded',on);
   const box=doc.getElementById(btn.getAttribute('aria-controls'));if(box)box.hidden=!on;}
 [dL,dR].forEach(d=>{d.addEventListener('click',e=>{const t=e.target.closest('.p-tog');if(t)toggleGroup(t);});
@@ -193,9 +234,10 @@ function toggleGroup(btn,force){const on=force!=null?force:btn.getAttribute('ari
     const all=[...d.querySelectorAll('button,a')].filter(x=>x.offsetParent!==null);const i=all.indexOf(doc.activeElement);
     if(k==='ArrowLeft'||k==='ArrowRight'){const t=doc.activeElement.closest('.p-tog');if(t){toggleGroup(t,k==='ArrowRight');e.preventDefault();}return;}
     let n=k==='Home'?0:k==='End'?all.length-1:i+(k==='ArrowDown'?1:-1);n=Math.max(0,Math.min(all.length-1,n));all[n]&&all[n].focus();e.preventDefault();e.stopPropagation();});});
-function markPanel(si,i){dL.querySelectorAll('[data-go]').forEach(b=>{const [a,c]=b.dataset.go.split(',').map(Number);
+function markPanel(si,i){renderLeft(si,i);
+  dL.querySelectorAll('.p-slides [data-go]').forEach(b=>{const [a,c]=b.dataset.go.split(',').map(Number);
     if(a===si&&c===i)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
-  dL.querySelectorAll('.p-grp[data-si]').forEach(g=>g.classList.toggle('cur',+g.dataset.si===si));}
+  dR.querySelectorAll('[data-proj]').forEach(b=>{if(+b.dataset.proj===si)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});}
 
 /* ---------- 6. navigation ---------- */
 let cur={s:-1,i:-1},playing=false,drawer=null;
@@ -223,12 +265,14 @@ function settle(){const si=secIndex(),sec=secs[si],i=slideIndex(sec);
   /* apps load only when their slide (or a neighbour) is active; others are unloaded */
   secs.forEach((x,xi)=>x.slides.forEach((sl,k)=>{const f=sl._frame;if(!f)return;const near=xi===si&&Math.abs(k-i)<=1;
     if(near&&!f.getAttribute('src'))f.setAttribute('src',f.dataset.src);else if(!near&&f.getAttribute('src'))f.removeAttribute('src');}));
-  doc.querySelectorAll('video[data-autoplay]').forEach(v=>{const on=s.contains(v);if(on){v.play().catch(()=>{});}else v.pause();});
+  syncVideos();
   body.classList.toggle('has-app',s.dataset.type==='app');
   body.classList.toggle('at-top',si===0);
   try{history.replaceState(null,'',`#p=${si}&s=${i}`);}catch(e){}
   updateUIAfterMove(si===0);
   updateEdges();}
+function syncVideos(){const x=secs[cur.s],s=x&&x.slides[cur.i];const ok=!(x&&x.proj&&(x.proj.settings||[]).includes('autoplay')&&!pget(x.proj.id,'autoplay'));
+  doc.querySelectorAll('video[data-autoplay]').forEach(v=>{if(s&&s.contains(v)&&ok)v.play().catch(()=>{});else v.pause();});}
 let st,lock=null;function onScroll(){if(playing&&lock){/* the app owns input: undo any scroll that chains out of it */
   if(stage.scrollTop!==lock.t)stage.scrollTop=lock.t;if(lock.sc&&lock.sc.scrollLeft!==lock.l)lock.sc.scrollLeft=lock.l;return;}clearTimeout(st);st=setTimeout(settle,90);if(secIndex()!==0)armHide();}
 stage.addEventListener('scroll',onScroll,{passive:true});
@@ -267,6 +311,7 @@ addEventListener('wheel',e=>{if(playing||drawer)return;
 /* keys */
 addEventListener('keydown',e=>{
   if(e.key==='Escape'){if(playing)exitPlay();else if(drawer)closeDrawer();return;}
+  if(playing&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){leavePlay(e.key==='ArrowLeft'?-1:1);e.preventDefault();return;}
   if(playing||drawer||e.metaKey||e.ctrlKey||e.altKey)return;
   const k=e.key;
   if(k==='i'||k==='I'){openDrawer('L');return;}if(k==='w'||k==='W'){openDrawer('R');return;}
@@ -315,7 +360,6 @@ function openDrawer(side){if(playing)exitPlay();if(drawer&&drawer!==side)closeDr
   symL.setAttribute('aria-expanded',side==='L');symR.setAttribute('aria-expanded',side==='R');
   dL.setAttribute('aria-hidden',side!=='L');dR.setAttribute('aria-hidden',side!=='R');
   if(!lastFocus)lastFocus=side==='L'?symL:symR;const d=side==='L'?dL:dR;
-  if(side==='L'){const g=dL.querySelector(`.p-grp[data-si="${cur.s}"] .p-tog`);if(g)toggleGroup(g,true);}
   const f=d.querySelector('.p-x');setTimeout(()=>f&&f.focus({preventScroll:true}),130);}
 function closeDrawer(keep){if(!drawer)return;drawer=null;delete body.dataset.drawer;symL.setAttribute('aria-expanded','false');symR.setAttribute('aria-expanded','false');
   dL.setAttribute('aria-hidden','true');dR.setAttribute('aria-hidden','true');
@@ -323,20 +367,31 @@ function closeDrawer(keep){if(!drawer)return;drawer=null;delete body.dataset.dra
 symL.onclick=()=>{lastFocus=symL;drawer==='L'?closeDrawer():openDrawer('L');};
 symR.onclick=()=>{lastFocus=symR;drawer==='R'?closeDrawer():openDrawer('R');};
 [dL,dR].forEach(d=>d.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeDrawer();}));
-dL.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const [si,i]=b.dataset.go.split(',').map(Number);closeDrawer();goTo(si,i);});
+[dL,dR].forEach(d=>d.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const [si,i]=b.dataset.go.split(',').map(Number);closeDrawer();goTo(si,i);}));
 
 /* ---------- 9. play mode ---------- */
 function activeFrame(){const s=secs[cur.s]&&secs[cur.s].slides[cur.i];return s&&s._frame;}
 function enterPlay(){const f=activeFrame();if(!f)return;if(drawer)closeDrawer();playing=true;const sc=secs[cur.s].scroller;lock={t:stage.scrollTop,sc,l:sc?sc.scrollLeft:0};body.classList.add('playing');symP.setAttribute('aria-pressed','true');
   showUI();clearTimeout(hideT);f.setAttribute('tabindex','0');f.contentWindow&&f.contentWindow.postMessage({type:'pl-play',on:true},'*');f.focus();
-  /* corners belong to the app while playing: the two menu symbols step aside after the usual delay; ▶ stays */
-  hideT=setTimeout(()=>{if(playing)body.classList.add('ui-hidden');},UI.hideAfter);}
+  /* the app is embedded as-is and keeps its OWN menus in the corners and sides: the homepage symbols collapse at once
+     to the red ▶ (exit), parked at the top centre (S.ui.playExit). No state is shared with the app's menus. */
+  body.classList.add('ui-hidden');}
 function exitPlay(){lock=null;const f=activeFrame()||doc.querySelector('.s-app iframe[tabindex="0"]');playing=false;body.classList.remove('playing');symP.setAttribute('aria-pressed','false');
   doc.querySelectorAll('.s-app iframe').forEach(x=>{x.setAttribute('tabindex','-1');x.contentWindow&&x.contentWindow.postMessage({type:'pl-play',on:false},'*');});
   showUI();stage.focus({preventScroll:true});if(secIndex()!==0)armHide();}
 symP.onclick=()=>playing?exitPlay():enterPlay();
+/* play-mode exit that the app cannot swallow: a thin strip on the LEFT screen edge (20 px wide, middle 40 % of the
+   height, so it never touches the app's corner controls). Swiping/dragging inward from it exits play and goes to
+   the previous slide (the project's images/videos). Also: ← / → (from the host, or forwarded by the app with
+   {type:'pl-nav',dir}) and the red ▶. */
+const pEdge=el('div','play-edge',body);pEdge.setAttribute('aria-hidden','true');
+let pe=null;pEdge.addEventListener('pointerdown',e=>{if(!playing)return;pe={x:e.clientX,y:e.clientY};pEdge.setPointerCapture(e.pointerId);e.preventDefault();});
+pEdge.addEventListener('pointermove',e=>{if(!pe)return;const dx=e.clientX-pe.x;if(dx>36&&Math.abs(e.clientY-pe.y)<dx){pe=null;leavePlay(-1);}});
+['pointerup','pointercancel'].forEach(t=>pEdge.addEventListener(t,()=>{pe=null;}));
+function leavePlay(dir){if(!playing)return;exitPlay();const sec=secs[cur.s];if(sec&&sec.scroller){sec.scroller.style.overflowX='';goSlide(sec,cur.i+dir);}}
 addEventListener('message',e=>{const d=e.data||{};
   if(d.type==='pl-exit-play'&&playing)exitPlay();
+  if(d.type==='pl-nav'&&playing&&(d.dir===-1||d.dir===1))leavePlay(d.dir);
   if(d.type==='pl-ready'&&e.source)e.source.postMessage({type:'pl-theme',accent:TH.accent},'*');});
 
 /* ---------- 10. optional components (site config: components:{edgeTicker:{...}}; omit the key = not loaded) ---------- */
@@ -353,6 +408,8 @@ window.PL_COMPONENTS=mounted;
 
 /* ---------- 11. start (deep link #p=section&s=slide) ---------- */
 window.PL={goTo,goProject:(pi,i=0)=>{const k=secs.findIndex(x=>x.pi===pi);if(k>=0)goTo(k,i);},sections:()=>secs.map(x=>x.hero?'hero':x.interlude?'interlude':'project:'+(x.proj.id||x.pi)),goSection,goSlide,openDrawer,closeDrawer,state:()=>({section:cur.s,slide:cur.i,playing,drawer,uiHidden:body.classList.contains('ui-hidden')})};
-const hp=new URLSearchParams(location.hash.slice(1));const p0=+hp.get('p')||0,s0=+hp.get('s')||0;
+const hp=new URLSearchParams(location.hash.slice(1));let p0=+hp.get('p')||0,s0=+hp.get('s')||0;
+if(hp.get('proj')){const k=secs.findIndex(x=>x.proj&&x.proj.id===hp.get('proj'));if(k>=0){p0=k;s0=0;}}
+body.dataset.playExit=UI.playExit;
 requestAnimationFrame(()=>{if(secs[p0]){goSlide(secs[p0],s0,false);goSection(p0,false);}settle();if(p0!==0)armHide();});
 })();

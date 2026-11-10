@@ -2,7 +2,7 @@
    v2.1 rules: no text over project media (captions go into 'notes' / 'text' slides and the left panel);
    the only text animation is the logo (hero + interludes). Media paths: see media/MEDIA.md. */
 window.PL_SITE={
-  id:'hub', name:'Pointlab', title:'Pointlab — hub (mockup v2.1)', lang:'en',
+  id:'hub', name:'Pointlab', title:'Pointlab — hub (mockup v2.2)', lang:'en',
   /* anttipiste palette — ground #F6F6F6 (top page + interludes), void #060606 slides, ink #0A0A0A, mid #888, Kapoor red */
   theme:{vars:{'--bg':'#060606','--fg':'#F6F6F6','--dim':'#888888','--line':'#2A2A2A','--accent':'#D8261C',
     '--hero-bg':'#F6F6F6','--hero-fg':'#0A0A0A','--ease':'cubic-bezier(.16,1,.3,1)','--dur':'.8s'}},
@@ -10,10 +10,12 @@ window.PL_SITE={
   logo:{text:'POINTLAB',html:'POINT<span>LAB</span>',hold:2600,dissolve:true},
   hero:{generator:'keha',opt:{bg:'#F6F6F6',ink:'#0A0A0A',accent:'#D8261C',chord:'#002FA7',grid:48,scale:.44,cx:.5,cy:.5}},
   interludes:true,   /* a logo page between consecutive projects; false = none, [1,3] = before those projects */
+  /* artist shown in the left ≡ panel (portrait:null = empty portrait slot). Placeholder bio — replace with approved text. */
+  artist:{name:'Andy Point',role:'Artist · Pointlab',bio:'Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.',portrait:null},
   identity:{line:'Hub for the monthly gallery, news and the Pointlab sites.',
     blocks:[{h:'About',p:'Placeholder identity text. One short paragraph describing Pointlab goes here.'}]},
   projects:[
-    {id:'gallery',title:'Gallery — November',info:'Work of the month: Symmetry studies by Andy Point (placeholder text).',code:'#002FA7',slides:[
+    {id:'gallery',title:'Gallery — November',settings:['whole'],links:[{label:'Print edition',kind:'placeholder'},{label:'Pigment room image',href:'media/art-pigment-room.jpg',kind:'image'}],info:'Work of the month: Symmetry studies by Andy Point (placeholder text).',code:'#002FA7',slides:[
       {type:'concept',title:'Symmetry\nstudies',lede:'Work of the month. Placeholder text: a short curatorial note about the series, its method and why it is shown this month.',
         meta:[['Month','11 / 2026'],['Series','Symmetry studies'],['Artist','Andy Point'],['Works','3']]},
       {type:'full',kicker:'Room',title:'Pigment room',text:'Placeholder image (Midjourney). How the series is hung: one blue room before the three studies.',img:'media/art-pigment-room.jpg'},

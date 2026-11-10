@@ -90,7 +90,7 @@ body[data-drawer] .sym{opacity:0;pointer-events:none}
 .p-items b{font:400 10px/10px var(--font-mono);width:22px;flex:none;color:var(--panel-dim)}
 .p-items small{margin-left:auto;font:400 10px/10px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--panel-dim);white-space:nowrap}
 .p-items button:hover,.p-items a:hover{color:var(--panel-fg)}
-.p-items [aria-current]{color:var(--panel-fg)} .p-items button[aria-current] b{color:var(--accent)}
+.p-items [aria-current]{color:var(--panel-fg)} .p-items button[aria-current] b{color:var(--panel-fg)}
 .p-items button[aria-current]::before{content:"";width:2px;height:16px;background:var(--accent);margin-left:-12px;margin-right:-2px}
 .p-items .cur{color:var(--accent)!important}
 .p-items .p-p{font-size:12px;line-height:18px;color:var(--panel-fg);max-width:34em;padding-bottom:4px}
@@ -240,3 +240,31 @@ body:not(.tx-on) .pl-et *{animation-play-state:paused!important}
 /* site setting fullbleed:true — screenshots fill the screen edge to edge */
 .fullbleed .s-shot .art{inset:0}
 .fullbleed .s-shot .art img{object-fit:cover}
+
+/* ---------- v2.2: play mode — the embedded app keeps its own menus in the corners and sides ---------- */
+body.playing #symL,body.playing #symR{opacity:0!important;visibility:hidden;pointer-events:none!important}
+body.playing[data-play-exit="top-center"] #symP{right:auto;left:50%;margin-left:calc(var(--sym) / -2)}
+body.playing[data-play-exit="bottom-center"] #symP{right:auto;left:50%;margin-left:calc(var(--sym) / -2);top:auto;bottom:var(--sym-gap)}
+
+/* ---------- v2.2: left panel = current project ---------- */
+.p-kick{font:400 10px/14px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--panel-dim);margin:-4px 0 8px}
+.p-expl{color:var(--panel-fg)}
+.panel.left .p-line{font-size:15px;line-height:21px}
+.panel.left .p-line.p-expl{font:400 13px/20px var(--font-text)}
+.p-artist{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;padding:4px 0 8px}
+.p-portrait{width:64px;height:80px;object-fit:cover;display:block}
+.p-portrait.slot{border:1px dashed var(--panel-line);display:grid;place-items:center;font:400 9px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--panel-dim)}
+.p-an{display:block;font:700 12px/16px var(--font-text);text-transform:uppercase;letter-spacing:.08em}
+.p-ar{display:block;font:400 10px/14px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--panel-dim);margin-top:2px}
+.p-artist .p-p{margin-top:6px;color:var(--panel-dim)}
+.p-slides [aria-current] b{color:var(--panel-fg)}
+.panel.right [data-proj][aria-current]{color:var(--panel-fg)}
+.panel.right [data-proj][aria-current] b{color:var(--panel-fg)}
+.p-top .p-hub,.p-top .p-news{display:flex;align-items:center;width:100%;min-height:44px;text-align:left;font:700 12px/16px var(--font-text);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:var(--panel-fg)}
+/* project setting: show images whole */
+.fit-whole .s-full img,.fit-whole .art img,.fit-whole .art.cover img{object-fit:contain}
+
+/* play-mode exit strip: left edge, middle band only (clear of the app's corner controls) */
+.play-edge{position:fixed;left:0;top:30%;height:40%;width:20px;z-index:55;display:none;touch-action:none;cursor:e-resize}
+body.playing .play-edge{display:block}
+.play-edge::after{content:"";position:absolute;left:3px;top:50%;width:2px;height:44px;margin-top:-22px;background:var(--play);opacity:.55}

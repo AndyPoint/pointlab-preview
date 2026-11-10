@@ -10,11 +10,13 @@ window.PL_SITE={
   logo:{text:'Atelier',html:'Atelier',hold:2600,dissolve:false},
   hero:{generator:'drape',opt:{lines:72}},
   interludes:true,
+  /* artist shown in the left ≡ panel (portrait:null = empty portrait slot). Placeholder bio — replace with approved text. */
+  artist:{name:'Andy Point',role:'Designer · Atelier',bio:'Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.',portrait:null},
   identity:{line:'Fashion. Collections told as sequences: idea, making, details, runway.',
     blocks:[{h:'Atelier',p:'Placeholder identity text for the fashion brand.'}]},
   labels:{full:'Look'},
   projects:[
-    {id:'text',title:'Text collection',info:'Placeholder text. Slogans written by hand on cloth, walls and bodies.',code:'#8C1D18',slides:[
+    {id:'text',settings:['whole'],links:[{label:'Lookbook',kind:'placeholder'}],title:'Text collection',info:'Placeholder text. Slogans written by hand on cloth, walls and bodies.',code:'#8C1D18',slides:[
       {type:'concept',title:'Words\nworn',lede:'Placeholder concept text. A collection where slogans are written by hand on cloth, walls and bodies.',meta:[['Season','AW'],['Looks','12'],['Medium','Print, hand lettering']]},
       {type:'full',kicker:'Origin',title:'The wall',text:'Placeholder: the text first appears on a gallery wall.',img:'media/fashion-wall.jpg'},
       {type:'full',kicker:'Process',title:'Writing',text:'Placeholder: lettering transferred from wall to fabric.',img:'media/fashion-gallery.jpg'},
@@ -24,7 +26,7 @@ window.PL_SITE={
       {type:'full',kicker:'Line-up',title:'Line-up',text:'Placeholder caption.',img:'media/fashion-lineup.jpg'},
       {type:'full',kicker:'Runway',title:'Finale',text:'Placeholder caption.',img:'media/fashion-white-line.jpg'},
       {type:'notes',title:'Looks'}]},
-    {id:'procession',title:'Procession',info:'Placeholder text. The collection shown as a street parade.',code:'#8C1D18',slides:[
+    {id:'procession',settings:['autoplay'],links:[{label:'Runway video',href:'media/fashion-runway.mp4',kind:'video'}],title:'Procession',info:'Placeholder text. The collection shown as a street parade.',code:'#8C1D18',slides:[
       {type:'concept',title:'Procession',lede:'Placeholder concept text. The collection shown as a street parade instead of a runway.',meta:[['Season','SS'],['Venue','Old town square']]},
       {type:'full',kicker:'Street',title:'Square',text:'Placeholder caption.',img:'media/fashion-street-show.jpg'},
       {type:'full',kicker:'Street',title:'Passage',text:'Placeholder caption.',img:'media/fashion-street-show-2.jpg'},

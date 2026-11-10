@@ -22,10 +22,12 @@ window.PL_SITE={
     right:['Field Toy','Radial Sequencer','Mirror Field'],
     bottom:['Pointlab','Codelab','Play it in the page'],
     left:['Orbit','Flow','Repel']},opacity:.7}},
+  /* artist shown in the left ≡ panel (portrait:null = empty portrait slot). Placeholder bio — replace with approved text. */
+  artist:{name:'Andy Point',role:'Code · Pointlab Instruments',bio:'Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.',portrait:null},
   identity:{line:'Code projects. Each project is a playable web app with its own tutorial.',
     blocks:[{h:'Use',p:'Swipe or ←→ through a project. ▶ appears when a slide holds a live app.'}]},
   projects:[
-    {id:'field',facts:[['Year','2026 (placeholder)'],['Tech','JavaScript · Canvas 2D'],['Type','Live web app'],['Input','Touch / mouse / keys']],title:'Field Toy',code:'#35F2C2',
+    {id:'field',settings:['autoplay'],links:[{label:'Open the live app',href:'apps/field-toy.html',kind:'live app'},{label:'Source repository',kind:'placeholder'},{label:'Session video',href:'media/toy-session.mp4',kind:'video'}],facts:[['Year','2026 (placeholder)'],['Tech','JavaScript · Canvas 2D'],['Type','Live web app'],['Input','Touch / mouse / keys']],title:'Field Toy',code:'#35F2C2',
       info:'Live web app by Pointlab Instruments. Press ▶ beside the top-right symbol to play: drag to pull the field, tap for an attractor, keys 1–3 switch orbit / flow / repel, Space clears. Press ▶ again or Esc to return.',
       cover:{img:'media/toy-orbit.jpg',subs:['Particles follow a vector field you shape with your hand','Press ▶ to play · drag to pull · tap for an attractor','Keys 1–3: orbit / flow / repel · Esc returns to the site']},
       slides:[
@@ -37,13 +39,13 @@ window.PL_SITE={
       {type:'shot',title:'Repel',text:'Law 3. Attractors push particles away.',img:'media/toy-repel.jpg',cover:true},
       {type:'video',title:'Video example',text:'Screen recording of a session (placeholder).',video:'media/toy-session.mp4'},
       {type:'video',title:'Video output',text:'Rendered output of the flow law (placeholder).',video:'media/toy-output.mp4'}]},
-    {id:'radial',facts:[['Year','2025 (placeholder)'],['Tech','JavaScript · Web Audio'],['Type','Web app'],['Status','Screens only']],title:'Radial Sequencer',info:'Web app, screens only. A circular score where each ring is a voice and each segment a step (placeholder).',
+    {id:'radial',settings:['autoplay'],links:[{label:'Source repository',kind:'placeholder'},{label:'Output video',href:'media/code-circuit.mp4',kind:'video'}],facts:[['Year','2025 (placeholder)'],['Tech','JavaScript · Web Audio'],['Type','Web app'],['Status','Screens only']],title:'Radial Sequencer',info:'Web app, screens only. A circular score where each ring is a voice and each segment a step (placeholder).',
       cover:{img:'media/code-tool-radial.jpg',subs:['A circular score: each ring a voice, each segment a step','Screens only / web app']},
       slides:[
       {type:'shot',title:'Score view',img:'media/code-tool-radial.jpg'},
       {type:'shot',title:'Dense pattern',img:'media/code-tool-radial-2.jpg'},
       {type:'video',title:'Video output',video:'media/code-circuit.mp4'}]},
-    {id:'mirror',facts:[['Year','2025 (placeholder)'],['Tech','JavaScript · WebGL'],['Type','Web app'],['Status','Screens only']],title:'Mirror Field',info:'Web app, screens only. A kaleidoscopic field generator with a parameter panel (placeholder).',
+    {id:'mirror',settings:['whole'],links:[{label:'Source repository',kind:'placeholder'}],facts:[['Year','2025 (placeholder)'],['Tech','JavaScript · WebGL'],['Type','Web app'],['Status','Screens only']],title:'Mirror Field',info:'Web app, screens only. A kaleidoscopic field generator with a parameter panel (placeholder).',
       cover:{img:'media/code-tool-field.jpg',subs:['A kaleidoscopic field generator','Parameter panel + mirrored output']},
       slides:[
       {type:'shot',title:'Panel + field',img:'media/code-tool-field.jpg'},
