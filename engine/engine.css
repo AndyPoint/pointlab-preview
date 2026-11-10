@@ -269,7 +269,7 @@ body.playing[data-play-exit="bottom-center"] #symP{right:auto;left:50%;margin-le
 body.playing .play-edge{display:block}
 .play-edge::after{content:"";position:absolute;left:3px;top:50%;width:2px;height:44px;margin-top:-22px;background:var(--play);opacity:.55}
 
-/* ===== v2.3 — per-site image grade (anttipiste colour grades; config: grade:'kapoor'|'klein'|'monolith'|'violet'|'emerald') =====
+/* ===== v2.3 — per-site image grade (anttipiste colour grades; config: grade:'kapoor'|'klein'|'monolith'|'violet') =====
    Images and videos of project slides are mapped to a duotone of the grade (SVG filter #pl-grade, built by the engine).
    anttipiste's vignette + a faint, static light bleed sit on media slides only. Kept subtle so it never competes with the work.
    Article/news figures and live apps (iframes) are never graded. */
@@ -286,21 +286,13 @@ body.playing .play-edge{display:block}
 .p-get.off{border-style:dashed;cursor:default}
 .p-get::before{content:"";width:8px;height:8px;background:var(--accent)}
 .graded .hero img.bgm{filter:url(#pl-grade)}
-/* ===== v2.3 — LIVING grades (Codelab): 'heat' (heat-affected red) and 'klein-live' (IKB with a living pulse) =====
+/* ===== v2.3 — LIVING grade 'klein-live' (IKB with a living pulse) — unused option; 'heat' removed in v2.3.1 =====
    Two fixed, full-viewport colour layers above the slides and below the edges/panels/symbols, visible only while the
    current slide is an image / video / screenshot (body.grade-media; never on live apps or text slides). Animated with CSS
    only — transform + opacity, both compositor properties, so no layout, no paint and no per-frame JavaScript. */
 .grade-live{position:fixed;inset:-20%;z-index:35;pointer-events:none;visibility:hidden;opacity:var(--gl-o,.4);will-change:transform,opacity}
 body.grade-media .grade-live{visibility:visible}
 body.playing .grade-live{visibility:hidden!important}
-/* heat: low-frequency field of deep red / orange-red / ember drifting slowly (the 'tempered metal' look) */
-.grade-live-heat .gl-a{mix-blend-mode:color;--gl-o:.42;
-  background:radial-gradient(38% 34% at 30% 36%,#FF5A1F 0,transparent 70%),radial-gradient(42% 40% at 72% 64%,#8E0E0A 0,transparent 72%),
-             radial-gradient(30% 28% at 62% 26%,#FF8A3D 0,transparent 68%),radial-gradient(60% 60% at 40% 78%,#B3170F 0,transparent 75%),#C3220F;
-  animation:gl-drift 48s ease-in-out infinite alternate}
-.grade-live-heat .gl-b{mix-blend-mode:soft-light;--gl-o:.28;
-  background:radial-gradient(30% 26% at 58% 46%,#FFB070 0,transparent 70%),radial-gradient(36% 30% at 24% 70%,#FF6A2A 0,transparent 72%);
-  animation:gl-ember 17s ease-in-out infinite alternate}
 /* klein-live: IKB #002FA7 whose depth and saturation slowly breathe */
 .grade-live-klein .gl-a{mix-blend-mode:color;--gl-o:.5;
   background:radial-gradient(50% 46% at 40% 40%,#1F4BFF 0,transparent 72%),radial-gradient(56% 50% at 66% 66%,#001A66 0,transparent 74%),#002FA7;
@@ -308,7 +300,6 @@ body.playing .grade-live{visibility:hidden!important}
 .grade-live-klein .gl-b{mix-blend-mode:multiply;--gl-o:.3;background:radial-gradient(70% 60% at 50% 50%,transparent 30%,#000A33 100%);
   animation:gl-depth 13s ease-in-out infinite alternate}
 @keyframes gl-drift{0%{transform:translate3d(-6%,-4%,0) rotate(-4deg) scale(1)}50%{transform:translate3d(5%,3%,0) rotate(3deg) scale(1.08)}100%{transform:translate3d(-2%,6%,0) rotate(6deg) scale(1.03)}}
-@keyframes gl-ember{0%{transform:translate3d(4%,2%,0) scale(1);opacity:.16}100%{transform:translate3d(-5%,-3%,0) scale(1.12);opacity:.36}}
 @keyframes gl-sat{0%{opacity:.36}100%{opacity:.62}}   /* saturation breath of the IKB layer */
 @keyframes gl-depth{0%{transform:scale(1);opacity:.18}100%{transform:scale(1.18);opacity:.42}}   /* depth breath */
 /* paused when the tab is hidden; static with reduced motion or Animations off */

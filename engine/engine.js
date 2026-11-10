@@ -1,4 +1,4 @@
-/* POINTLAB ENGINE v2.3 — per-site image grade (anttipiste GRADES), product 'get' row, 7 sites.
+/* POINTLAB ENGINE v2.3.1 — heat grade removed, Codelab white-on-black; per-site image grade (anttipiste GRADES), product 'get' row, 7 sites.
    v2.2: LEFT ≡ = the current project (context), RIGHT ||| = site navigation; embedded apps keep their OWN menus.
    Based on v2.1 — one shared engine for every subsite, rebuilt on the anttipiste index
    (typography, Kehä hero, suites × slides) with JUST SITTING's side panels.
@@ -41,7 +41,7 @@ const cs=getComputedStyle(root),TH={};['bg','fg','dim','line','accent'].forEach(
 
 /* ---------- 1b. image grade (v2.3) — port of anttipiste's colour-grade system (GRADES map, default 'Kapoor Red').
    Site config: grade:'kapoor' | 'klein' | 'monolith' | 'violet'   — static grades (Emerald removed, Andy v2.3)
-                grade:'heat' | 'klein-live'                         — LIVING grades (Codelab): the colour drifts slowly
+                grade:'klein-live'                                  — LIVING grade (unused option; 'heat' removed in v2.3.1)
    (or {name, strength, contrast, vignette, bleed}). The grade sets the site accent (anttipiste --active-accent) and maps
    project images, videos and screenshots to a duotone of the grade (luminance → deep grade-black … grade colour, as in the
    red reference build), plus anttipiste's soft vignette and a faint light bleed. Never applied to live apps (iframes) or to
@@ -50,7 +50,6 @@ const cs=getComputedStyle(root),TH={};['bg','fg','dim','line','accent'].forEach(
    hidden, static with prefers-reduced-motion or Animations off. ---------- */
 const GRADES={kapoor:{name:'Kapoor Red',hex:'#D8261C'},klein:{name:'Klein Blue',hex:'#002FA7',hi:'#2148F0'},monolith:{name:'Monolith Gray',hex:'#E5E4E0'},
   violet:{name:'Hyper Violet',hex:'#7A1FA2'},
-  heat:{name:'Heat-affected red',hex:'#E2401E',lo:'#140302',hi:'#F0552A',live:'heat'},
   'klein-live':{name:'Yves Klein Blue (living)',hex:'#002FA7',lo:'#00030F',hi:'#2148F0',live:'klein'}};
 const GR=S.grade?Object.assign({strength:.92,contrast:1.15,vignette:.85,bleed:.22},typeof S.grade==='string'?{name:S.grade}:S.grade):null;
 const rgb01=h=>{const n=parseInt(h.slice(1),16);return [n>>16&255,n>>8&255,n&255].map(v=>v/255);};

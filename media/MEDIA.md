@@ -11,9 +11,10 @@ Recommended: JPG, long edge 2400 px for `full` slides, 1600 px for `shot` slides
 
 v2.3 notes
 - New sites reuse only stand-ins already in `media/` (no new files). Swap per site by editing the lines below.
-- Atelier and Codelab images are shown through the engine's image grade (Atelier `grade:'kapoor'`, Codelab living `grade:'heat'`):
+- Atelier images are shown through the engine's image grade (`grade:'kapoor'`); Codelab has no grade (v2.3.1):
   drop in your normal colour files — the grade is applied in the browser, never baked into the file.
 - Asset Store slides are product previews; the price/Get row is config (`get:`) and shows in the left panel only.
+- toy-*.jpg / toy-session.mp4 / toy-output.mp4 were re-rendered white on black from the mock Field Toy (tests/make_toy_media.py, v2.3.1).
 - apps/gen-canvas.html (Generative Design live canvas) and apps/field-toy.html (Codelab) are placeholder apps, replace as-is.
 
 | Config line | Slide / site | Field | File | Stand-in size |

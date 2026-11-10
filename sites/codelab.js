@@ -1,8 +1,8 @@
-/* SUBSITE CONFIG — Codelab. Mono type, teal signal colour. Text animations on the top page + project covers only (v2.1). */
+/* SUBSITE CONFIG — Codelab. Mono type, plain white on black (v2.3.1: no green/teal — Andy). Text animations on the top page + project covers only (v2.1). */
 window.PL_SITE={
   id:'codelab', name:'Codelab', title:'Codelab — Pointlab (mockup)', lang:'en',
-  theme:{vars:{'--bg':'#060707','--fg':'#E6ECEA','--dim':'#6E7B79','--line':'#1A2221','--accent':'#35F2C2',
-    '--veil':'rgba(6,7,7,.7)','--ui-bg':'rgba(6,7,7,.45)',
+  theme:{vars:{'--bg':'#000000','--fg':'#FFFFFF','--dim':'#8A8A8A','--line':'#262626','--accent':'#FFFFFF',
+    '--veil':'rgba(0,0,0,.7)','--ui-bg':'rgba(0,0,0,.45)','--panel':'#111111','--panel-line':'#2A2A2A','--panel-fg':'#FFFFFF','--panel-dim':'#8A8A8A',
     '--font-display':'ui-monospace,"JetBrains Mono","SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace',
     '--font-text':'ui-monospace,"JetBrains Mono","SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace',
     '--ease':'cubic-bezier(.3,0,.1,1)','--dur':'.35s'},
@@ -15,11 +15,7 @@ window.PL_SITE={
   logo:{text:'CODELAB',html:'CODE<span>LAB</span>'},
   hero:{image:'media/toy-orbit.jpg',
     subs:['Code projects / live web apps','Field Toy / play it in the page','Radial Sequencer / screens','Mirror Field / screens']},
-  /* LIVING image grade (v2.3, Andy): 'heat' = heat-affected red drifting through deep red, orange-red and ember.
-     Alternative: grade:{name:'klein-live',accent:false} = Yves Klein blue with a slow pulse in depth and saturation.
-     Applies to images, videos and screenshots only — never to the live app, which keeps its true colours (accent:false
-     also keeps Codelab's own teal UI accent). Remove the line for no grade. */
-  grade:{name:'heat',accent:false},
+  /* no image grade (v2.3.1, Andy): images, screenshots and videos keep their true colours. */
   fullbleed:true,     /* media slides fill the screen edge to edge */
   interludes:false,   /* the cover slides do the job of the interludes here */
   components:{edgeTicker:{texts:{
@@ -32,7 +28,7 @@ window.PL_SITE={
   identity:{line:'Code projects. Each project is a playable web app with its own tutorial.',
     blocks:[{h:'Use',p:'Swipe or ←→ through a project. ▶ appears when a slide holds a live app.'}]},
   projects:[
-    {id:'field',settings:['autoplay'],links:[{label:'Open the live app',href:'apps/field-toy.html',kind:'live app'},{label:'Source repository',kind:'placeholder'},{label:'Session video',href:'media/toy-session.mp4',kind:'video'}],facts:[['Year','2026 (placeholder)'],['Tech','JavaScript · Canvas 2D'],['Type','Live web app'],['Input','Touch / mouse / keys']],title:'Field Toy',code:'#35F2C2',
+    {id:'field',settings:['autoplay'],links:[{label:'Open the live app',href:'apps/field-toy.html',kind:'live app'},{label:'Source repository',kind:'placeholder'},{label:'Session video',href:'media/toy-session.mp4',kind:'video'}],facts:[['Year','2026 (placeholder)'],['Tech','JavaScript · Canvas 2D'],['Type','Live web app'],['Input','Touch / mouse / keys']],title:'Field Toy',
       info:'Live web app by Pointlab Instruments. Press ▶ beside the top-right symbol to play: drag to pull the field, tap for an attractor, keys 1–3 switch orbit / flow / repel, Space clears. Press ▶ again or Esc to return.',
       cover:{img:'media/toy-orbit.jpg',subs:['Particles follow a vector field you shape with your hand','Press ▶ to play · drag to pull · tap for an attractor','Keys 1–3: orbit / flow / repel · Esc returns to the site']},
       slides:[
