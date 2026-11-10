@@ -431,8 +431,8 @@ addEventListener('message',e=>{const d=e.data||{};
   if(d.type==='pl-ready'&&e.source)e.source.postMessage({type:'pl-theme',accent:TH.accent},'*');});
 
 /* ---------- 10. optional components (site config: components:{edgeTicker:{...}}; omit the key = not loaded) ---------- */
-const COMP={edgeTicker:{src:'components/edge-ticker.js',ready:()=>window.PLEdgeTicker,
-  mount:o=>window.PLEdgeTicker.mountEdgeTicker(body,Object.assign({zIndex:45},o))}};
+const COMP={edgeTicker:{src:'components/edge-ticker.js?v=2.4',ready:()=>window.PLEdgeTicker,
+  mount:o=>window.PLEdgeTicker.mountEdgeTicker(body,Object.assign({zIndex:45},o,motionOff?{static:true}:{}))}};   /* Animations off = still ticker */
 const mounted={};
 Object.entries(S.components||{}).forEach(([name,opt])=>{const c=COMP[name];if(!c||!opt)return;
   const go=()=>{mounted[name]=c.mount(opt);};

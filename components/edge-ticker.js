@@ -36,7 +36,7 @@
     '@keyframes pl-et-right{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}',
     '@keyframes pl-et-down{0%{transform:translateY(0) rotate(180deg)}100%{transform:translateY(-50%) rotate(180deg)}}',
     '@keyframes pl-et-up{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}',
-    '@media (prefers-reduced-motion:reduce){.pl-et__t{animation:none!important}}',
+    '@media (prefers-reduced-motion:reduce){.pl-et__t{animation-duration:calc(var(--pl-et-dur,32s) * 3)!important}}',   /* v2.4: OS reduce motion = a 3x slower drift, not a freeze; static:true (site Animations off) freezes */
     '.pl-et--static .pl-et__t{animation:none!important}'
   ].join('\n');
   var EDGES = ['top', 'right', 'bottom', 'left'];

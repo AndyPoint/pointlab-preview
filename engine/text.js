@@ -1,13 +1,17 @@
 /* POINTLAB TEXT — reusable text animations ported from anttipiste/index.html (+ the rotating subtitle
    from its older script.js). Plain JS, no engine dependency: window.PLText. Classic script so it works
-   on file://. Every function respects prefers-reduced-motion (shows the final state at once) and keeps
-   the real text available to screen readers via aria-label while glyphs are scrambled. */
+   on file://. v2.4: the site's own Animations setting (window.PL_REDUCED) freezes every text effect (final state at
+   once). The OS "Reduce motion" setting does NOT freeze these small text effects: they run in a soft form instead
+   (each hidden letter keeps ONE stable glyph, no flicker, then resolves left to right). Set window.PL_TEXT_OS='freeze'
+   to make the OS setting freeze them as before. The real text stays available to screen readers via aria-label. */
 (function (g) {
   'use strict';
   var GLYPHS = ['◍', '▚', '✕', '1', '0', '■', '▲', '↗', '◈', '░', '▓', '▒'];   // anttipiste set
   var KEEP = ' /+\n—';                                                          // never scrambled
   var mq = g.matchMedia ? g.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
-  function reduced() { return !!(mq.matches || g.PL_REDUCED); }   /* PL_REDUCED: visitor setting */
+  function reduced() { return !!(g.PL_REDUCED || (mq.matches && g.PL_TEXT_OS === 'freeze')); }   /* frozen: site setting (or OS when opted in) */
+  function soft() { return !!(mq.matches && !reduced()); }                                        /* OS reduce motion: calm form */
+  function glyphs(n) { var a = []; for (var i = 0; i < n; i++) a.push(pick()); return a; }
   function pick() { return GLYPHS[(Math.random() * GLYPHS.length) | 0]; }
   function cancel(el) { if (el && el._plT) { clearInterval(el._plT); el._plT = 0; } }
   function begin(el) {
@@ -27,10 +31,10 @@
     if (typeof opt === 'function') { cb = opt; opt = {}; } opt = opt || {};
     var o = begin(el);
     if (reduced()) { finish(el, true); cb && cb(); return; }
-    var p = 0;
+    var p = 0, calm = soft() ? glyphs(o.length) : null;
     el._plT = setInterval(function () {
       p++; var s = '';
-      for (var i = 0; i < o.length; i++) { var ch = o[i]; s += (KEEP.indexOf(ch) >= 0 || i < p / 2) ? ch : pick(); }
+      for (var i = 0; i < o.length; i++) { var ch = o[i]; s += (KEEP.indexOf(ch) >= 0 || i < p / 2) ? ch : (calm ? calm[i] : pick()); }
       el.textContent = s;
       if (p >= o.length * 2) { finish(el, true); cb && cb(); }
     }, opt.speed || 22);
@@ -40,10 +44,10 @@
     if (typeof opt === 'function') { cb = opt; opt = {}; } opt = opt || {};
     var o = begin(el);
     if (reduced()) { finish(el, false); cb && cb(); return; }
-    var p = 0;
+    var p = 0, calm = soft() ? glyphs(o.length) : null;
     el._plT = setInterval(function () {
       p++; var s = '';
-      for (var i = 0; i < o.length; i++) { var ch = o[i]; s += ch === ' ' || ch === '\n' ? ch : (i >= o.length - p / 2 ? ' ' : pick()); }
+      for (var i = 0; i < o.length; i++) { var ch = o[i]; s += ch === ' ' || ch === '\n' ? ch : (i >= o.length - p / 2 ? ' ' : (calm ? calm[i] : pick())); }
       el.textContent = s;
       if (p >= o.length * 2) { finish(el, false); cb && cb(); }
     }, opt.speed || 20);
@@ -85,7 +89,7 @@
     var bg = opt.bg || '#0A0A0A', hot = opt.hot || 'rgba(216,38,28,.4)', cold = opt.cold || 'rgba(255,255,255,.25)', ink = opt.ink || 'rgba(255,255,255,.6)';
     var settle = function () { ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H); ctx.fillStyle = opt.line || 'rgba(255,255,255,.15)'; ctx.fillRect(0, H - 1, W, 1); };
     clearInterval(canvas._plG);
-    if (reduced()) { settle(); return; }
+    if (reduced() || mq.matches) { settle(); return; }   /* the glitch banner flashes: frozen under OS reduce motion too */
     var f = 0, max = opt.frames || 18;
     canvas._plG = setInterval(function () {
       f++; ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
@@ -99,5 +103,5 @@
   }
 
   g.PLText = { GLYPHS: GLYPHS, scrambleIn: scrambleIn, scrambleOut: scrambleOut, heroDecode: heroDecode, rotate: rotate,
-    glitch: glitch, setText: setText, cancel: cancel, reduced: reduced };
+    glitch: glitch, setText: setText, cancel: cancel, reduced: reduced, soft: soft };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

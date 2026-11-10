@@ -34,6 +34,10 @@ v2.4 (Andy): Conscious Architecture restyled in the data-visualisation language 
   Top page = generator 'construct' (engine/generators.js): radial grid → construction geometry (grey circles, red guides) → white
   final figure, ~26 s cycle, ≤30 fps, ~150 strokes/frame; with reduced motion / Animations off it draws the finished figure once.
   Media = self-generated placeholder SVG drawings (tests/make_cac_drawings.py): radial heat rings, plan, network, section, sequence.
+  Text-animation fix (Andy: Codelab decode/rotate/ticker not animating on his Mac/iPad): the OS "Reduce motion" setting
+  used to FREEZE all text effects. Now it only calms them (decode with stable glyphs, no flicker; ticker drifts 3x slower);
+  the site's own Settings → Animations off is the one switch that freezes them. Spatial motion (smooth scroll, hero drawings,
+  living grades, glitch banner) still honours the OS setting. window.PL_TEXT_OS='freeze' restores the old behaviour.
   Engine fix: the artist block in the left panel (name no longer squeezed into a 22 px column; role wraps).
 
 Open directly in Chrome (file://, no server):
