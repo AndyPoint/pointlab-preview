@@ -7,7 +7,7 @@
   var GLYPHS = ['◍', '▚', '✕', '1', '0', '■', '▲', '↗', '◈', '░', '▓', '▒'];   // anttipiste set
   var KEEP = ' /+\n—';                                                          // never scrambled
   var mq = g.matchMedia ? g.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
-  function reduced() { return !!mq.matches; }
+  function reduced() { return !!(mq.matches || g.PL_REDUCED); }   /* PL_REDUCED: visitor setting */
   function pick() { return GLYPHS[(Math.random() * GLYPHS.length) | 0]; }
   function cancel(el) { if (el && el._plT) { clearInterval(el._plT); el._plT = 0; } }
   function begin(el) {

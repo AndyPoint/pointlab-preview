@@ -9,3 +9,12 @@ window.PL_REGISTRY=[
   {id:'codelab',  name:'Codelab',            role:'Code projects',                href:'codelab.html', thumb:'media/code-tool-radial.jpg'},
   {id:'art',      name:'Art',                role:'Art',                          href:null,           thumb:'media/art-red-figure.jpg'}
 ];
+
+/* Shared across every site: the right ||| panel (tools, settings, contact). Placeholder contact details — replace. */
+window.PL_SHARED={
+  toolsLabel:'Tools',
+  contact:[
+    {label:'Email (placeholder)',value:'hello@pointlab.example',href:'mailto:hello@pointlab.example'},
+    {label:'Instagram (placeholder)',value:'@pointlab',href:null},
+    {label:'Studio (placeholder)',value:'Helsinki',href:null}]
+};
