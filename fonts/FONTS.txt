@@ -1,0 +1,4 @@
+All fonts are self-hosted from Google Fonts under the SIL Open Font License 1.1 (latin subset, woff2).
+archivo.woff2, plex-mono-*.woff2 — hub / engine defaults
+jost.woff2 — Conscious Architecture Company · bigshoulders.woff2 (Big Shoulders Display) — VJSH1FT
+spacegrotesk.woff2 — Asset Store + Atelier · syne.woff2 — Generative Design

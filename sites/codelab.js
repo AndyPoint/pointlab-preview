@@ -15,6 +15,11 @@ window.PL_SITE={
   logo:{text:'CODELAB',html:'CODE<span>LAB</span>'},
   hero:{image:'media/toy-orbit.jpg',
     subs:['Code projects / live web apps','Field Toy / play it in the page','Radial Sequencer / screens','Mirror Field / screens']},
+  /* LIVING image grade (v2.3, Andy): 'heat' = heat-affected red drifting through deep red, orange-red and ember.
+     Alternative: grade:{name:'klein-live',accent:false} = Yves Klein blue with a slow pulse in depth and saturation.
+     Applies to images, videos and screenshots only — never to the live app, which keeps its true colours (accent:false
+     also keeps Codelab's own teal UI accent). Remove the line for no grade. */
+  grade:{name:'heat',accent:false},
   fullbleed:true,     /* media slides fill the screen edge to edge */
   interludes:false,   /* the cover slides do the job of the interludes here */
   components:{edgeTicker:{texts:{

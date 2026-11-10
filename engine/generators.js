@@ -66,5 +66,38 @@ G.plate={animated:false,init(){return{}},draw(c,W,H,t,s,o,th){
   c.fillStyle=rgba(th.accent,.8);c.fillRect(W*r()*.8,H*r()*.8,W*.12,2);
 }};
 
+
+/* ===== v2.3 site generators (top page backgrounds; the centred logo sits on top, nothing else) ===== */
+/* Plan — Conscious Architecture: a slow plan drawing. Datum grid, walls drawn line by line, one room of light. */
+G.plan={animated:true,init(c,W,H,o){const r=rng(o.seed||11),g=Math.max(40,Math.round(Math.min(W,H)/10)),L=[];
+    for(let i=0;i<22;i++){const h=r()<.5,x=Math.round(r()*W/g)*g,y=Math.round(r()*H/g)*g,l=g*(2+Math.floor(r()*6));L.push(h?[x,y,x+l,y]:[x,y,x,y+l]);}
+    return{g,L};},
+  draw(c,W,H,t,s,o,th){c.fillStyle=th.bg;c.fillRect(0,0,W,H);const g=s.g;c.strokeStyle=rgba(th.fg,.05);c.lineWidth=1;c.beginPath();
+    for(let x=g/2;x<W;x+=g){c.moveTo(x+.5,0);c.lineTo(x+.5,H);}for(let y=g/2;y<H;y+=g){c.moveTo(0,y+.5);c.lineTo(W,y+.5);}c.stroke();
+    const T=t*0.00005,cx=W/2+Math.sin(T)*g*.6,cy=H/2+Math.cos(T*.8)*g*.4,rg=c.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*.45);
+    rg.addColorStop(0,rgba(th.accent,.10));rg.addColorStop(1,rgba(th.accent,0));c.fillStyle=rg;c.fillRect(0,0,W,H);
+    const k=(t*0.00004)%1;c.strokeStyle=rgba(th.fg,.32);c.lineWidth=1.2;c.beginPath();
+    s.L.forEach((l,i)=>{const p=Math.max(0,Math.min(1,(k*1.6*s.L.length-i)/1.5)),q=t?p:1;c.moveTo(l[0]+.5,l[1]+.5);c.lineTo(l[0]+(l[2]-l[0])*q+.5,l[1]+(l[3]-l[1])*q+.5);});c.stroke();}};
+/* Scan — VJSH1FT: live-visual bands on black, beat-driven (Resolume-style layer stack, mono red signal). */
+G.scan={animated:true,init(){return{}},draw(c,W,H,t,s,o,th){c.fillStyle=th.bg;c.fillRect(0,0,W,H);const T=t*0.001,beat=Math.pow(1-((T*2.1)%1),3);
+  for(let i=0;i<14;i++){const y=(i/14)*H+Math.sin(T*.7+i)*H*.02,h=H/14*(.15+.6*Math.abs(Math.sin(T*.9+i*1.7)));
+    c.fillStyle=i%5===2?rgba(th.accent,.10+.35*beat):rgba(th.fg,.03+.04*Math.abs(Math.sin(T+i)));c.fillRect(0,y,W,h);}
+  c.fillStyle=rgba(th.fg,.06);for(let y=0;y<H;y+=3)c.fillRect(0,y,W,1);
+  const x=((T*.18)%1)*W;c.fillStyle=rgba(th.accent,.25);c.fillRect(x,0,2,H);}};
+/* Lattice — Asset Store: an isometric shelf of wire cubes, one turning (the 'asset' on the shelf). */
+G.lattice={animated:true,init(){return{}},draw(c,W,H,t,s,o,th){c.fillStyle=th.bg;c.fillRect(0,0,W,H);const u=Math.max(26,Math.min(W,H)/16),T=t*0.0003;
+  c.fillStyle=rgba(th.fg,.16);for(let x=u/2;x<W;x+=u)for(let y=u/2;y<H;y+=u*.58)c.fillRect(x+((y/(u*.58))%2?u/2:0),y,1.2,1.2);
+  const cube=(cx,cy,r,a,col,lw)=>{const P=[];for(const X of[-1,1])for(const Y of[-1,1])for(const Z of[-1,1]){const x=X*Math.cos(a)-Z*Math.sin(a),z=X*Math.sin(a)+Z*Math.cos(a);
+      P.push([cx+(x-z)*r*.87,cy+(x+z)*r*.5-Y*r]);}
+    c.strokeStyle=col;c.lineWidth=lw;c.beginPath();[[0,1],[2,3],[4,5],[6,7],[0,2],[1,3],[4,6],[5,7],[0,4],[1,5],[2,6],[3,7]].forEach(e=>{c.moveTo(...P[e[0]]);c.lineTo(...P[e[1]]);});c.stroke();};
+  for(let i=-3;i<=3;i++){if(!i)continue;cube(W/2+i*u*3.2,H*.72,u*.7,.785,rgba(th.fg,.18),1);}
+  cube(W/2,H*.72,u*1.1,.785+T,rgba(th.accent,.9),1.4);}};
+/* Rose — Generative Design: n-fold symmetric line growth, slowly re-seeding. */
+G.rose={animated:true,init(c,W,H,o,th){c.fillStyle=th.bg;c.fillRect(0,0,W,H);return{a:0,n:o.n||8,seed:1};},
+  draw(c,W,H,t,s,o,th){c.fillStyle=rgba(th.bg,.035);c.fillRect(0,0,W,H);const R=Math.min(W,H)*.42,T=t*0.00025,cx=W/2,cy=H/2;
+    c.lineWidth=1;for(let k=0;k<s.n;k++){const b=k*Math.PI*2/s.n;c.strokeStyle=k%2?rgba(th.fg,.22):rgba(th.accent,.5);c.beginPath();
+      for(let j=0;j<=40;j++){const u=j/40,r=R*u*(0.6+0.4*Math.sin(T*3+u*7)),a=b+Math.sin(T+u*4)*0.9*u;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;j?c.lineTo(x,y):c.moveTo(x,y);}
+      c.stroke();}}};
+
 window.PL_GEN=G;window.PL_rgba=rgba;
 })();

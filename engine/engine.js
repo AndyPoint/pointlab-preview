@@ -1,4 +1,5 @@
-/* POINTLAB ENGINE v2.2 — LEFT ≡ = the current project (context), RIGHT ||| = site navigation; embedded apps keep their OWN menus.
+/* POINTLAB ENGINE v2.3 — per-site image grade (anttipiste GRADES), product 'get' row, 7 sites.
+   v2.2: LEFT ≡ = the current project (context), RIGHT ||| = site navigation; embedded apps keep their OWN menus.
    Based on v2.1 — one shared engine for every subsite, rebuilt on the anttipiste index
    (typography, Kehä hero, suites × slides) with JUST SITTING's side panels.
    Rules (Andy, v2.1): NO information on top of projects — over project content only the bare
@@ -37,6 +38,40 @@ Object.entries(S.theme.vars||{}).forEach(([k,v])=>root.style.setProperty(k,v));
 root.dataset.site=S.id;if(S.fullbleed)root.classList.add('fullbleed');root.lang=S.lang||'en';doc.title=S.title;
 if(S.theme.css){const st=doc.createElement('style');st.textContent=S.theme.css;doc.head.appendChild(st);}
 const cs=getComputedStyle(root),TH={};['bg','fg','dim','line','accent'].forEach(k=>TH[k]=cs.getPropertyValue('--'+k).trim());
+
+/* ---------- 1b. image grade (v2.3) — port of anttipiste's colour-grade system (GRADES map, default 'Kapoor Red').
+   Site config: grade:'kapoor' | 'klein' | 'monolith' | 'violet'   — static grades (Emerald removed, Andy v2.3)
+                grade:'heat' | 'klein-live'                         — LIVING grades (Codelab): the colour drifts slowly
+   (or {name, strength, contrast, vignette, bleed}). The grade sets the site accent (anttipiste --active-accent) and maps
+   project images, videos and screenshots to a duotone of the grade (luminance → deep grade-black … grade colour, as in the
+   red reference build), plus anttipiste's soft vignette and a faint light bleed. Never applied to live apps (iframes) or to
+   text: no ticker, nothing clickable. Living grades add ONE fixed colour layer (CSS compositor animation of transform +
+   opacity only, no per-frame JS), shown only while the current slide is an image/video/screenshot; paused when the tab is
+   hidden, static with prefers-reduced-motion or Animations off. ---------- */
+const GRADES={kapoor:{name:'Kapoor Red',hex:'#D8261C'},klein:{name:'Klein Blue',hex:'#002FA7',hi:'#2148F0'},monolith:{name:'Monolith Gray',hex:'#E5E4E0'},
+  violet:{name:'Hyper Violet',hex:'#7A1FA2'},
+  heat:{name:'Heat-affected red',hex:'#E2401E',lo:'#140302',hi:'#F0552A',live:'heat'},
+  'klein-live':{name:'Yves Klein Blue (living)',hex:'#002FA7',lo:'#00030F',hi:'#2148F0',live:'klein'}};
+const GR=S.grade?Object.assign({strength:.92,contrast:1.15,vignette:.85,bleed:.22},typeof S.grade==='string'?{name:S.grade}:S.grade):null;
+const rgb01=h=>{const n=parseInt(h.slice(1),16);return [n>>16&255,n>>8&255,n&255].map(v=>v/255);};
+let GLIVE=null;
+if(GR&&GRADES[GR.name]){const g=GRADES[GR.name],c=rgb01(g.hex);
+  /* lo = grade-black (≈10 % of the grade, cf. the reference's #150204), hi = the grade colour lifted slightly so highlights keep detail */
+  const lo=g.lo?rgb01(g.lo):c.map(v=>v*.1),hi=g.hi?rgb01(g.hi):c.map(v=>Math.min(1,v+(1-v)*.08)),k=GR.contrast,str=GR.strength,f=v=>v.toFixed(4);
+  const svg=doc.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('aria-hidden','true');svg.setAttribute('width','0');svg.setAttribute('height','0');
+  svg.style.cssText='position:absolute;width:0;height:0;overflow:hidden';
+  svg.innerHTML=`<filter id="pl-grade" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 0 0 0 1 0" result="lum"/>
+    <feComponentTransfer in="lum" result="ct"><feFuncR type="linear" slope="${k}" intercept="${(1-k)/2}"/><feFuncG type="linear" slope="${k}" intercept="${(1-k)/2}"/><feFuncB type="linear" slope="${k}" intercept="${(1-k)/2}"/></feComponentTransfer>
+    <feComponentTransfer in="ct" result="duo"><feFuncR type="table" tableValues="${f(lo[0])} ${f(hi[0])}"/><feFuncG type="table" tableValues="${f(lo[1])} ${f(hi[1])}"/><feFuncB type="table" tableValues="${f(lo[2])} ${f(hi[2])}"/></feComponentTransfer>
+    <feComposite in="duo" in2="ct" operator="arithmetic" k1="0" k2="${str}" k3="${1-str}" k4="0"/></filter>`;
+  body.appendChild(svg);root.classList.add('graded');root.dataset.grade=GR.name;
+  /* accent:false keeps the site's own UI accent (Codelab: apps keep their true colours) */
+  if(GR.accent!==false){root.style.setProperty('--accent',g.hex);TH.accent=g.hex;}root.style.setProperty('--grade',g.hex);root.style.setProperty('--grade-vig',GR.vignette);root.style.setProperty('--grade-bleed',GR.bleed);
+  if(g.live){root.classList.add('grade-live-'+g.live);if(reduced)root.classList.add('grade-still');
+    /* two fixed layers straight under <body> so each blends with the page: a = hue field (mix-blend color), b = depth/glow */
+    GLIVE=['gl-a','gl-b'].map(k=>{const x=el('div','grade-live '+k,body);x.setAttribute('aria-hidden','true');return x;});
+    doc.addEventListener('visibilitychange',()=>root.classList.toggle('grade-paused',doc.hidden));}}
+const GRADE_TYPES=['full','shot','video','cover'];
 const ACCENT0=TH.accent;
 
 /* ---------- 2. canvas loop (only visible canvases run) ---------- */
@@ -193,7 +228,8 @@ function leftProject(si,i){const x=secs[si],p=x.proj,c=concept(p);dL.dataset.ctx
       facts([['Date',sl.date],['Section',p.title]].concat(sl.facts||[]))+(sl.links?group('Links',linkList(sl.links),{open:true,key:'links'}):'')+
       group('All entries',slidesList(si),{open:true,key:'slides',n:x.slides.length});}
   const expl=p.info||c.lede||'';const art=p.artist||ARTIST;const sets=(p.settings||[]).filter(k=>PSET[k]);
-  return head(p.title)+`<div class="p-kick">${esc('Project '+pad2(x.pi+1))}</div>`+(expl?`<p class="p-line p-expl">${esc(expl)}</p>`:'')+
+  const gt=p.get?(p.get.href?`<a class="p-get" href="${esc(p.get.href)}">${esc(p.get.label||'Get')}<small>${esc(p.get.price||'')}</small></a>`:`<span class="p-get off" aria-disabled="true">${esc(p.get.label||'Get')}<small>${esc(p.get.price||'placeholder')}</small></span>`):'';
+  return head(p.title)+`<div class="p-kick">${esc((S.labels&&S.labels.project||'Project')+' '+pad2(x.pi+1))}</div>`+(expl?`<p class="p-line p-expl">${esc(expl)}</p>`:'')+gt+
     facts(p.facts||c.meta||[])+
     (art?group('Artist',artistBlock(art),{open:true,key:'artist'}):'')+
     (p.links&&p.links.length?group('Links',linkList(p.links),{open:true,key:'links',n:p.links.length}):'')+
@@ -260,7 +296,8 @@ function settle(){const si=secIndex(),sec=secs[si],i=slideIndex(sec);
   if(cov)coverSeq(sec.hero?{title:sec.logo,sub:sec.sub,subs:sec.subs,text:LOGO.text,html:LOGO.html}:s._tx);
   else if(sec.logo){if(prevS!==si)logoSeq(sec);}else{stopHero();animateIn(s);}
   body.classList.toggle('tx-on',!!cov&&hasA('ticker'));
-  root.style.setProperty('--accent',(sec.proj&&sec.proj.code)||ACCENT0);
+  root.style.setProperty('--accent',((!GR||GR.accent===false)&&sec.proj&&sec.proj.code)||ACCENT0);
+  if(GLIVE)body.classList.toggle('grade-media',GRADE_TYPES.includes(s.dataset.type)||(!!sec.hero&&!!(S.hero&&(S.hero.image||S.hero.video))));
   body.classList.toggle('at-logo',!!sec.logo);markPanel(si,i);
   /* apps load only when their slide (or a neighbour) is active; others are unloaded */
   secs.forEach((x,xi)=>x.slides.forEach((sl,k)=>{const f=sl._frame;if(!f)return;const near=xi===si&&Math.abs(k-i)<=1;
@@ -407,7 +444,7 @@ window.PL_COMPONENTS=mounted;
 ['symL','symR','drawerL','drawerR'].forEach(id=>{if(!doc.getElementById(id))throw new Error('Pointlab engine: missing '+id+' — every site must ship both side panels');});
 
 /* ---------- 11. start (deep link #p=section&s=slide) ---------- */
-window.PL={goTo,goProject:(pi,i=0)=>{const k=secs.findIndex(x=>x.pi===pi);if(k>=0)goTo(k,i);},sections:()=>secs.map(x=>x.hero?'hero':x.interlude?'interlude':'project:'+(x.proj.id||x.pi)),goSection,goSlide,openDrawer,closeDrawer,state:()=>({section:cur.s,slide:cur.i,playing,drawer,uiHidden:body.classList.contains('ui-hidden')})};
+window.PL={grades:Object.keys(GRADES),grade:GR&&GRADES[GR.name]?GR.name:null,goTo,goProject:(pi,i=0)=>{const k=secs.findIndex(x=>x.pi===pi);if(k>=0)goTo(k,i);},sections:()=>secs.map(x=>x.hero?'hero':x.interlude?'interlude':'project:'+(x.proj.id||x.pi)),goSection,goSlide,openDrawer,closeDrawer,state:()=>({section:cur.s,slide:cur.i,playing,drawer,uiHidden:body.classList.contains('ui-hidden')})};
 const hp=new URLSearchParams(location.hash.slice(1));let p0=+hp.get('p')||0,s0=+hp.get('s')||0;
 if(hp.get('proj')){const k=secs.findIndex(x=>x.proj&&x.proj.id===hp.get('proj'));if(k>=0){p0=k;s0=0;}}
 body.dataset.playExit=UI.playExit;

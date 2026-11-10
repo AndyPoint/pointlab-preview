@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Symmetry Engine (generative canvas)</title>
+<style>
+/* Self-contained live generative canvas, embedded AS-IS by the Generative Design site (play-mode slide).
+   It is NOT built for the homepage: it keeps its OWN mini menu, its own state, and talks to the host only through
+   the optional embed protocol (pl-play, pl-theme, pl-ready, pl-exit-play, pl-nav). Placeholder app — replace with the real one. */
+html,body{margin:0;height:100%;overflow:hidden;background:#07060B;touch-action:none;user-select:none}
+canvas{display:block;width:100%;height:100%}
+/* ===== MOCK MINI MENU — placeholder only (belongs to this app, not to the homepage) ===== */
+.g-btn{position:fixed;top:16px;height:44px;padding:0 14px;font:11px/44px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;
+  color:#ECE8F6;background:rgba(7,6,11,.72);border:1px solid #2B2440;cursor:pointer}
+#genMenuBtn{left:16px} #genParamsBtn{right:16px}
+.g-panel{position:fixed;top:68px;width:220px;background:#0E0B16;border:1px solid #2B2440;color:#CFC8E2;padding:10px 14px 12px;
+  font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;box-sizing:border-box;display:none}
+#genMenu{left:16px} #genParams{right:16px}
+body.menu #genMenu,body.params #genParams{display:block}
+.g-panel h2{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7F7799;margin:4px 0 8px;font-weight:400}
+.g-panel button{display:block;width:100%;min-height:44px;text-align:left;font:inherit;color:inherit;background:none;border:0;border-top:1px solid #1E1930;cursor:pointer}
+.g-panel button.on{color:var(--a,#9B5CFF)}
+body:not(.play) .g-btn,body:not(.play) .g-panel{opacity:0;pointer-events:none}
+</style></head><body>
+<canvas id="c"></canvas>
+<button id="genMenuBtn" class="g-btn" aria-expanded="false" aria-controls="genMenu">≡ Gen</button>
+<button id="genParamsBtn" class="g-btn" aria-expanded="false" aria-controls="genParams">Folds</button>
+<aside id="genMenu" class="g-panel" aria-label="Symmetry Engine menu (mock)"><h2>Symmetry Engine · menu (mock)</h2>
+  <button data-mock="clear">Clear canvas</button><button data-mock="export">Export PNG (mock)</button><button data-mock="seed">New seed</button></aside>
+<aside id="genParams" class="g-panel" aria-label="Symmetry Engine folds (mock)"><h2>Folds (mock)</h2>
+  <button data-n="4">4-fold</button><button data-n="6">6-fold</button><button data-n="8" class="on">8-fold</button><button data-n="12">12-fold</button></aside>
+<script>
+(function(){
+const cv=document.getElementById('c'),c=cv.getContext('2d'),B=document.body;
+let W,H,D,acc='#9B5CFF',bg='#07060B',n=8,play=false,ptr=null,last=null,seed=Math.random()*1000;
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;c.setTransform(D,0,0,D,0,0);clear();}
+function clear(){c.fillStyle=bg;c.fillRect(0,0,W,H)}
+addEventListener('resize',size);size();
+function rgba(h,a){const v=parseInt(h.slice(1),16);return`rgba(${v>>16&255},${v>>8&255},${v&255},${a})`}
+function stroke(x0,y0,x1,y1,col,w){const cx=W/2,cy=H/2;c.strokeStyle=col;c.lineWidth=w;c.beginPath();
+  for(let k=0;k<n;k++){const a=k*Math.PI*2/n,ca=Math.cos(a),sa=Math.sin(a);for(const m of[1,-1]){
+    const p=(x,y)=>{const dx=x-cx,dy=(y-cy)*m;return[cx+dx*ca-dy*sa,cy+dx*sa+dy*ca]};const A=p(x0,y0),Bp=p(x1,y1);c.moveTo(A[0],A[1]);c.lineTo(Bp[0],Bp[1]);}}
+  c.stroke();}
+function menu(w){const m=w==='menu'&&!B.classList.contains('menu'),p=w==='params'&&!B.classList.contains('params');
+  B.classList.toggle('menu',m);B.classList.toggle('params',p);genMenuBtn.setAttribute('aria-expanded',m);genParamsBtn.setAttribute('aria-expanded',p);}
+genMenuBtn.onclick=e=>{e.stopPropagation();menu('menu')};genParamsBtn.onclick=e=>{e.stopPropagation();menu('params')};
+document.querySelectorAll('[data-n]').forEach(b=>b.onclick=e=>{e.stopPropagation();n=+b.dataset.n;document.querySelectorAll('[data-n]').forEach(x=>x.classList.toggle('on',x===b))});
+document.querySelectorAll('[data-mock]').forEach(b=>b.onclick=e=>{e.stopPropagation();window.__mockLast=b.dataset.mock;if(b.dataset.mock==='clear')clear();if(b.dataset.mock==='seed')seed=Math.random()*1000});
+window.__appMenus=()=>({menu:B.classList.contains('menu'),params:B.classList.contains('params'),folds:n,last:window.__mockLast||null});
+cv.addEventListener('pointerdown',e=>{if(!play)return;menu(null);ptr={x:e.clientX,y:e.clientY};last={...ptr};cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{if(!ptr)return;stroke(last.x,last.y,e.clientX,e.clientY,rgba(acc,.7),1.4);last={x:e.clientX,y:e.clientY}});
+cv.addEventListener('pointerup',()=>{ptr=null});
+addEventListener('wheel',e=>{if(play)e.preventDefault()},{passive:false});
+addEventListener('keydown',e=>{
+  if(play&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','Home','End',' '].includes(e.key))e.preventDefault();
+  if(e.key==='Escape'){if(B.classList.contains('menu')||B.classList.contains('params')){menu(null);return}parent.postMessage({type:'pl-exit-play'},'*');return}
+  if(play&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){parent.postMessage({type:'pl-nav',dir:e.key==='ArrowLeft'?-1:1},'*');return}
+  if(!play)return;if(e.key===' ')clear();});
+addEventListener('message',e=>{const d=e.data||{};
+  if(d.type==='pl-play'){play=!!d.on;B.classList.toggle('play',play);if(play)window.focus();else menu(null)}
+  if(d.type==='pl-theme'&&d.accent){acc=d.accent;B.style.setProperty('--a',acc)}});
+parent.postMessage({type:'pl-ready'},'*');
+/* idle: the engine draws on its own (a wandering brush) until the visitor takes over */
+let ax=W/2+60,ay=H/2;
+function frame(t){c.fillStyle=rgba(bg,.012);c.fillRect(0,0,W,H);
+  if(!ptr){const T=t*0.0004+seed,r=Math.min(W,H)*.38*(.35+.65*Math.abs(Math.sin(T*.7)));
+    const nx=W/2+Math.cos(T*1.3)*r,ny=H/2+Math.sin(T*1.9)*r*.8;stroke(ax,ay,nx,ny,rgba(acc,play?.25:.45),1);ax=nx;ay=ny;}
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+})();
+</script></body></html>

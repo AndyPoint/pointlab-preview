@@ -1,4 +1,4 @@
-# Pointlab engine — functional mockup v2.2 (private, not for publication)
+# Pointlab engine — functional mockup v2.3 (private, not for publication)
 
 v2 = anttipiste index as the design + code base, JUST SITTING side panels, tech and interface first.
 Media are stand-ins; see media/MEDIA.md for every slot and how to swap it.
@@ -17,10 +17,21 @@ v2.2 rules (Andy):
 - News / blog: a project with `kind:'news'` and `entries` (date, title, lede, body, img) → list + article pages. Reusable on any site.
 - engine/text.js keeps all animations; components/edge-ticker.js is used only by Codelab's config.
 
+v2.3 (Andy):
+- Four new subsites on the same engine, each = sites/<id>.js + <id>.html + a registry line (they appear in every right-panel Sites list and on the hub Sites slide):
+  conscious-architecture.html (Conscious Architecture Company), vjsh1ft.html (VJSH1FT), asset-store.html (Asset Store), generative-design.html (Generative Design).
+- Identity per site = theme vars + one self-hosted face + rhythm (--ease/--dur) + hero generator (engine/generators.js: plan, scan, lattice, rose) + wordmark. All text is placeholder.
+- Asset Store: each project is an asset page; `get:{label,price,href}` renders a Get row (placeholder) in the LEFT panel only, with specs as facts.
+- Generative Design embeds apps/gen-canvas.html as-is (own mini menu "≡ Gen" + "Folds"), same play-mode rules and exits as Codelab.
+- Image grade (port of anttipiste's colour grades): `grade:'kapoor'|'klein'|'monolith'|'violet'` (Emerald removed) maps project images/videos/screenshots to a duotone of the grade + anttipiste's soft vignette and faint light bleed. Never on live apps, never text.
+  Living grades `grade:'heat'` (heat-affected red, Codelab default) and `grade:'klein-live'` (IKB pulse) add two fixed colour layers animated by CSS (transform/opacity only), shown only on media slides, hidden in play mode, paused when the tab is hidden, static with reduced motion / Animations off. `accent:false` keeps the site's own UI accent.
+- Atelier redesigned in the red identity: grade 'kapoor', red-black ground, Space Grotesk wordmark + small mono uppercase type; no ticker, grain or overlays.
+
 Open directly in Chrome (file://, no server):
 - index.html   — Pointlab hub (monthly gallery, news, links to sites)
 - codelab.html — Codelab subsite (10-slide live-app project with play mode + 2 screen-only projects)
-- fashion.html — Atelier fashion subsite
+- fashion.html — Atelier fashion subsite (red Kapoor grade)
+- conscious-architecture.html, vjsh1ft.html, asset-store.html, generative-design.html — v2.3 subsites
 
 Structure
 - engine/engine.css, engine/engine.js, engine/generators.js — the ONE shared engine
@@ -29,7 +40,7 @@ Structure
 - components/edge-ticker.js (+ .mjs, EdgeTicker.jsx) — standalone four-edge ticker, enabled per site via config (hub only)
 - sites/registry.js — list of all sites (left drawer + hub "Sites" slide)
 - sites/<site>.js   — subsite config: theme vars (+ optional css string), motion, hero, identity text, projects → typed slides
-- apps/field-toy.html — self-contained live web app (play-mode demo; talks to the engine via postMessage)
+- apps/field-toy.html, apps/gen-canvas.html — self-contained live web apps (play-mode demos; embedded as-is, own menus, optional postMessage protocol)
 - media/ — stand-in media (swap list in media/MEDIA.md); tests/ — Playwright test + toy media renderer; shots/ — screenshots
 
 New subsite = copy a shell .html, point it at a new sites/<id>.js, add a line in registry.js.
