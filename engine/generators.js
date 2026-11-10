@@ -99,5 +99,44 @@ G.rose={animated:true,init(c,W,H,o,th){c.fillStyle=th.bg;c.fillRect(0,0,W,H);ret
       for(let j=0;j<=40;j++){const u=j/40,r=R*u*(0.6+0.4*Math.sin(T*3+u*7)),a=b+Math.sin(T+u*4)*0.9*u;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;j?c.lineTo(x,y):c.moveTo(x,y);}
       c.stroke();}}};
 
+/* Construct — Conscious Architecture (v2.4, data-visualisation language): a radial/plan drawing that builds itself.
+   Phase 1 grid (rings + spokes, hairline grey) → 2 construction geometry (grey circles, red guides) → 3 the white final figure
+   → hold → fade, then repeat with a new seed. Ticks and a scale bar sit OUTSIDE the figure (no text, no numerals).
+   Cheap: ~150 line segments per frame, redrawn at most 30 fps; with reduced motion / Animations off (t=0) it draws the
+   finished frame once and stops. */
+G.construct={animated:true,init(c,W,H,o){return{last:-1e9,seed:o.seed||7};},
+  draw(c,W,H,t,s,o,th){if(t&&t-s.last<33)return;if(!t){if(s.still)return;s.still=true;}s.last=t;
+    const CYC=o.cycle||26000,T=t?(t%CYC)/CYC:0.86,run=t?Math.floor(t/CYC):0,r=rng(s.seed+run*31);
+    const ease=x=>x<=0?0:x>=1?1:x*x*(3-2*x),seg=(a,b)=>ease((T-a)/(b-a));
+    const pGrid=t?seg(0,.22):1,pCon=t?seg(.2,.48):1,pFig=t?seg(.46,.74):1,fade=t?1-seg(.92,1):1;
+    c.fillStyle=th.bg;c.fillRect(0,0,W,H);c.globalAlpha=fade;
+    const cx=W/2,cy=H/2,R=Math.min(W,H)*.36,N=o.spokes||24,ink=th.fg,grey=rgba(th.fg,.16),grey2=rgba(th.fg,.32);
+    /* 1 · radial grid */
+    c.lineWidth=1;c.strokeStyle=grey;c.beginPath();
+    for(let k=1;k<=6;k++){const rr=R*k/6;c.moveTo(cx+rr,cy);c.arc(cx,cy,rr,0,Math.PI*2*pGrid);}
+    for(let i=0;i<N;i++){const a=i/N*Math.PI*2,l=R*1.08*pGrid;c.moveTo(cx,cy);c.lineTo(cx+Math.cos(a)*l,cy+Math.sin(a)*l);}
+    c.stroke();
+    /* outer ticks + scale bar (annotations outside the figure) */
+    c.strokeStyle=grey2;c.beginPath();
+    for(let i=0;i<N*4*pGrid;i++){const a=i/(N*4)*Math.PI*2,r1=R*1.14,r2=R*(i%4?1.17:1.21);c.moveTo(cx+Math.cos(a)*r1,cy+Math.sin(a)*r1);c.lineTo(cx+Math.cos(a)*r2,cy+Math.sin(a)*r2);}
+    const sbx=Math.min(W-R*.6-24,cx+R*1.2),sby=Math.min(H-32,cy+R*1.2),sbw=R*.5*pGrid;c.moveTo(sbx,sby);c.lineTo(sbx+sbw,sby);
+    for(let k=0;k<=4;k++){const x=sbx+R*.5*k/4;if(x<=sbx+sbw+.5){c.moveTo(x,sby-4);c.lineTo(x,sby+(k%2?3:6));}}c.stroke();
+    /* 2 · construction geometry: offset circles (grey) + two red guides */
+    const n=o.fold||6,rc=R*(.5+r()*.12);
+    c.strokeStyle=grey2;c.beginPath();
+    for(let k=0;k<n;k++){const p=Math.max(0,Math.min(1,pCon*n-k));if(!p)continue;const a=k/n*Math.PI*2-Math.PI/2,x=cx+Math.cos(a)*rc*.5,y=cy+Math.sin(a)*rc*.5;
+      c.moveTo(x+rc,y);c.arc(x,y,rc,0,Math.PI*2*p);}
+    c.stroke();
+    c.strokeStyle=rgba(th.accent,.9);c.lineWidth=1;c.beginPath();
+    const g1=Math.PI*(.15+r()*.2),gl=R*1.3*pCon;c.moveTo(cx-Math.cos(g1)*gl,cy-Math.sin(g1)*gl);c.lineTo(cx+Math.cos(g1)*gl,cy+Math.sin(g1)*gl);
+    c.moveTo(cx+R*.5*pCon,cy);c.arc(cx,cy,R*.5,0,Math.PI*2*pCon);c.stroke();
+    /* 3 · the white final figure: an n-fold petal plan traced over the construction */
+    if(pFig>0){c.strokeStyle=ink;c.lineWidth=1.6;c.beginPath();const steps=Math.floor(240*pFig);
+      for(let j=0;j<=steps;j++){const a=j/240*Math.PI*2,rr=rc*(.62+.38*Math.abs(Math.cos(a*n/2)));const x=cx+Math.cos(a-Math.PI/2)*rr,y=cy+Math.sin(a-Math.PI/2)*rr;j?c.lineTo(x,y):c.moveTo(x,y);}
+      c.stroke();
+      /* data mark: one crimson node where meaning sits */
+      if(pFig>.98){c.fillStyle=th.accent;c.beginPath();c.arc(cx,cy-rc,3.2,0,Math.PI*2);c.fill();}}
+    c.globalAlpha=1;}};
+
 window.PL_GEN=G;window.PL_rgba=rgba;
 })();

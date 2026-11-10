@@ -251,7 +251,9 @@ body.playing[data-play-exit="bottom-center"] #symP{right:auto;left:50%;margin-le
 .p-expl{color:var(--panel-fg)}
 .panel.left .p-line{font-size:15px;line-height:21px}
 .panel.left .p-line.p-expl{font:400 13px/20px var(--font-text)}
-.p-artist{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;padding:4px 0 8px}
+.p-artist{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:start;padding:4px 0 8px}
+.p-artist>div{min-width:0}
+.p-items .p-artist b.p-an{width:auto;flex:initial;font:700 12px/16px var(--font-text);letter-spacing:.08em;color:var(--panel-fg)} .p-items .p-artist small.p-ar{margin-left:0;white-space:normal}
 .p-portrait{width:64px;height:80px;object-fit:cover;display:block}
 .p-portrait.slot{border:1px dashed var(--panel-line);display:grid;place-items:center;font:400 9px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--panel-dim)}
 .p-an{display:block;font:700 12px/16px var(--font-text);text-transform:uppercase;letter-spacing:.08em}

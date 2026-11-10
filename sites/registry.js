@@ -1,7 +1,7 @@
 /* All Pointlab sites. href:null = planned, not part of this mockup. thumb = representative work. */
 window.PL_REGISTRY=[
   {id:'hub',      name:'Pointlab',                     role:'Hub · gallery · news',            href:'index.html',                  thumb:'media/art-blue-symmetry.jpg'},
-  {id:'conscious',name:'Conscious Architecture Company',role:'Architecture · practice + theory', href:'conscious-architecture.html', thumb:'media/studio-sofa-2.jpg'},
+  {id:'conscious',name:'Conscious Architecture Company',role:'Architecture · practice + theory', href:'conscious-architecture.html', thumb:'media/cac-construction-sequence.svg'},
   {id:'vj',       name:'VJSH1FT',                      role:'VJ · live visuals',                href:'vjsh1ft.html',                thumb:'media/vj-sh1ft.jpg'},
   {id:'assets',   name:'Asset Store',                  role:'Digital assets',                   href:'asset-store.html',            thumb:'media/code-tool-3d.jpg'},
   {id:'generative',name:'Generative Design',           role:'Generative · algorithmic works',   href:'generative-design.html',      thumb:'media/art-cross-symmetry.jpg'},

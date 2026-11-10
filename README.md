@@ -1,4 +1,4 @@
-# Pointlab engine — functional mockup v2.3.1 (private, not for publication)
+# Pointlab engine — functional mockup v2.4 (private, not for publication)
 
 v2 = anttipiste index as the design + code base, JUST SITTING side panels, tech and interface first.
 Media are stand-ins; see media/MEDIA.md for every slot and how to swap it.
@@ -28,6 +28,13 @@ v2.3 (Andy):
 v2.3.1 (Andy): 'heat' grade removed; Codelab has NO grade (true colours). Codelab is plain white on black: no green/teal anywhere
   (theme accent #FFF, neutral greys, white panel marker); the mock Field Toy app and its stand-in screenshots/videos are re-rendered white on black. The play ▶ stays red.
 - Atelier redesigned in the red identity: grade 'kapoor', red-black ground, Space Grotesk wordmark + small mono uppercase type; no ticker, grain or overlays.
+v2.4 (Andy): Conscious Architecture restyled in the data-visualisation language of Andy's private references
+  (kept ONLY in the design plan Page — third-party works, never on the site): navy-charcoal ground #1C2233, white/grey hairlines,
+  ONE crimson accent #E8344E only where data or meaning sits (current item, a guide, a node), small mono uppercase panel labels.
+  Top page = generator 'construct' (engine/generators.js): radial grid → construction geometry (grey circles, red guides) → white
+  final figure, ~26 s cycle, ≤30 fps, ~150 strokes/frame; with reduced motion / Animations off it draws the finished figure once.
+  Media = self-generated placeholder SVG drawings (tests/make_cac_drawings.py): radial heat rings, plan, network, section, sequence.
+  Engine fix: the artist block in the left panel (name no longer squeezed into a 22 px column; role wraps).
 
 Open directly in Chrome (file://, no server):
 - index.html   — Pointlab hub (monthly gallery, news, links to sites)

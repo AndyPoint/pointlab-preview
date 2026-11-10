@@ -9,6 +9,12 @@ Two ways to swap a picture or video:
 Recommended: JPG, long edge 2400 px for `full` slides, 1600 px for `shot` slides; MP4 (H.264), muted, under ~15 MB.
 `full` = fills the screen (cropped, cover); `shot` = shown whole on the project's ground (add `cover:true` to fill).
 
+v2.4 notes
+- Conscious Architecture uses ONLY self-generated placeholder drawings (media/cac-*.svg, made by tests/make_cac_drawings.py) in the
+  data-visualisation language: navy-charcoal ground, white/grey hairlines, one crimson accent, legends as marks (no text inside).
+  Andy's data-visualisation reference images are third-party works: they live only in the private design plan Page, never in this site.
+  Swap a drawing by dropping an SVG/JPG with the same name, or edit the line listed below.
+
 v2.3 notes
 - New sites reuse only stand-ins already in `media/` (no new files). Swap per site by editing the lines below.
 - Atelier images are shown through the engine's image grade (`grade:'kapoor'`); Codelab has no grade (v2.3.1):
@@ -20,7 +26,7 @@ v2.3 notes
 | Config line | Slide / site | Field | File | Stand-in size |
 |---|---|---|---|---|
 | sites/registry.js:3 | Pointlab | thumb | media/art-blue-symmetry.jpg | 1600×1791 |
-| sites/registry.js:4 | Conscious Architecture Company | thumb | media/studio-sofa-2.jpg | 1200×685 |
+| sites/registry.js:4 | Conscious Architecture Company | thumb | media/cac-construction-sequence.svg | SVG (placeholder drawing) |
 | sites/registry.js:5 | VJSH1FT | thumb | media/vj-sh1ft.jpg | 1200×640 |
 | sites/registry.js:6 | Asset Store | thumb | media/code-tool-3d.jpg | 500×262 |
 | sites/registry.js:7 | Generative Design | thumb | media/art-cross-symmetry.jpg | 1600×1791 |
@@ -29,6 +35,11 @@ v2.3 notes
 | sites/registry.js:10 | Artist personalities | thumb | media/art-blue-room.jpg | 1024×1024 |
 | sites/registry.js:11 | Studio | thumb | media/studio-sofa.jpg | 1920×1076 |
 | sites/registry.js:12 | Art | thumb | media/art-red-figure.jpg | 1600×1791 |
+| sites/conscious-architecture.js:37 | Presence, radial | img | media/cac-presence-radial.svg | SVG (placeholder drawing) |
+| sites/conscious-architecture.js:38 | Construction | img | media/cac-construction-sequence.svg | SVG (placeholder drawing) |
+| sites/conscious-architecture.js:39 | Passage detail | img | media/cac-passage-section.svg | SVG (placeholder drawing) |
+| sites/conscious-architecture.js:46 | Threshold plan | img | media/cac-threshold-plan.svg | SVG (placeholder drawing) |
+| sites/conscious-architecture.js:47 | Relations | img | media/cac-relations-network.svg | SVG (placeholder drawing) |
 | sites/hub.js:21 | Pigment room | img | media/art-pigment-room.jpg | 1024×1024 |
 | sites/hub.js:22 | Blue axis | img | media/art-blue-symmetry.jpg | 1600×1791 |
 | sites/hub.js:23 | Red / blue | img | media/art-red-blue-symmetry.jpg | 1600×1791 |
@@ -64,11 +75,6 @@ v2.3 notes
 | sites/fashion.js:40 | Square | img | media/fashion-street-show.jpg | 1280×640 |
 | sites/fashion.js:41 | Passage | img | media/fashion-street-show-2.jpg | 1280×640 |
 | sites/fashion.js:42 | Runway video | video | media/fashion-runway.mp4 |  |
-| sites/conscious-architecture.js:26 | Interior | img | media/studio-sofa.jpg | 1920×1076 |
-| sites/conscious-architecture.js:27 | Second view | img | media/studio-sofa-2.jpg | 1200×685 |
-| sites/conscious-architecture.js:28 | Model study | img | media/code-tool-3d.jpg | 500×262 |
-| sites/conscious-architecture.js:35 | Site: ice | img | media/art-ice.jpg | 1200×685 |
-| sites/conscious-architecture.js:36 | Material grid | img | media/code-tool-grid.jpg | 500×638 |
 | sites/vjsh1ft.js:26 | Glitch layer | video | media/code-glitch.mp4 |  |
 | sites/vjsh1ft.js:27 | Circuit | video | media/code-circuit.mp4 |  |
 | sites/vjsh1ft.js:28 | Sea | video | media/art-sea.mp4 |  |
