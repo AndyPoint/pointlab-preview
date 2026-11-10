@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Toy</title>
+<style>
+/* Self-contained live web app used to demonstrate the engine's play mode. */
+html,body{margin:0;height:100%;overflow:hidden;background:#060707;touch-action:none;user-select:none}
+canvas{display:block;width:100%;height:100%}
+#ui{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:6px;font:11px/1 ui-monospace,Menlo,Consolas,monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:#7d8a88;transition:opacity .4s}
+#ui button{font:inherit;letter-spacing:inherit;color:inherit;background:rgba(6,7,7,.6);border:1px solid #233;padding:9px 11px;cursor:pointer}
+#ui button.on{color:#060707;background:var(--a,#35F2C2);border-color:var(--a,#35F2C2)}
+body:not(.play) #ui{opacity:0;pointer-events:none}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="ui"><button data-law="0" class="on">1 Orbit</button><button data-law="1">2 Flow</button><button data-law="2">3 Repel</button><button id="clr">Space Clear</button></div>
+<script>
+(function(){
+const cv=document.getElementById('c'),c=cv.getContext('2d');
+let W,H,D,acc='#35F2C2',bg='#060707',law=0,play=false,ptr=null,attr=[],P=[];
+const q=new URLSearchParams(location.hash.slice(1));
+if(q.has('law'))law=+q.get('law');
+function setAcc(a){acc=a;document.body.style.setProperty('--a',a)}
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;c.setTransform(D,0,0,D,0,0);c.fillStyle=bg;c.fillRect(0,0,W,H);
+  const n=Math.round(W*H/900);P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:0,vy:0}));}
+addEventListener('resize',size);size();
+function laws(){document.querySelectorAll('[data-law]').forEach(b=>b.classList.toggle('on',+b.dataset.law===law))}
+document.querySelectorAll('[data-law]').forEach(b=>b.onclick=e=>{e.stopPropagation();law=+b.dataset.law;laws()});
+document.getElementById('clr').onclick=e=>{e.stopPropagation();attr=[];c.fillStyle=bg;c.fillRect(0,0,W,H)};
+cv.addEventListener('pointerdown',e=>{if(!play)return;ptr={x:e.clientX,y:e.clientY,t:performance.now()};cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{if(ptr){ptr.x=e.clientX;ptr.y=e.clientY}});
+cv.addEventListener('pointerup',e=>{if(ptr&&performance.now()-ptr.t<250)attr.push({x:ptr.x,y:ptr.y});if(attr.length>6)attr.shift();ptr=null});
+addEventListener('wheel',e=>{if(play)e.preventDefault()},{passive:false});
+addEventListener('keydown',e=>{
+  if(play&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','Home','End',' '].includes(e.key))e.preventDefault();
+  if(e.key==='Escape'){parent.postMessage({type:'pl-exit-play'},'*');return}
+  if(!play)return;
+  if(e.key>='1'&&e.key<='3'){law=+e.key-1;laws()}
+  if(e.key===' '){attr=[];c.fillStyle=bg;c.fillRect(0,0,W,H);e.preventDefault()}
+});
+addEventListener('message',e=>{const d=e.data||{};
+  if(d.type==='pl-play'){play=!!d.on;document.body.classList.toggle('play',play);if(play)window.focus()}
+  if(d.type==='pl-theme'&&d.accent)setAcc(d.accent)});
+parent.postMessage({type:'pl-ready'},'*');
+function rgba(h,a){const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
+function frame(t){
+  c.fillStyle='rgba(6,7,7,0.075)';c.fillRect(0,0,W,H);
+  const src=attr.slice();
+  if(ptr)src.push({x:ptr.x,y:ptr.y,k:2});
+  if(!play&&!attr.length){const a=t*0.0004;src.push({x:W/2+Math.cos(a)*W*.22,y:H/2+Math.sin(a*1.3)*H*.22})}
+  c.strokeStyle=rgba(acc,.62);c.lineWidth=1;c.beginPath();
+  for(const p of P){let fx=0,fy=0;
+    if(law===1){const a=(Math.sin(p.x*.004+t*.0002)+Math.cos(p.y*.005-t*.0003))*Math.PI;fx=Math.cos(a)*.08;fy=Math.sin(a)*.08}
+    for(const s of src){const dx=s.x-p.x,dy=s.y-p.y,d2=dx*dx+dy*dy+400,d=Math.sqrt(d2),k=(s.k||1)*60/d2;
+      if(law===0){const tg=.9/Math.sqrt(d);fx+=dx*k*.35-dy/d*tg*(s.k||1);fy+=dy*k*.35+dx/d*tg*(s.k||1);if(d<26){p.x=Math.random()*W;p.y=Math.random()*H;p.vx=p.vy=0}}
+      else if(law===1){fx+=dx*k*.3;fy+=dy*k*.3}
+      else{fx-=dx*k*2;fy-=dy*k*2}}
+    p.vx=(p.vx+fx)*.975;p.vy=(p.vy+fy)*.975;const ox=p.x,oy=p.y;p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.y<0||p.x>W||p.y>H){p.x=Math.random()*W;p.y=Math.random()*H;p.vx=p.vy=0;continue}
+    c.moveTo(ox,oy);c.lineTo(p.x,p.y)}
+  c.stroke();
+  c.fillStyle='#e6ecea';for(const s of attr){c.fillRect(s.x-2,s.y-2,4,4)}
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+})();
+</script></body></html>
