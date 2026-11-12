@@ -1,4 +1,4 @@
-# Pointlab engine — functional mockup v2.4 (private, not for publication)
+# Pointlab engine — functional mockup v2.5 (private, not for publication)
 
 v2 = anttipiste index as the design + code base, JUST SITTING side panels, tech and interface first.
 Media are stand-ins; see media/MEDIA.md for every slot and how to swap it.
@@ -39,12 +39,31 @@ v2.4 (Andy): Conscious Architecture restyled in the data-visualisation language 
   the site's own Settings → Animations off is the one switch that freezes them. Spatial motion (smooth scroll, hero drawings,
   living grades, glitch banner) still honours the OS setting. window.PL_TEXT_OS='freeze' restores the old behaviour.
   Engine fix: the artist block in the left panel (name no longer squeezed into a 22 px column; role wraps).
+v2.5 (Andy): four new pages on the same engine, plus a shared project registry (sites/projects.js).
+  - we-are-the-nature.html (We Are The Nature): photo and video brand, two commercial-project placeholders.
+    Standard black/white engine look and standard menus; no special colour scheme, no grade, no green in the UI.
+    Nature's own colour lives in the footage. Only the centred wordmark animates (top page + interludes).
+  - stage.html (Stage / Scenography): stage-design productions (photographs, model/render, production video).
+    Jost wordmark on the default dark ground; standard menus.
+  - works.html (Works): typographic, grid-strict client-work portfolio. Filter by discipline tag from the
+    right-panel Projects group. Lists every registry project that carries a Works tag, so the Nature
+    commercial films also appear here. Stage productions (tagged 'stage design') do not.
+  - system8.html (System 8): Kickstarter promo for the Codelab tools, as a 2D grid (vertical rows,
+    horizontal pages). Neutral default styling, no accent colour. Top page = centred SYSTEM 8 wordmark
+    over a dimmed app-screenshot placeholder. Row 1 = the overall concept (explanation in the left panel,
+    promo video fullscreen). Rows 2–5 = App 1–App 4; each row pages horizontally through Overview, Tools,
+    Demo projects, Example videos, Functionalities and Help. Help text lives in the left panel; the help
+    slide is a screenshot. The left panel shows the current app and page, with jump lists for rows and
+    pages. The campaign is not live: left panel says coming soon and keeps a launch-date placeholder
+    (no reward tiers); the right panel has a "Coming to Kickstarter" link (href #) plus the usual site navigation.
+  New site = sites/<id>.js + <id>.html + a registry line + (if shared) an entry in sites/projects.js.
 
 Open directly in Chrome (file://, no server):
 - index.html   — Pointlab hub (monthly gallery, news, links to sites)
 - codelab.html — Codelab subsite (10-slide live-app project with play mode + 2 screen-only projects)
 - fashion.html — Atelier fashion subsite (red Kapoor grade)
 - conscious-architecture.html, vjsh1ft.html, asset-store.html, generative-design.html — v2.3 subsites
+- we-are-the-nature.html, stage.html, works.html, system8.html — v2.5 subsites
 
 Structure
 - engine/engine.css, engine/engine.js, engine/generators.js — the ONE shared engine
@@ -52,6 +71,7 @@ Structure
 - engine/fonts.css + fonts/ — self-hosted Archivo (400–900) and IBM Plex Mono (400/500/700)
 - components/edge-ticker.js (+ .mjs, EdgeTicker.jsx) — standalone four-edge ticker, enabled per site via config (hub only)
 - sites/registry.js — list of all sites (left drawer + hub "Sites" slide)
+- sites/projects.js — shared project registry (each project once, with tags); brand sites and Works select from it
 - sites/<site>.js   — subsite config: theme vars (+ optional css string), motion, hero, identity text, projects → typed slides
 - apps/field-toy.html, apps/gen-canvas.html — self-contained live web apps (play-mode demos; embedded as-is, own menus, optional postMessage protocol)
 - media/ — stand-in media (swap list in media/MEDIA.md); tests/ — Playwright test + toy media renderer; shots/ — screenshots

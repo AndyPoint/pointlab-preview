@@ -9,6 +9,23 @@ Two ways to swap a picture or video:
 Recommended: JPG, long edge 2400 px for `full` slides, 1600 px for `shot` slides; MP4 (H.264), muted, under ~15 MB.
 `full` = fills the screen (cropped, cover); `shot` = shown whole on the project's ground (add `cover:true` to fill).
 
+v2.5 notes
+- Three new sites (We Are The Nature, Stage / Scenography, Works) share a project registry in sites/projects.js.
+  A project is stored once, with a `tags` array. Works lists every project that carries any of its discipline
+  tags (brand identity, graphic design, typography, illustration, photography, commercial film), so the two
+  We Are The Nature commercial films also appear there. Stage / Scenography productions are tagged
+  'stage design' and stay on that site. Swap a slot by dropping a file of the same name, or edit the path
+  on the sites/projects.js line listed below.
+- All media below are the same already-cleared stand-ins already in media/ (no new files, no private
+  reference images, no grades on these three sites). Nature and Stage need Andy's own photographs,
+  films, models and production videos; Works needs the client-work stills.
+- System 8 (system8.html) is a Kickstarter promo laid out as a 2D grid: vertical rows (concept + App 1–4),
+  horizontal pages (Overview, Tools, Demo projects, Example videos, Functionalities, Help). The campaign
+  is not live: the right-panel link reads "Coming to Kickstarter" (href #); the left panel says the campaign
+  is coming soon and keeps a launch-date placeholder (no reward tiers). Help text lives in the left panel;
+  the help slide is a screenshot. Hero, promo and app pages reuse existing toy-*/code-tool-* stand-ins;
+  swap them for the real System 8 film, screenshots and help.
+
 v2.4 notes
 - Conscious Architecture uses ONLY self-generated placeholder drawings (media/cac-*.svg, made by tests/make_cac_drawings.py) in the
   data-visualisation language: navy-charcoal ground, white/grey hairlines, one crimson accent, legends as marks (no text inside).
@@ -31,10 +48,14 @@ v2.3 notes
 | sites/registry.js:6 | Asset Store | thumb | media/code-tool-3d.jpg | 500×262 |
 | sites/registry.js:7 | Generative Design | thumb | media/art-cross-symmetry.jpg | 1600×1791 |
 | sites/registry.js:8 | Codelab | thumb | media/code-tool-radial.jpg | 500×661 |
-| sites/registry.js:9 | Atelier | thumb | media/fashion-white-line.jpg | 1003×1100 |
-| sites/registry.js:10 | Artist personalities | thumb | media/art-blue-room.jpg | 1024×1024 |
-| sites/registry.js:11 | Studio | thumb | media/studio-sofa.jpg | 1920×1076 |
-| sites/registry.js:12 | Art | thumb | media/art-red-figure.jpg | 1600×1791 |
+| sites/registry.js:9 | System 8 | thumb | media/toy-controls.jpg | 1440×900 |
+| sites/registry.js:10 | Atelier | thumb | media/fashion-white-line.jpg | 1003×1100 |
+| sites/registry.js:11 | We Are The Nature | thumb | media/art-ice.jpg | 1200×685 |
+| sites/registry.js:12 | Stage / Scenography | thumb | media/art-blue-room.jpg | 1024×1024 |
+| sites/registry.js:13 | Works | thumb | media/fashion-gallery.jpg | 968×1100 |
+| sites/registry.js:14 | Artist personalities | thumb | media/art-blue-room.jpg | 1024×1024 |
+| sites/registry.js:15 | Studio | thumb | media/studio-sofa.jpg | 1920×1076 |
+| sites/registry.js:16 | Art | thumb | media/art-red-figure.jpg | 1600×1791 |
 | sites/conscious-architecture.js:37 | Presence, radial | img | media/cac-presence-radial.svg | SVG (placeholder drawing) |
 | sites/conscious-architecture.js:38 | Construction | img | media/cac-construction-sequence.svg | SVG (placeholder drawing) |
 | sites/conscious-architecture.js:39 | Passage detail | img | media/cac-passage-section.svg | SVG (placeholder drawing) |
@@ -100,3 +121,58 @@ v2.3 notes
 | sites/generative-design.js:41 | Flow | img | media/toy-flow.jpg | 1440×900 |
 | sites/generative-design.js:42 | Attractors | img | media/toy-attractors.jpg | 1440×900 |
 | sites/generative-design.js:43 | Loop | video | media/toy-output.mp4 |  |
+
+| sites/projects.js:15 | We Are The Nature · Commercial project 1 · Still 1 | img | media/art-ice.jpg | 1200×685 |
+| sites/projects.js:16 | We Are The Nature · Commercial project 1 · Film | video | media/art-sea.mp4 |  |
+| sites/projects.js:17 | We Are The Nature · Commercial project 1 · Still 2 | img | media/art-silhouettes.jpg | 1200×675 |
+| sites/projects.js:24 | We Are The Nature · Commercial project 2 · Landscape | img | media/art-violet-field.jpg | 899×1200 |
+| sites/projects.js:25 | We Are The Nature · Commercial project 2 · Close | img | media/art-red-plant.jpg | 1200×685 |
+| sites/projects.js:26 | We Are The Nature · Commercial project 2 · Film | video | media/art-sea.mp4 |  |
+| sites/projects.js:33 | Stage / Scenography · Production 1 · Stage photograph | img | media/art-blue-room.jpg | 1024×1024 |
+| sites/projects.js:34 | Stage / Scenography · Production 1 · Model / render | img | media/code-tool-3d.jpg | 500×262 |
+| sites/projects.js:35 | Stage / Scenography · Production 1 · Production video | video | media/fashion-runway.mp4 |  |
+| sites/projects.js:36 | Stage / Scenography · Production 1 · Space | img | media/art-pigment-room.jpg | 1024×1024 |
+| sites/projects.js:43 | Stage / Scenography · Production 2 · Stage photograph | img | media/art-kul.jpg | 1200×675 |
+| sites/projects.js:44 | Stage / Scenography · Production 2 · Model / render | img | media/code-tool-ring.jpg | 500×588 |
+| sites/projects.js:45 | Stage / Scenography · Production 2 · Production video | video | media/toy-session.mp4 |  |
+| sites/projects.js:46 | Stage / Scenography · Production 2 · Detail | img | media/art-red-figure.jpg | 1600×1791 |
+| sites/projects.js:53 | Works · Brand identity · Wordmark | img | media/fashion-wall.jpg | 907×1100 |
+| sites/projects.js:54 | Works · Brand identity · Application | img | media/fashion-gallery.jpg | 968×1100 |
+| sites/projects.js:55 | Works · Brand identity · System | img | media/fashion-white-line.jpg | 1003×1100 |
+| sites/projects.js:62 | Works · Graphic design · Print | img | media/fashion-text-suits.jpg | 1069×1100 |
+| sites/projects.js:63 | Works · Graphic design · Knit | img | media/fashion-no-war.jpg | 907×1100 |
+| sites/projects.js:64 | Works · Graphic design · Panel | img | media/fashion-jacket.jpg | 1100×567 |
+| sites/projects.js:71 | Works · Typography · Lettering | img | media/fashion-gallery.jpg | 968×1100 |
+| sites/projects.js:72 | Works · Typography · Detail | img | media/fashion-no-war.jpg | 907×1100 |
+| sites/projects.js:73 | Works · Typography · Line-up | img | media/fashion-lineup.jpg | 1100×545 |
+| sites/projects.js:80 | Works · Illustration · Figure | img | media/art-red-figure.jpg | 1600×1791 |
+| sites/projects.js:81 | Works · Illustration · Study | img | media/art-cross-symmetry.jpg | 1600×1791 |
+| sites/projects.js:82 | Works · Illustration · Variation | img | media/art-blue-symmetry.jpg | 1600×1791 |
+
+| sites/system8.js:34 | System 8 · top page hero | image | media/toy-controls.jpg | 1440×900 |
+| sites/system8.js:53 | System 8 · Concept · Promo | video | media/toy-session.mp4 |  |
+| sites/system8.js:54 | System 8 · Concept · Still | img | media/toy-orbit.jpg | 1440×900 |
+| sites/system8.js:55 | System 8 · App 1 · Overview | img | media/toy-orbit.jpg | 1440×900 |
+| sites/system8.js:55 | System 8 · App 1 · Tools | img | media/toy-controls.jpg | 1440×900 |
+| sites/system8.js:55 | System 8 · App 1 · Demo projects | img | media/toy-attractors.jpg | 1440×900 |
+| sites/system8.js:55 | System 8 · App 1 · Example videos | video | media/toy-output.mp4 |  |
+| sites/system8.js:55 | System 8 · App 1 · Functionalities | img | media/toy-flow.jpg | 1440×900 |
+| sites/system8.js:55 | System 8 · App 1 · Help | img | media/toy-repel.jpg | 1440×900 |
+| sites/system8.js:56 | System 8 · App 2 · Overview | img | media/code-tool-field.jpg | 500×661 |
+| sites/system8.js:56 | System 8 · App 2 · Tools | img | media/code-tool-panel.jpg | 899×1200 |
+| sites/system8.js:56 | System 8 · App 2 · Demo projects | img | media/code-tool-grid.jpg | 500×638 |
+| sites/system8.js:56 | System 8 · App 2 · Example videos | video | media/code-circuit.mp4 |  |
+| sites/system8.js:56 | System 8 · App 2 · Functionalities | img | media/code-tool-ring.jpg | 500×588 |
+| sites/system8.js:56 | System 8 · App 2 · Help | img | media/code-tool-field.jpg | 500×661 |
+| sites/system8.js:57 | System 8 · App 3 · Overview | img | media/code-tool-radial.jpg | 500×661 |
+| sites/system8.js:57 | System 8 · App 3 · Tools | img | media/code-tool-radial-2.jpg | 500×661 |
+| sites/system8.js:57 | System 8 · App 3 · Demo projects | img | media/code-tool-3d.jpg | 500×262 |
+| sites/system8.js:57 | System 8 · App 3 · Example videos | video | media/code-glitch.mp4 |  |
+| sites/system8.js:57 | System 8 · App 3 · Functionalities | img | media/code-tool-panel.jpg | 899×1200 |
+| sites/system8.js:57 | System 8 · App 3 · Help | img | media/code-tool-ring.jpg | 500×588 |
+| sites/system8.js:58 | System 8 · App 4 · Overview | img | media/code-tool-grid.jpg | 500×638 |
+| sites/system8.js:58 | System 8 · App 4 · Tools | img | media/code-tool-3d.jpg | 500×262 |
+| sites/system8.js:58 | System 8 · App 4 · Demo projects | img | media/toy-flow.jpg | 1440×900 |
+| sites/system8.js:58 | System 8 · App 4 · Example videos | video | media/toy-session.mp4 |  |
+| sites/system8.js:58 | System 8 · App 4 · Functionalities | img | media/toy-attractors.jpg | 1440×900 |
+| sites/system8.js:58 | System 8 · App 4 · Help | img | media/code-tool-radial.jpg | 500×661 |

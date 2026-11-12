@@ -1,4 +1,5 @@
-/* POINTLAB ENGINE v2.3.1 — heat grade removed, Codelab white-on-black; per-site image grade (anttipiste GRADES), product 'get' row, 7 sites.
+/* POINTLAB ENGINE v2.5 — three new sites (We Are The Nature, Stage / Scenography, Works) + shared project registry and Works tag filter.
+   v2.3.1 — heat grade removed, Codelab white-on-black; per-site image grade (anttipiste GRADES), product 'get' row, 7 sites.
    v2.2: LEFT ≡ = the current project (context), RIGHT ||| = site navigation; embedded apps keep their OWN menus.
    Based on v2.1 — one shared engine for every subsite, rebuilt on the anttipiste index
    (typography, Kehä hero, suites × slides) with JUST SITTING's side panels.
@@ -160,7 +161,7 @@ if(S.hero){const h=el('section','sec hero',stage);h.setAttribute('aria-label','T
   if(S.hero.video){const v=el('video','',h);v.src=S.hero.video;v.muted=true;v.loop=true;v.playsInline=true;v.autoplay=true;v.dataset.autoplay='1';}
   else if(S.hero.image){const i=el('img','bgm',h);i.src=S.hero.image;i.alt='';}
   if(S.hero.generator)mountGen(el('canvas','',h),S.hero.generator,S.hero.opt);
-  if(COVER&&(S.hero.image||S.hero.video))el('div','dim',h);
+  if((COVER||S.hero.dim)&&(S.hero.image||S.hero.video))el('div','dim',h);
   const t=logoEl(h,'h1');let hs=null;
   if(COVER){hs=el('p','cover-sub',t.parentNode);T.setText(hs,(S.hero.subs&&S.hero.subs[0])||'');h.classList.add('is-cover');}
   const dn=el('button','hero-down',h,'<svg viewBox="0 0 18 18"><path d="M3 6l6 6 6-6"/></svg>');dn.setAttribute('aria-label','Next');dn.onclick=()=>goSection(1);
@@ -215,11 +216,19 @@ const PSET={autoplay:{label:'Autoplay videos',def:true},whole:{label:'Show image
 const pget=(pid,k)=>{const v=PREF.get('p.'+pid+'.'+k);return v==null?PSET[k].def:v==='on';};
 function applyProjSettings(){secs.forEach(x=>{if(!x.proj)return;const pid=x.proj.id;x.el.classList.toggle('fit-whole',(x.proj.settings||[]).includes('whole')&&pget(pid,'whole'));});}
 function slidesList(si){const x=secs[si];return `<ul class="p-slides">${x.SL.map((sl,i)=>`<li><button data-go="${si},${i}"><b>${pad2(i+1)}</b><span>${esc(tt(sl.title)||LABEL[sl.type])}</span>${sl.date?`<small>${esc(sl.date)}</small>`:''}</button></li>`).join('')}</ul>`;}
+function rowsList(){return `<ul class="p-rows">${secs.map((x,si)=>x.proj?`<li><button data-go="${si},0"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span></button></li>`:'').join('')}</ul>`;}
+function helpBody(p){const h=p&&p.help;if(!h)return '';return (Array.isArray(h)?h:String(h).split(/\n\n+/)).filter(Boolean).map(par=>`<p class="p-p">${esc(par)}</p>`).join('');}
+const CAMP=S.campaign||null;
+function campaignFacts(){if(!CAMP)return '';const rows=[];if(CAMP.status)rows.push(['Campaign',CAMP.status]);if(CAMP.launch)rows.push(['Launch',CAMP.launch]);return facts(rows);}
+function campaignGroup(open){if(!CAMP)return '';
+  const body=(CAMP.what?`<p class="p-p">${esc(CAMP.what)}</p>`:'')+campaignFacts();
+  return body?group('Campaign',body,{open:!!open,key:'campaign'}):'';}
 function leftSite(){dL.dataset.ctx='site';
   return head(S.name)+`<div class="p-kick">${esc(isHub?'Pointlab':'Pointlab · '+S.name)}</div>`+(S.identity.line?`<p class="p-line">${esc(S.identity.line)}</p>`:'')+
     (S.identity.blocks||[]).map(b=>`<p class="p-p p-expl">${esc(b.p)}</p>`).join('')+
+    campaignFacts()+
     (ARTIST?group('Artist',artistBlock(ARTIST),{open:true,key:'artist'}):'')+
-    group('Projects on this site',`<ul>${secs.map((x,si)=>x.proj?`<li><button data-go="${si},0"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span></button></li>`:'').join('')}</ul>`,{open:true,key:'slides'});}
+    group(S.grid?((S.labels&&S.labels.rows)||'Rows'):'Projects on this site',`<ul>${secs.map((x,si)=>x.proj?`<li><button data-go="${si},0"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span></button></li>`:'').join('')}</ul>`,{open:true,key:S.grid?'rows':'slides'});}
 function leftProject(si,i){const x=secs[si],p=x.proj,c=concept(p);dL.dataset.ctx='project:'+(p.id||x.pi);
   const sl=x.SL[i]||{};
   if(sl.type==='article'){dL.dataset.ctx='news:'+(i);
@@ -228,23 +237,47 @@ function leftProject(si,i){const x=secs[si],p=x.proj,c=concept(p);dL.dataset.ctx
       group('All entries',slidesList(si),{open:true,key:'slides',n:x.slides.length});}
   const expl=p.info||c.lede||'';const art=p.artist||ARTIST;const sets=(p.settings||[]).filter(k=>PSET[k]);
   const gt=p.get?(p.get.href?`<a class="p-get" href="${esc(p.get.href)}">${esc(p.get.label||'Get')}<small>${esc(p.get.price||'')}</small></a>`:`<span class="p-get off" aria-disabled="true">${esc(p.get.label||'Get')}<small>${esc(p.get.price||'placeholder')}</small></span>`):'';
-  return head(p.title)+`<div class="p-kick">${esc((S.labels&&S.labels.project||'Project')+' '+pad2(x.pi+1))}</div>`+(expl?`<p class="p-line p-expl">${esc(expl)}</p>`:'')+gt+
+  const page=tt(sl.title)||LABEL[sl.type]||'';const kick=((S.labels&&S.labels.project||'Project')+' '+pad2(x.pi+1))+(S.grid&&page?' · '+page:'');
+  const onHelp=/^help$/i.test(sl.title||'')||sl.kind==='help';const help=helpBody(p);
+  const slideLabel=(S.labels&&S.labels.slides)||'Slides';const rowsLabel=(S.labels&&S.labels.rows)||'Rows';
+  return head(p.title)+`<div class="p-kick">${esc(kick)}</div>`+(expl?`<p class="p-line p-expl">${esc(expl)}</p>`:'')+gt+
     facts(p.facts||c.meta||[])+
     (art?group('Artist',artistBlock(art),{open:true,key:'artist'}):'')+
     (p.links&&p.links.length?group('Links',linkList(p.links),{open:true,key:'links',n:p.links.length}):'')+
     (sets.length?group('Project settings',`<ul>${sets.map(k=>sw(`data-pset="${esc(p.id)}:${k}"`,PSET[k].label,pget(p.id,k))).join('')}</ul>`,{open:true,key:'psettings'}):'')+
-    group('Slides',slidesList(si),{open:true,key:'slides',n:x.slides.length});}
+    campaignGroup(false)+
+    (help?group((S.labels&&S.labels.help)||'Help',help,{open:onHelp,key:'help'}):'')+
+    (S.grid?group(rowsLabel,rowsList(),{open:true,key:'rows',n:S.projects.length}):'')+
+    group(slideLabel,slidesList(si),{open:true,key:'slides',n:x.slides.length});}
 let leftKey='';
-function renderLeft(si,i){const x=secs[si];const key=x&&x.proj?si+':'+(x.SL[i]&&x.SL[i].type==='article'?i:'p'):'site';
+function renderLeft(si,i){const x=secs[si];const sl=x&&x.SL&&x.SL[i];
+  const key=x&&x.proj?si+':'+( (S.grid||(sl&&sl.type==='article')) ? i : 'p' ):'site';
   if(key!==leftKey){leftKey=key;dL.innerHTML=x&&x.proj?leftProject(si,i):leftSite();dL.setAttribute('aria-label',x&&x.proj?'About '+x.proj.title:'About '+S.name);}}
 
 /* ---- RIGHT: site navigation (static) ---- */
 const CONTACT=SHARED.contact||[];
+const FILTER=S.filter||null;
+let activeFilter=null;
+const tagMatch=(p,tag)=>!tag||(p.tags||[]).includes(tag);
+function visibleProjectCount(){return secs.filter(x=>x.proj&&tagMatch(x.proj,activeFilter)).length;}
+function projectsListHTML(){return `<ul>${secs.map((x,si)=>x.proj&&tagMatch(x.proj,activeFilter)?`<li><button data-go="${si},0" data-proj="${si}"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span><small>${pad2(x.slides.length)}</small></button></li>`:'').join('')}</ul>`;}
+function filterHTML(){if(!FILTER)return '';
+  const opts=[['',FILTER.all||'All']].concat((FILTER.options||[]).map(t=>[t,t]));
+  const on=k=>(k===''&&!activeFilter)||(k!==''&&activeFilter===k);
+  return `<ul class="p-filters">${opts.map(([k,lab])=>`<li><button type="button" data-filter="${esc(k)}"${on(k)?' aria-current="true"':''}><span>${esc(lab)}</span></button></li>`).join('')}</ul>`;}
+function projectsGroupInner(){return filterHTML()+projectsListHTML();}
+function applyFilter(tag){activeFilter=tag||null;
+  secs.forEach(x=>{if(x.hero){x.el.classList.remove('is-filtered');return;}if(x.proj)x.el.classList.toggle('is-filtered',!tagMatch(x.proj,activeFilter));});
+  secs.forEach((x,i)=>{if(!x.interlude)return;const next=secs[i+1];x.el.classList.toggle('is-filtered',!(next&&next.proj&&tagMatch(next.proj,activeFilter)));});
+  const box=dR.querySelector('[data-grp="projects"] .p-items');if(box)box.innerHTML=projectsGroupInner();
+  const n=dR.querySelector('[data-grp="projects"] .p-tog small');if(n)n.textContent=pad2(visibleProjectCount());
+  const curX=secs[cur.s];if(curX&&curX.el.classList.contains('is-filtered')){const k=secs.findIndex(x=>!x.el.classList.contains('is-filtered')&&(x.hero||x.proj));if(k>=0)goTo(k,0);}
+  if(typeof markPanel==='function'&&cur.s>=0)markPanel(cur.s,cur.i);}
 const siteLinks=`<ul>${REG.filter(r=>r.href).map(r=>r.id===S.id?`<li><span class="cur" aria-current="page">${esc(r.name)}<small>here</small></span></li>`:`<li><a href="${esc(r.href)}">${esc(r.name)}<small>${esc(r.id==='hub'?'hub':r.role)}</small></a></li>`).join('')}
   ${REG.filter(r=>!r.href).map(r=>`<li><span class="off">${esc(r.name)}<small>planned</small></span></li>`).join('')}</ul>`;
 dR.innerHTML=head(S.name)+
-  group('Projects',`<ul>${secs.map((x,si)=>x.proj?`<li><button data-go="${si},0" data-proj="${si}"><b>${pad2(x.pi+1)}</b><span>${esc(x.proj.title)}</span><small>${pad2(x.slides.length)}</small></button></li>`:'').join('')}</ul>`,{open:true,key:'projects',n:S.projects.length})+
-  `<ul class="p-top">${isHub?`<li><button data-go="0,0" class="p-hub">Pointlab hub · top</button></li>`:`<li><a href="${esc(hub?hub.href:'index.html')}" class="p-hub">← Pointlab hub</a></li>`}
+  group('Projects',projectsGroupInner(),{open:true,key:'projects',n:S.projects.length})+
+  `<ul class="p-top">${CAMP&&CAMP.kickstarter?`<li><a href="${esc(CAMP.kickstarter.href||'#')}" class="p-ks">${esc(CAMP.kickstarter.label||'Coming to Kickstarter')}</a></li>`:''}${isHub?`<li><button data-go="0,0" class="p-hub">Pointlab hub · top</button></li>`:`<li><a href="${esc(hub?hub.href:'index.html')}" class="p-hub">← Pointlab hub</a></li>`}
     <li>${isHub&&newsSi>=0?`<button data-go="${newsSi},0" class="p-news">News</button>`:`<a href="${esc(hub?hub.href:'index.html')}#proj=news" class="p-news">News</a>`}</li></ul>`+
   group('Sites',siteLinks,{key:'sites',n:REG.length})+
   group('About',`${S.identity.line?`<p class="p-p">${esc(S.identity.line)}</p>`:''}${(S.identity.blocks||[]).map(b=>`<p class="p-p">${esc(b.p)}</p>`).join('')}`,{key:'about'})+
@@ -258,6 +291,7 @@ dR.addEventListener('click',e=>{const b=e.target.closest('.p-sw[data-pref]');if(
   if(t.dataset.tool==='copy'){const m=t.querySelector('.t-msg');const done=x=>{m.textContent=x;setTimeout(()=>m.textContent='',1600);};
     try{navigator.clipboard.writeText(location.href).then(()=>done('copied'),()=>done(location.hash||'#'));}catch(_){done(location.hash||'#');}}
   if(t.dataset.tool==='fs'){doc.fullscreenElement?doc.exitFullscreen():root.requestFullscreen().catch(()=>{});}});
+dR.addEventListener('click',e=>{const f=e.target.closest('[data-filter]');if(!f)return;applyFilter(f.getAttribute('data-filter')||null);});
 dL.addEventListener('click',e=>{const b=e.target.closest('.p-sw[data-pset]');if(!b)return;const on=b.getAttribute('aria-checked')!=='true';b.setAttribute('aria-checked',on);
   const [pid,k]=b.dataset.pset.split(':');PREF.set('p.'+pid+'.'+k,on?'on':'off');applyProjSettings();if(k==='autoplay')syncVideos();});
 applyProjSettings();
@@ -272,19 +306,23 @@ function toggleGroup(btn,force){const on=force!=null?force:btn.getAttribute('ari
 function markPanel(si,i){renderLeft(si,i);
   dL.querySelectorAll('.p-slides [data-go]').forEach(b=>{const [a,c]=b.dataset.go.split(',').map(Number);
     if(a===si&&c===i)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
+  dL.querySelectorAll('[data-grp="rows"] [data-go]').forEach(b=>{const [a]=b.dataset.go.split(',').map(Number);
+    if(a===si)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
   dR.querySelectorAll('[data-proj]').forEach(b=>{if(+b.dataset.proj===si)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});}
 
 /* ---------- 6. navigation ---------- */
 let cur={s:-1,i:-1},playing=false,drawer=null;
 const H=()=>stage.clientHeight;
-const secIndex=()=>Math.max(0,Math.min(secs.length-1,Math.round(stage.scrollTop/H())));
+const secIndex=()=>{const y=stage.scrollTop;let best=0,bd=1e9;
+  for(let i=0;i<secs.length;i++){if(!secs[i].el.offsetHeight)continue;const d=Math.abs(secs[i].el.offsetTop-y);if(d<bd){bd=d;best=i;}}
+  return best;};
 const slideIndex=sec=>sec.scroller?Math.round(sec.scroller.scrollLeft/(sec.scroller.clientWidth||1)):0;
 function goSection(i,smooth=true){i=Math.max(0,Math.min(secs.length-1,i));stage.scrollTo({top:secs[i].el.offsetTop,behavior:smooth&&!reduced?'smooth':'auto'});}
 function goSlide(sec,i,smooth=true){if(!sec.scroller)return;i=Math.max(0,Math.min(sec.slides.length-1,i));
   sec.scroller.scrollTo({left:i*sec.scroller.clientWidth,behavior:smooth&&!reduced?'smooth':'auto'});}
-function goTo(si,i){const sec=secs[si];if(!sec)return;const far=si!==secIndex();goSlide(sec,i,!far);goSection(si);}
+function goTo(si,i){const sec=secs[si];if(!sec)return;const far=si!==secIndex();goSlide(sec,i,false);goSection(si,!far);}
 function stepSlide(d){goSlide(secs[secIndex()],slideIndex(secs[secIndex()])+d);}
-function stepSection(d){goSection(secIndex()+d);}
+function stepSection(d){let i=secIndex()+d;while(i>=0&&i<secs.length&&!secs[i].el.offsetHeight)i+=d;if(i>=0&&i<secs.length)goSection(i);}
 
 function settle(){const si=secIndex(),sec=secs[si],i=slideIndex(sec);
   if(si===cur.s&&i===cur.i)return;
@@ -431,7 +469,7 @@ addEventListener('message',e=>{const d=e.data||{};
   if(d.type==='pl-ready'&&e.source)e.source.postMessage({type:'pl-theme',accent:TH.accent},'*');});
 
 /* ---------- 10. optional components (site config: components:{edgeTicker:{...}}; omit the key = not loaded) ---------- */
-const COMP={edgeTicker:{src:'components/edge-ticker.js?v=2.4',ready:()=>window.PLEdgeTicker,
+const COMP={edgeTicker:{src:'components/edge-ticker.js?v=2.5',ready:()=>window.PLEdgeTicker,
   mount:o=>window.PLEdgeTicker.mountEdgeTicker(body,Object.assign({zIndex:45},o,motionOff?{static:true}:{}))}};   /* Animations off = still ticker */
 const mounted={};
 Object.entries(S.components||{}).forEach(([name,opt])=>{const c=COMP[name];if(!c||!opt)return;
@@ -443,7 +481,7 @@ window.PL_COMPONENTS=mounted;
 ['symL','symR','drawerL','drawerR'].forEach(id=>{if(!doc.getElementById(id))throw new Error('Pointlab engine: missing '+id+' — every site must ship both side panels');});
 
 /* ---------- 11. start (deep link #p=section&s=slide) ---------- */
-window.PL={grades:Object.keys(GRADES),grade:GR&&GRADES[GR.name]?GR.name:null,goTo,goProject:(pi,i=0)=>{const k=secs.findIndex(x=>x.pi===pi);if(k>=0)goTo(k,i);},sections:()=>secs.map(x=>x.hero?'hero':x.interlude?'interlude':'project:'+(x.proj.id||x.pi)),goSection,goSlide,openDrawer,closeDrawer,state:()=>({section:cur.s,slide:cur.i,playing,drawer,uiHidden:body.classList.contains('ui-hidden')})};
+window.PL={grades:Object.keys(GRADES),grade:GR&&GRADES[GR.name]?GR.name:null,goTo,goProject:(pi,i=0)=>{const k=secs.findIndex(x=>x.pi===pi);if(k>=0)goTo(k,i);},sections:()=>secs.map(x=>x.hero?'hero':x.interlude?'interlude':'project:'+(x.proj.id||x.pi)),goSection,goSlide,openDrawer,closeDrawer,filter:()=>activeFilter,setFilter:applyFilter,state:()=>({section:cur.s,slide:cur.i,playing,drawer,uiHidden:body.classList.contains('ui-hidden'),filter:activeFilter})};
 const hp=new URLSearchParams(location.hash.slice(1));let p0=+hp.get('p')||0,s0=+hp.get('s')||0;
 if(hp.get('proj')){const k=secs.findIndex(x=>x.proj&&x.proj.id===hp.get('proj'));if(k>=0){p0=k;s0=0;}}
 body.dataset.playExit=UI.playExit;

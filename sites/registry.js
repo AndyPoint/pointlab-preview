@@ -6,7 +6,11 @@ window.PL_REGISTRY=[
   {id:'assets',   name:'Asset Store',                  role:'Digital assets',                   href:'asset-store.html',            thumb:'media/code-tool-3d.jpg'},
   {id:'generative',name:'Generative Design',           role:'Generative · algorithmic works',   href:'generative-design.html',      thumb:'media/art-cross-symmetry.jpg'},
   {id:'codelab',  name:'Codelab',                      role:'Code projects',                    href:'codelab.html',                thumb:'media/code-tool-radial.jpg'},
+  {id:'system8',  name:'System 8',                      role:'Kickstarter · Codelab tools',      href:'system8.html',                thumb:'media/toy-controls.jpg'},
   {id:'fashion',  name:'Atelier',                      role:'Fashion brand',                    href:'fashion.html',                thumb:'media/fashion-white-line.jpg'},
+  {id:'nature',   name:'We Are The Nature',            role:'Photography · nature film',        href:'we-are-the-nature.html',      thumb:'media/art-ice.jpg'},
+  {id:'stage',    name:'Stage / Scenography',          role:'Stage design · scenography',       href:'stage.html',                  thumb:'media/art-blue-room.jpg'},
+  {id:'works',    name:'Works',                        role:'Client work · design studio',      href:'works.html',                  thumb:'media/fashion-gallery.jpg'},
   {id:'artists',  name:'Artist personalities',         role:'Artists',                          href:null,                          thumb:'media/art-blue-room.jpg'},
   {id:'studio',   name:'Studio',                       role:'Interior / furniture design',      href:null,                          thumb:'media/studio-sofa.jpg'},
   {id:'art',      name:'Art',                          role:'Art',                              href:null,                          thumb:'media/art-red-figure.jpg'}
