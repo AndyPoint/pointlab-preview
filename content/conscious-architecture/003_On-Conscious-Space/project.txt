@@ -1,0 +1,27 @@
+Name: On Conscious Space
+Year: 2026 (placeholder)
+Type: Essay · theory
+Length: 3 parts
+Link: Full essay
+
+Placeholder text. The theory text of the practice, in three short parts.
+
+# 01 Attention
+Kicker: Part 1
+Layout: text
+
+Placeholder text. What a room asks of the person inside it.
+
+Placeholder text. Consciousness as something a plan can support or disturb.
+
+# 02 Presence
+Kicker: Part 2
+Layout: text
+
+Placeholder text. Proportion, slowness and the single view.
+
+# 03 Practice
+Kicker: Part 3
+Layout: text
+
+Placeholder text. How the company works: listening, drawing, building.

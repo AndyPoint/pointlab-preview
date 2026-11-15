@@ -1,0 +1,5 @@
+Name: Studio
+Role: Interior / furniture design
+Status: planned
+
+Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list.

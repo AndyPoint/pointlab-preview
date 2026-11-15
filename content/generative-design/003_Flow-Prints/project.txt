@@ -1,0 +1,21 @@
+Name: Flow Prints
+Year: 2025 (placeholder)
+Type: Generative stills + video
+Tech: Canvas 2D
+Settings: autoplay
+Layout: full
+Link: Rendered loop -> 03.mp4
+
+Placeholder text. Particle-flow drawings captured as stills and a rendered loop.
+
+# 01 Flow
+
+Placeholder caption.
+
+# 02 Attractors
+
+Placeholder caption.
+
+# 03 Loop
+
+Placeholder caption.

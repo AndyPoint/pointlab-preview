@@ -1,0 +1,34 @@
+Name: News
+Accent: #D8261C
+Kind: news
+
+News and blog entries from all Pointlab sites (placeholder text).
+
+# 01 November gallery: Symmetry studies
+Date: 10.11.2026
+Lede: Placeholder text. Three works, shown for one month.
+Alt: Blue symmetry study
+
+Placeholder text — replace with the real article. This paragraph introduces the November gallery and why the Symmetry studies were chosen for it.
+
+Placeholder text. A second paragraph on the method: how each form is generated, mirrored and coloured, and how the three works relate.
+
+Placeholder text. A closing paragraph with dates, where to see the works and a link to the gallery suite.
+
+# 02 Studio: furniture series
+Date: 02.11.2026
+Lede: Placeholder text. Sofa and table designs from the studio.
+Alt: Sofa and table, studio photograph
+
+Placeholder text — replace with the real article. A short introduction to the studio’s sofa and table series.
+
+Placeholder text. Materials, dimensions and production notes go here.
+
+# 03 Codelab: Field Toy is live
+Date: 20.10.2026
+Lede: Placeholder text. A playable web app inside the site.
+Alt: Field Toy, orbit law
+
+Placeholder text — replace with the real article. Field Toy is the first live web app on Codelab; this paragraph says what it does.
+
+Placeholder text. How to play it: open Codelab, go to Field Toy and press ▶ on the live-app slide.

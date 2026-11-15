@@ -1,0 +1,13 @@
+Name: Conscious Architecture Company
+Role: Architecture · practice + theory
+Page title: Conscious Architecture Company — Pointlab (mockup)
+Wordmark: CONSCIOUS [ARCHITECTURE]
+Intro: Placeholder: an architecture practice and a body of theory on consciousness, presence and spatial design.
+Artist: Andy Point
+Artist role: Architect · Conscious Architecture Company
+Artist bio: Placeholder bio. Two or three lines about the practice, its method and the way the work is made.
+Label full: Drawing
+Label shot: Drawing
+Thumbnail: 001_Presence-Pavilion/03.svg
+
+Placeholder identity text. Buildings and rooms designed for attention: light, threshold, material, silence.

@@ -1,0 +1,14 @@
+Name: Asset Store
+Role: Digital assets
+Page title: Asset Store — Pointlab (mockup)
+Wordmark: ASSET[STORE]
+Intro: Placeholder: digital assets from the Pointlab studio — 3D models, textures, video loops and tools.
+Artist: Andy Point
+Artist role: Maker · Asset Store
+Artist bio: Placeholder bio. Two or three lines about who makes the assets and how they are made.
+Label project: Asset
+Label shot: Preview
+Label video: Loop preview
+Thumbnail: 003_Field-Tools/03.jpg
+
+Placeholder text. Licence terms, formats and support will be described here.

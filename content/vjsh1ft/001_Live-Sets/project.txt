@@ -1,0 +1,30 @@
+Name: Live Sets
+Year: 2026 (placeholder)
+Type: Live visuals
+Software: Resolume-style rig (placeholder)
+Output: 1080p / LED
+Settings: autoplay
+Layout: full
+Link: Set recording -> 01.mp4
+Link: Booking (placeholder)
+
+Placeholder text. Recordings of live sets: each clip is one layer stack, played by hand.
+
+# 01 Glitch layer
+
+Placeholder caption. Feedback layer, hand-played.
+
+# 02 Circuit
+
+Placeholder caption. Generative circuit source.
+
+# 03 Sea
+
+Placeholder caption. Slow water loop under the beat.
+
+# 04 Deck
+
+Placeholder caption. The Sh1ft deck screen.
+
+# 05 Clips
+Layout: notes

@@ -1,0 +1,36 @@
+Name: Symmetry Engine
+Year: 2026 (placeholder)
+Tech: JavaScript · Canvas 2D
+Type: Live generative canvas
+Input: Touch / mouse / keys
+Settings: whole
+Layout: framed
+Link: Open the live canvas -> apps/gen-canvas.html
+Link: Source repository
+
+Placeholder text. A live generative canvas: press ▶ to draw with n-fold symmetry. The app keeps its own mini menu (≡ Gen, Folds). Press ▶, swipe in from the left edge or ← to return.
+
+# 01 Symmetry | engine
+Layout: concept
+Folds: 4 – 12
+Medium: Live canvas
+
+Placeholder concept text. One gesture, repeated around a centre: the system turns a line into a figure.
+
+# 02 Cross
+
+Placeholder caption. A four-fold output.
+
+# 03 Draw it
+App: apps/gen-canvas.html
+
+# 04 Blue axis
+
+Placeholder caption.
+
+# 05 Red / blue
+
+Placeholder caption.
+
+# 06 Outputs
+Layout: notes

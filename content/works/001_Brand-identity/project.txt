@@ -1,0 +1,24 @@
+Name: Brand identity
+Year: 2026 (placeholder)
+Discipline: Brand identity
+Client: Placeholder
+Deliverables: Wordmark, system (placeholder)
+Tags: brand identity
+Settings: whole
+Layout: full
+Link: Case study (placeholder)
+
+Placeholder text. A client brand-identity project: wordmark, applications and a typographic system. Swap this stand-in for the real work.
+
+# 01 Wordmark
+
+Placeholder caption. The wordmark on a wall.
+
+# 02 Application
+Layout: framed fill
+
+Placeholder caption. The mark applied to a surface.
+
+# 03 System
+
+Placeholder caption. A later application of the same system.

@@ -1,0 +1,24 @@
+Name: Loop Bank
+Year: 2025 (placeholder)
+Type: Loop library
+Format: MP4 / H.264
+Settings: autoplay
+Layout: full
+Link: Loop preview -> 01.mp4
+
+Placeholder text. Loops built for the sets, rendered from Pointlab code instruments.
+
+# 01 Flow output
+
+Placeholder caption.
+
+# 02 Session
+
+Placeholder caption.
+
+# 03 Red plant
+
+Placeholder caption. A still used as a source layer.
+
+# 04 Clips
+Layout: notes

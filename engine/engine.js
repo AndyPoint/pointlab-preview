@@ -1,4 +1,7 @@
-/* POINTLAB ENGINE v2.5 — three new sites (We Are The Nature, Stage / Scenography, Works) + shared project registry and Works tag filter.
+/* POINTLAB ENGINE v2.6 — folder-driven content: texts, projects and media come from content/ via content/manifest.js
+   (engine/boot.js merges them into window.PL_SITE before this file runs; tools/build-content.mjs builds the manifest).
+   Video slides take an optional poster (02.jpg next to 02.mp4, or 02-poster.jpg).
+   v2.5 — three new sites (We Are The Nature, Stage / Scenography, Works) + shared project registry and Works tag filter.
    v2.3.1 — heat grade removed, Codelab white-on-black; per-site image grade (anttipiste GRADES), product 'get' row, 7 sites.
    v2.2: LEFT ≡ = the current project (context), RIGHT ||| = site navigation; embedded apps keep their OWN menus.
    Based on v2.1 — one shared engine for every subsite, rebuilt on the anttipiste index
@@ -108,7 +111,7 @@ const LABEL=Object.assign({concept:'Concept',tutorial:'Tutorial',text:'Text',not
   newslist:'All entries',article:'Article',links:'Sites',full:'Work'},S.labels||{});
 const paras=b=>(Array.isArray(b)?b:String(b||'').split(/\n\n+/)).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join('');
 function media(sl,wrap){
-  if(sl.video){const v=el('video','',wrap);v.src=sl.video;v.muted=true;v.loop=true;v.playsInline=true;v.preload='none';v.setAttribute('aria-label',sl.alt||sl.title||'video');v.dataset.autoplay='1';return;}
+  if(sl.video){const v=el('video','',wrap);v.src=sl.video;v.muted=true;v.loop=true;v.playsInline=true;v.preload='none';if(sl.poster)v.poster=sl.poster;v.setAttribute('aria-label',sl.alt||sl.title||'video');v.dataset.autoplay='1';return;}
   if(sl.img){const i=el('img','',wrap);i.src=sl.img;i.alt=sl.alt||sl.title||'';i.loading='lazy';i.decoding='async';return;}
   mountGen(el('canvas','',wrap),sl.gen||'plate',sl.genOpt||{seed:sl.seed});
 }
@@ -469,7 +472,7 @@ addEventListener('message',e=>{const d=e.data||{};
   if(d.type==='pl-ready'&&e.source)e.source.postMessage({type:'pl-theme',accent:TH.accent},'*');});
 
 /* ---------- 10. optional components (site config: components:{edgeTicker:{...}}; omit the key = not loaded) ---------- */
-const COMP={edgeTicker:{src:'components/edge-ticker.js?v=2.5',ready:()=>window.PLEdgeTicker,
+const COMP={edgeTicker:{src:'components/edge-ticker.js?v=2.6',ready:()=>window.PLEdgeTicker,
   mount:o=>window.PLEdgeTicker.mountEdgeTicker(body,Object.assign({zIndex:45},o,motionOff?{static:true}:{}))}};   /* Animations off = still ticker */
 const mounted={};
 Object.entries(S.components||{}).forEach(([name,opt])=>{const c=COMP[name];if(!c||!opt)return;

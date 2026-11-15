@@ -1,0 +1,24 @@
+Name: Field Tools
+Type: Tools · web
+Format: HTML / JS
+Includes: 3 tools (placeholder)
+Licence: Placeholder
+Settings: whole
+Price: € — (placeholder)
+Layout: framed
+Link: Documentation
+Link: Changelog
+
+Placeholder text. A set of browser tools for generating symmetric fields and 3D volumes.
+
+# 01 Panel
+
+Placeholder caption.
+
+# 02 Ring mode
+
+Placeholder caption.
+
+# 03 3D volume
+
+Placeholder caption.

@@ -1,0 +1,14 @@
+Name: Works
+Role: Client work · design studio
+Page title: Works — Pointlab (mockup)
+Wordmark: WORKS
+Intro: Placeholder: client work in brand identity, graphic design, typography, illustration, photography and commercial film.
+Artist: Andy Point
+Artist role: Designer · Works
+Artist bio: Placeholder bio. Two or three lines about the commercial design practice: brand, graphic design, typography, illustration, photography and film.
+Include tags: brand identity, graphic design, typography, illustration, photography, commercial film
+Tag filter: Discipline
+Tag filter all: All disciplines
+Thumbnail: 001_Brand-identity/02.jpg
+
+Placeholder text. A project appears here when it carries one of the discipline tags. Filter by tag from the Projects group in the right panel.

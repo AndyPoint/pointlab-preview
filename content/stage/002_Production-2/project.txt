@@ -1,0 +1,29 @@
+Name: Production 2
+Year: 2025 (placeholder)
+Type: Stage design · scenography
+Venue: Placeholder
+Role: Set and space (placeholder)
+Tags: stage design
+Settings: autoplay
+Layout: full
+Link: Production video -> 03.mp4
+Link: Credits (placeholder)
+
+Placeholder text. A second stage / scenography production. Photographs, a model or render, and a production video. Swap this stand-in for the real production.
+
+# 01 Stage photograph
+
+Placeholder caption. The set as built.
+
+# 02 Model / render
+Layout: framed
+
+Placeholder caption. The model or render.
+
+# 03 Production video
+
+Placeholder caption. A short from the production.
+
+# 04 Detail
+
+Placeholder caption. A detail of the set.

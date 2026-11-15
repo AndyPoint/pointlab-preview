@@ -1,0 +1,61 @@
+Name: Text collection
+Settings: whole
+Layout: full
+Link: Lookbook
+
+Placeholder text. Slogans written by hand on cloth, walls and bodies.
+
+# 01 Words | worn
+Layout: concept
+Season: AW
+Looks: 12
+Medium: Print, hand lettering
+
+Placeholder concept text. A collection where slogans are written by hand on cloth, walls and bodies.
+
+# 02 The wall
+Kicker: Origin
+
+Placeholder: the text first appears on a gallery wall.
+
+# 03 Writing
+Kicker: Process
+
+Placeholder: lettering transferred from wall to fabric.
+
+# 04 Knit
+Kicker: Detail
+Layout: framed fill
+
+Placeholder: hand-lettered knit, grey on grey.
+
+# 05 Suits
+Kicker: Detail
+Layout: framed fill
+
+Placeholder: full-body text print on tailoring.
+
+# 06 Moss coat
+Kicker: Detail
+Layout: framed fill
+
+Placeholder: moss-dyed coat with scattered lettering.
+
+# 07 Back
+Kicker: Detail
+Layout: framed fill
+
+Placeholder: the back panel carries the longest line.
+
+# 08 Line-up
+Kicker: Line-up
+
+Placeholder caption.
+
+# 09 Finale
+Kicker: Runway
+
+Placeholder caption.
+
+# 10 Looks
+Layout: notes

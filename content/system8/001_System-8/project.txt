@@ -1,0 +1,18 @@
+Name: System 8
+Type: Concept · promo
+Set: System 8
+Campaign: Coming soon
+Launch: Date (placeholder)
+Settings: autoplay
+Layout: full
+Link: Promo video (placeholder) -> 01.mp4
+
+Placeholder text. The overall System 8 concept: a set of Codelab tools, each a row in this grid. The main explanation lives here in the left panel; the promo video fills the screen. Swap this stand-in for the real campaign film and copy.
+
+# 01 Promo
+
+Placeholder caption. A promo video for System 8.
+
+# 02 Still
+
+Placeholder caption. A still from the promo.

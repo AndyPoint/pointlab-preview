@@ -1,0 +1,28 @@
+Name: Threshold Rooms
+Year: 2025 (placeholder)
+Type: Spatial research
+Status: Ongoing
+Settings: whole
+Layout: full
+Link: Research notes
+
+Placeholder text. A series of studies on the moment of crossing from outside to inside.
+
+# 01 Thresholds
+Kicker: Theory
+Layout: text
+
+Placeholder text. A short paragraph on the threshold as the place where attention changes.
+
+Placeholder text. A second paragraph on light, sound and material at the edge of a room.
+
+# 02 Threshold plan
+
+Placeholder drawing. The rooms in plan; red marks the measured crossing.
+
+# 03 Relations
+
+Placeholder drawing. Rooms as a network; red nodes are thresholds.
+
+# 04 Notes
+Layout: notes

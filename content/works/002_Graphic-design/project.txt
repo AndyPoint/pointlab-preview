@@ -1,0 +1,23 @@
+Name: Graphic design
+Year: 2025 (placeholder)
+Discipline: Graphic design
+Client: Placeholder
+Deliverables: Print, application (placeholder)
+Tags: graphic design
+Settings: whole
+Layout: framed fill
+Link: Case study (placeholder)
+
+Placeholder text. A client graphic-design project: printed and worn applications of a typographic idea. Swap this stand-in for the real work.
+
+# 01 Print
+
+Placeholder caption. A printed application.
+
+# 02 Knit
+
+Placeholder caption. The graphic on cloth.
+
+# 03 Panel
+
+Placeholder caption. A back-panel application.

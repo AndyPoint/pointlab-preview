@@ -1,7 +1,22 @@
-# Pointlab engine — functional mockup v2.5 (private, not for publication)
+# Pointlab engine — functional mockup v2.6
+
+v2.6 (Andy: "update images/files in folders, then copy them to my homepage + GitHub", no AI needed):
+- ALL texts, projects, pictures and videos now live in `content/` — one folder per site, one numbered folder per
+  project (`001_Name/`), numbered media files (`01.jpg`, `02.mp4` …) and a plain-text `project.txt` / `site.txt`.
+  How to edit: **content/HOW-TO-UPDATE.md**.
+- `tools/build-content.mjs` (plain Node, nothing to install) scans `content/` and writes `content/manifest.js` (+ .json).
+  Media URLs carry a content-hash `?v=` so a replaced file refreshes in browsers.
+- `.github/workflows/build-content.yml` runs it on every push to main, commits the manifest back ([skip ci]) and
+  publishes GitHub Pages (Pages source = GitHub Actions).
+- `sites/<page>.js` now holds DESIGN ONLY (theme, fonts, hero drawing, grade, interludes, text-animation mode).
+  `engine/boot.js` loads the manifest, merges it into the site config and starts the engine. The old
+  `sites/projects.js` registry is replaced by Tags in project.txt (Works: `Include tags:` in content/works/site.txt).
+- The old `media/` folder is gone; every stand-in was moved into its project folder (no new media).
+- Engine: video posters (`02.jpg` next to `02.mp4`, or `02-poster.jpg`). Cache-busting ?v=2.6.
+
 
 v2 = anttipiste index as the design + code base, JUST SITTING side panels, tech and interface first.
-Media are stand-ins; see media/MEDIA.md for every slot and how to swap it.
+Media are stand-ins, now inside content/ (see content/HOW-TO-UPDATE.md).
 
 v2.1 rules (Andy):
 - NO information over projects: over project content only the bare ≡ / ||| symbols and ▶ on live-app slides. Titles, numbers, facts and captions live in the left panel and in text slides (concept, tutorial, text, notes, news articles).

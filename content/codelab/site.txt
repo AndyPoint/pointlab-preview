@@ -1,0 +1,19 @@
+Name: Codelab
+Role: Code projects
+Page title: Codelab — Pointlab (mockup)
+Wordmark: CODE[LAB]
+Intro: Code projects. Each project is a playable web app with its own tutorial.
+Artist: Andy Point
+Artist role: Code · Pointlab Instruments
+Artist bio: Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.
+Top line: Code projects / live web apps
+Top line: Field Toy / play it in the page
+Top line: Radial Sequencer / screens
+Top line: Mirror Field / screens
+Edge top: Codelab, Code projects, Live web apps
+Edge right: Field Toy, Radial Sequencer, Mirror Field
+Edge bottom: Pointlab, Codelab, Play it in the page
+Edge left: Orbit, Flow, Repel
+Thumbnail: 002_Radial-Sequencer/01.jpg
+
+Swipe or ←→ through a project. ▶ appears when a slide holds a live app.

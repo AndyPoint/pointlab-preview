@@ -1,0 +1,12 @@
+Name: Atelier
+Role: Fashion brand
+Page title: Atelier — Pointlab (mockup)
+Wordmark: ATELIER
+Intro: Fashion. Collections told as sequences: idea, making, details, runway.
+Artist: Andy Point
+Artist role: Designer · Atelier
+Artist bio: Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.
+Label full: Look
+Thumbnail: 001_Text-collection/09.jpg
+
+Placeholder identity text for the fashion brand.

@@ -1,0 +1,2686 @@
+{
+ "format": "pointlab-content/1",
+ "shared": {
+  "toolsLabel": "Tools",
+  "contact": [
+   {
+    "label": "Email (placeholder)",
+    "value": "hello@pointlab.example",
+    "href": "mailto:hello@pointlab.example"
+   },
+   {
+    "label": "Instagram (placeholder)",
+    "value": "@pointlab",
+    "href": null
+   },
+   {
+    "label": "Studio (placeholder)",
+    "value": "Helsinki",
+    "href": null
+   }
+  ]
+ },
+ "sites": {
+  "art": {
+   "folder": "art",
+   "name": "Art",
+   "role": "Art",
+   "status": "planned",
+   "identity": {
+    "line": "",
+    "blocks": [
+     {
+      "p": "Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list."
+     }
+    ]
+   },
+   "thumb": "content/art/thumb.jpg?v=4d1fe64c80",
+   "projects": []
+  },
+  "artist-personalities": {
+   "folder": "artist-personalities",
+   "name": "Artist personalities",
+   "role": "Artists",
+   "status": "planned",
+   "identity": {
+    "line": "",
+    "blocks": [
+     {
+      "p": "Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list."
+     }
+    ]
+   },
+   "thumb": "content/artist-personalities/thumb.jpg?v=df2ff9583f",
+   "projects": []
+  },
+  "asset-store": {
+   "folder": "asset-store",
+   "name": "Asset Store",
+   "role": "Digital assets",
+   "title": "Asset Store — Pointlab (mockup)",
+   "logo": {
+    "text": "ASSETSTORE",
+    "html": "ASSET<span>STORE</span>"
+   },
+   "identity": {
+    "line": "Placeholder: digital assets from the Pointlab studio — 3D models, textures, video loops and tools.",
+    "blocks": [
+     {
+      "p": "Placeholder text. Licence terms, formats and support will be described here."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Maker · Asset Store",
+    "bio": "Placeholder bio. Two or three lines about who makes the assets and how they are made.",
+    "portrait": null
+   },
+   "labels": {
+    "project": "Asset",
+    "shot": "Preview",
+    "video": "Loop preview"
+   },
+   "thumb": "content/asset-store/003_Field-Tools/03.jpg?v=49f816bdf8",
+   "projects": [
+    "asset-store/001_Orbit-Loop-Pack",
+    "asset-store/002_Pigment-Textures",
+    "asset-store/003_Field-Tools"
+   ]
+  },
+  "codelab": {
+   "folder": "codelab",
+   "name": "Codelab",
+   "role": "Code projects",
+   "title": "Codelab — Pointlab (mockup)",
+   "logo": {
+    "text": "CODELAB",
+    "html": "CODE<span>LAB</span>"
+   },
+   "identity": {
+    "line": "Code projects. Each project is a playable web app with its own tutorial.",
+    "blocks": [
+     {
+      "p": "Swipe or ←→ through a project. ▶ appears when a slide holds a live app."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Code · Pointlab Instruments",
+    "bio": "Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.",
+    "portrait": null
+   },
+   "hero": {
+    "image": "content/codelab/top.jpg?v=79f90bb3c5",
+    "subs": [
+     "Code projects / live web apps",
+     "Field Toy / play it in the page",
+     "Radial Sequencer / screens",
+     "Mirror Field / screens"
+    ]
+   },
+   "edgeTexts": {
+    "top": [
+     "Codelab",
+     "Code projects",
+     "Live web apps"
+    ],
+    "right": [
+     "Field Toy",
+     "Radial Sequencer",
+     "Mirror Field"
+    ],
+    "bottom": [
+     "Pointlab",
+     "Codelab",
+     "Play it in the page"
+    ],
+    "left": [
+     "Orbit",
+     "Flow",
+     "Repel"
+    ]
+   },
+   "thumb": "content/codelab/002_Radial-Sequencer/01.jpg?v=77fb033950",
+   "projects": [
+    "codelab/001_Field-Toy",
+    "codelab/002_Radial-Sequencer",
+    "codelab/003_Mirror-Field"
+   ]
+  },
+  "conscious-architecture": {
+   "folder": "conscious-architecture",
+   "name": "Conscious Architecture Company",
+   "role": "Architecture · practice + theory",
+   "title": "Conscious Architecture Company — Pointlab (mockup)",
+   "logo": {
+    "text": "CONSCIOUS ARCHITECTURE",
+    "html": "CONSCIOUS <span>ARCHITECTURE</span>"
+   },
+   "identity": {
+    "line": "Placeholder: an architecture practice and a body of theory on consciousness, presence and spatial design.",
+    "blocks": [
+     {
+      "p": "Placeholder identity text. Buildings and rooms designed for attention: light, threshold, material, silence."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Architect · Conscious Architecture Company",
+    "bio": "Placeholder bio. Two or three lines about the practice, its method and the way the work is made.",
+    "portrait": null
+   },
+   "labels": {
+    "full": "Drawing",
+    "shot": "Drawing"
+   },
+   "thumb": "content/conscious-architecture/001_Presence-Pavilion/03.svg?v=db561fb171",
+   "projects": [
+    "conscious-architecture/001_Presence-Pavilion",
+    "conscious-architecture/002_Threshold-Rooms",
+    "conscious-architecture/003_On-Conscious-Space"
+   ]
+  },
+  "fashion": {
+   "folder": "fashion",
+   "name": "Atelier",
+   "role": "Fashion brand",
+   "title": "Atelier — Pointlab (mockup)",
+   "logo": {
+    "text": "ATELIER",
+    "html": "ATELIER"
+   },
+   "identity": {
+    "line": "Fashion. Collections told as sequences: idea, making, details, runway.",
+    "blocks": [
+     {
+      "p": "Placeholder identity text for the fashion brand."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Designer · Atelier",
+    "bio": "Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.",
+    "portrait": null
+   },
+   "labels": {
+    "full": "Look"
+   },
+   "thumb": "content/fashion/001_Text-collection/09.jpg?v=1ea602c3b2",
+   "projects": [
+    "fashion/001_Text-collection",
+    "fashion/002_Procession"
+   ]
+  },
+  "generative-design": {
+   "folder": "generative-design",
+   "name": "Generative Design",
+   "role": "Generative · algorithmic works",
+   "title": "Generative Design — Pointlab (mockup)",
+   "logo": {
+    "text": "GENERATIVE DESIGN",
+    "html": "GENERATIVE <span>DESIGN</span>"
+   },
+   "identity": {
+    "line": "Placeholder: generative and algorithmic works — systems that draw, played live or printed.",
+    "blocks": [
+     {
+      "p": "Swipe or ←→ through a work. ▶ appears when a slide holds a live canvas."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Generative works · Pointlab",
+    "bio": "Placeholder bio. Two or three lines about the generative practice and its systems.",
+    "portrait": null
+   },
+   "thumb": "content/generative-design/001_Symmetry-Engine/02.jpg?v=d2ce3e50dc",
+   "projects": [
+    "generative-design/001_Symmetry-Engine",
+    "generative-design/002_Mirror-Studies",
+    "generative-design/003_Flow-Prints"
+   ]
+  },
+  "hub": {
+   "folder": "hub",
+   "name": "Pointlab",
+   "role": "Hub · gallery · news",
+   "title": "Pointlab — hub (mockup v2.2)",
+   "logo": {
+    "text": "POINTLAB",
+    "html": "POINT<span>LAB</span>"
+   },
+   "identity": {
+    "line": "Hub for the monthly gallery, news and the Pointlab sites.",
+    "blocks": [
+     {
+      "p": "Placeholder identity text. One short paragraph describing Pointlab goes here."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Artist · Pointlab",
+    "bio": "Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.",
+    "portrait": null
+   },
+   "thumb": "content/hub/001_Gallery/03.jpg?v=54f922ddd8",
+   "projects": [
+    "hub/001_Gallery",
+    "hub/002_News",
+    "hub/003_Sites"
+   ]
+  },
+  "stage": {
+   "folder": "stage",
+   "name": "Stage / Scenography",
+   "role": "Stage design · scenography",
+   "title": "Stage / Scenography — Pointlab (mockup)",
+   "logo": {
+    "text": "STAGE",
+    "html": "STAGE"
+   },
+   "identity": {
+    "line": "Placeholder: stage design and scenography — sets, models and production films.",
+    "blocks": [
+     {
+      "p": "Placeholder text. Productions shown as they were built, as models or renders, and as film from the performance."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Stage design · scenography",
+    "bio": "Placeholder bio. Two or three lines about the stage and scenography practice, the productions and the spaces.",
+    "portrait": null
+   },
+   "labels": {
+    "full": "Stage photograph",
+    "shot": "Model / render",
+    "video": "Production video",
+    "project": "Production"
+   },
+   "thumb": "content/stage/001_Production-1/01.jpg?v=df2ff9583f",
+   "projects": [
+    "stage/001_Production-1",
+    "stage/002_Production-2"
+   ]
+  },
+  "studio": {
+   "folder": "studio",
+   "name": "Studio",
+   "role": "Interior / furniture design",
+   "status": "planned",
+   "identity": {
+    "line": "",
+    "blocks": [
+     {
+      "p": "Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list."
+     }
+    ]
+   },
+   "thumb": "content/studio/thumb.jpg?v=3c4cfe8b3f",
+   "projects": []
+  },
+  "system8": {
+   "folder": "system8",
+   "name": "System 8",
+   "role": "Kickstarter · Codelab tools",
+   "title": "System 8 — Pointlab (mockup)",
+   "logo": {
+    "text": "SYSTEM 8",
+    "html": "SYSTEM 8"
+   },
+   "identity": {
+    "line": "Placeholder: System 8 is a set of Codelab tools. A Kickstarter campaign is coming soon.",
+    "blocks": [
+     {
+      "p": "Placeholder text. The campaign is not live yet. A launch date will be announced here."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Code · System 8",
+    "bio": "Placeholder bio. Two or three lines about System 8, the Codelab tools and the upcoming Kickstarter campaign.",
+    "portrait": null
+   },
+   "hero": {
+    "image": "content/system8/top.jpg?v=f4f15d87b6"
+   },
+   "campaign": {
+    "status": "Coming soon",
+    "launch": "Date (placeholder)",
+    "kickstarter": {
+     "label": "Coming to Kickstarter",
+     "href": "#"
+    }
+   },
+   "labels": {
+    "project": "Row",
+    "rows": "Rows",
+    "slides": "Pages",
+    "full": "Overview",
+    "shot": "Page",
+    "video": "Video",
+    "help": "Help"
+   },
+   "thumb": "content/system8/top.jpg?v=f4f15d87b6",
+   "projects": [
+    "system8/001_System-8",
+    "system8/002_App-1",
+    "system8/003_App-2",
+    "system8/004_App-3",
+    "system8/005_App-4"
+   ]
+  },
+  "vjsh1ft": {
+   "folder": "vjsh1ft",
+   "name": "VJSH1FT",
+   "role": "VJ · live visuals",
+   "title": "VJSH1FT — Pointlab (mockup)",
+   "logo": {
+    "text": "VJSH1FT",
+    "html": "VJSH<span>1</span>FT"
+   },
+   "identity": {
+    "line": "Placeholder: live visuals and VJ sets by Sh1ft. Layers, loops and feedback played in real time.",
+    "blocks": [
+     {
+      "p": "Placeholder text. Resolume-style layer stack, controllers, generative sources and recorded loops."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "VJ · Sh1ft",
+    "bio": "Placeholder bio. Two or three lines about the live visual practice, the rig and the clubs and stages.",
+    "portrait": null
+   },
+   "labels": {
+    "video": "Clip",
+    "full": "Screen"
+   },
+   "thumb": "content/vjsh1ft/001_Live-Sets/04.jpg?v=ca575ddd43",
+   "projects": [
+    "vjsh1ft/001_Live-Sets",
+    "vjsh1ft/002_Loop-Bank"
+   ]
+  },
+  "we-are-the-nature": {
+   "folder": "we-are-the-nature",
+   "name": "We Are The Nature",
+   "role": "Photography · nature film",
+   "title": "We Are The Nature — Pointlab (mockup)",
+   "logo": {
+    "text": "WE ARE\nTHE NATURE",
+    "html": "WE ARE\nTHE NATURE"
+   },
+   "identity": {
+    "line": "Placeholder: drone nature films and nature photography, where nature fills the screen.",
+    "blocks": [
+     {
+      "p": "Placeholder text. Commercial projects in which the land, water and weather take the frame. Two of them open this site."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Photography · film · We Are The Nature",
+    "bio": "Placeholder bio. Two or three lines about the We Are The Nature practice: films and photographs in which nature is given the hero space.",
+    "portrait": null
+   },
+   "labels": {
+    "full": "Still",
+    "video": "Film",
+    "project": "Project"
+   },
+   "thumb": "content/we-are-the-nature/001_Commercial-project-1/01.jpg?v=676bf3b5f6",
+   "projects": [
+    "we-are-the-nature/001_Commercial-project-1",
+    "we-are-the-nature/002_Commercial-project-2"
+   ]
+  },
+  "works": {
+   "folder": "works",
+   "name": "Works",
+   "role": "Client work · design studio",
+   "title": "Works — Pointlab (mockup)",
+   "logo": {
+    "text": "WORKS",
+    "html": "WORKS"
+   },
+   "identity": {
+    "line": "Placeholder: client work in brand identity, graphic design, typography, illustration, photography and commercial film.",
+    "blocks": [
+     {
+      "p": "Placeholder text. A project appears here when it carries one of the discipline tags. Filter by tag from the Projects group in the right panel."
+     }
+    ]
+   },
+   "artist": {
+    "name": "Andy Point",
+    "role": "Designer · Works",
+    "bio": "Placeholder bio. Two or three lines about the commercial design practice: brand, graphic design, typography, illustration, photography and film.",
+    "portrait": null
+   },
+   "includeTags": [
+    "brand identity",
+    "graphic design",
+    "typography",
+    "illustration",
+    "photography",
+    "commercial film"
+   ],
+   "filter": {
+    "key": "tags",
+    "label": "Discipline",
+    "all": "All disciplines"
+   },
+   "thumb": "content/works/001_Brand-identity/02.jpg?v=4fa839fbbb",
+   "projects": [
+    "works/001_Brand-identity",
+    "works/002_Graphic-design",
+    "works/003_Typography",
+    "works/004_Illustration"
+   ]
+  }
+ },
+ "projects": {
+  "asset-store/001_Orbit-Loop-Pack": {
+   "id": "orbit-loop-pack",
+   "key": "asset-store/001_Orbit-Loop-Pack",
+   "folder": "content/asset-store/001_Orbit-Loop-Pack",
+   "num": 1,
+   "title": "Orbit Loop Pack",
+   "settings": [
+    "autoplay",
+    "whole"
+   ],
+   "info": "Placeholder text. Ten seamless particle loops rendered from the Field Toy instrument.",
+   "facts": [
+    [
+     "Type",
+     "Video loops"
+    ],
+    [
+     "Format",
+     "MP4 · 1080p · 8 s"
+    ],
+    [
+     "Items",
+     "10 (placeholder)"
+    ],
+    [
+     "Licence",
+     "Placeholder"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Preview loop",
+     "kind": "video",
+     "href": "content/asset-store/001_Orbit-Loop-Pack/01.mp4?v=147a44f157"
+    },
+    {
+     "label": "Licence terms",
+     "kind": "placeholder"
+    }
+   ],
+   "get": {
+    "label": "Get",
+    "price": "€ — (placeholder)"
+   },
+   "slides": [
+    {
+     "title": "Loop preview",
+     "type": "video",
+     "video": "content/asset-store/001_Orbit-Loop-Pack/01.mp4?v=147a44f157",
+     "fit": "contain",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Orbit still",
+     "type": "shot",
+     "img": "content/asset-store/001_Orbit-Loop-Pack/02.jpg?v=79f90bb3c5",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Flow still",
+     "type": "shot",
+     "img": "content/asset-store/001_Orbit-Loop-Pack/03.jpg?v=176928fb95",
+     "text": "Placeholder caption."
+    }
+   ],
+   "cover": {
+    "img": "content/asset-store/001_Orbit-Loop-Pack/02.jpg?v=79f90bb3c5",
+    "subs": []
+   }
+  },
+  "asset-store/002_Pigment-Textures": {
+   "id": "pigment-textures",
+   "key": "asset-store/002_Pigment-Textures",
+   "folder": "content/asset-store/002_Pigment-Textures",
+   "num": 2,
+   "title": "Pigment Textures",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. High-resolution pigment and field textures for 3D and print.",
+   "facts": [
+    [
+     "Type",
+     "Textures"
+    ],
+    [
+     "Format",
+     "JPG · 4K (placeholder)"
+    ],
+    [
+     "Items",
+     "24 (placeholder)"
+    ],
+    [
+     "Licence",
+     "Placeholder"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Licence terms",
+     "kind": "placeholder"
+    }
+   ],
+   "get": {
+    "label": "Get",
+    "price": "€ — (placeholder)"
+   },
+   "slides": [
+    {
+     "title": "Violet field",
+     "type": "shot",
+     "img": "content/asset-store/002_Pigment-Textures/01.jpg?v=873b025f13",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Green orb",
+     "type": "shot",
+     "img": "content/asset-store/002_Pigment-Textures/02.jpg?v=5b122a2326",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Ice",
+     "type": "shot",
+     "img": "content/asset-store/002_Pigment-Textures/03.jpg?v=676bf3b5f6",
+     "text": "Placeholder caption."
+    }
+   ],
+   "cover": {
+    "img": "content/asset-store/002_Pigment-Textures/01.jpg?v=873b025f13",
+    "subs": []
+   }
+  },
+  "asset-store/003_Field-Tools": {
+   "id": "field-tools",
+   "key": "asset-store/003_Field-Tools",
+   "folder": "content/asset-store/003_Field-Tools",
+   "num": 3,
+   "title": "Field Tools",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A set of browser tools for generating symmetric fields and 3D volumes.",
+   "facts": [
+    [
+     "Type",
+     "Tools · web"
+    ],
+    [
+     "Format",
+     "HTML / JS"
+    ],
+    [
+     "Includes",
+     "3 tools (placeholder)"
+    ],
+    [
+     "Licence",
+     "Placeholder"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Documentation",
+     "kind": "placeholder"
+    },
+    {
+     "label": "Changelog",
+     "kind": "placeholder"
+    }
+   ],
+   "get": {
+    "label": "Get",
+    "price": "€ — (placeholder)"
+   },
+   "slides": [
+    {
+     "title": "Panel",
+     "type": "shot",
+     "img": "content/asset-store/003_Field-Tools/01.jpg?v=ef66a041ce",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Ring mode",
+     "type": "shot",
+     "img": "content/asset-store/003_Field-Tools/02.jpg?v=d73e4c0354",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "3D volume",
+     "type": "shot",
+     "img": "content/asset-store/003_Field-Tools/03.jpg?v=49f816bdf8",
+     "text": "Placeholder caption."
+    }
+   ],
+   "cover": {
+    "img": "content/asset-store/003_Field-Tools/01.jpg?v=ef66a041ce",
+    "subs": []
+   }
+  },
+  "codelab/001_Field-Toy": {
+   "id": "field-toy",
+   "key": "codelab/001_Field-Toy",
+   "folder": "content/codelab/001_Field-Toy",
+   "num": 1,
+   "title": "Field Toy",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Live web app by Pointlab Instruments. Press ▶ beside the top-right symbol to play: drag to pull the field, tap for an attractor, keys 1–3 switch orbit / flow / repel, Space clears. Press ▶ again or Esc to return.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Tech",
+     "JavaScript · Canvas 2D"
+    ],
+    [
+     "Type",
+     "Live web app"
+    ],
+    [
+     "Input",
+     "Touch / mouse / keys"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Open the live app",
+     "kind": "live app",
+     "href": "apps/field-toy.html"
+    },
+    {
+     "label": "Source repository",
+     "kind": "placeholder"
+    },
+    {
+     "label": "Session video",
+     "kind": "video",
+     "href": "content/codelab/001_Field-Toy/07.mp4?v=d84d35e411"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Controls",
+     "type": "shot",
+     "cover": true,
+     "img": "content/codelab/001_Field-Toy/01.jpg?v=f4f15d87b6",
+     "text": "The control strip is only visible in play mode."
+    },
+    {
+     "title": "Try it",
+     "type": "app",
+     "src": "apps/field-toy.html"
+    },
+    {
+     "title": "Orbit",
+     "type": "shot",
+     "cover": true,
+     "img": "content/codelab/001_Field-Toy/03.jpg?v=79f90bb3c5",
+     "text": "Law 1. Particles circle the attractor and condense into rings."
+    },
+    {
+     "title": "Several attractors",
+     "type": "shot",
+     "cover": true,
+     "img": "content/codelab/001_Field-Toy/04.jpg?v=57b3a9c3aa",
+     "text": "Taps add up to six attractors."
+    },
+    {
+     "title": "Flow",
+     "type": "shot",
+     "cover": true,
+     "img": "content/codelab/001_Field-Toy/05.jpg?v=176928fb95",
+     "text": "Law 2. A slow noise field carries the particles."
+    },
+    {
+     "title": "Repel",
+     "type": "shot",
+     "cover": true,
+     "img": "content/codelab/001_Field-Toy/06.jpg?v=b08d239ef8",
+     "text": "Law 3. Attractors push particles away."
+    },
+    {
+     "title": "Video example",
+     "type": "video",
+     "video": "content/codelab/001_Field-Toy/07.mp4?v=d84d35e411",
+     "text": "Screen recording of a session (placeholder)."
+    },
+    {
+     "title": "Video output",
+     "type": "video",
+     "video": "content/codelab/001_Field-Toy/08.mp4?v=147a44f157",
+     "text": "Rendered output of the flow law (placeholder)."
+    }
+   ],
+   "cover": {
+    "img": "content/codelab/001_Field-Toy/03.jpg?v=79f90bb3c5",
+    "subs": [
+     "Particles follow a vector field you shape with your hand",
+     "Press ▶ to play · drag to pull · tap for an attractor",
+     "Keys 1–3: orbit / flow / repel · Esc returns to the site"
+    ]
+   }
+  },
+  "codelab/002_Radial-Sequencer": {
+   "id": "radial-sequencer",
+   "key": "codelab/002_Radial-Sequencer",
+   "folder": "content/codelab/002_Radial-Sequencer",
+   "num": 2,
+   "title": "Radial Sequencer",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Web app, screens only. A circular score where each ring is a voice and each segment a step (placeholder).",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Tech",
+     "JavaScript · Web Audio"
+    ],
+    [
+     "Type",
+     "Web app"
+    ],
+    [
+     "Status",
+     "Screens only"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Source repository",
+     "kind": "placeholder"
+    },
+    {
+     "label": "Output video",
+     "kind": "video",
+     "href": "content/codelab/002_Radial-Sequencer/03.mp4?v=8ab69148c3"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Score view",
+     "type": "shot",
+     "img": "content/codelab/002_Radial-Sequencer/01.jpg?v=77fb033950"
+    },
+    {
+     "title": "Dense pattern",
+     "type": "shot",
+     "img": "content/codelab/002_Radial-Sequencer/02.jpg?v=cfb1d2668e"
+    },
+    {
+     "title": "Video output",
+     "type": "video",
+     "video": "content/codelab/002_Radial-Sequencer/03.mp4?v=8ab69148c3"
+    }
+   ],
+   "cover": {
+    "img": "content/codelab/002_Radial-Sequencer/01.jpg?v=77fb033950",
+    "subs": [
+     "A circular score: each ring a voice, each segment a step",
+     "Screens only / web app"
+    ]
+   }
+  },
+  "codelab/003_Mirror-Field": {
+   "id": "mirror-field",
+   "key": "codelab/003_Mirror-Field",
+   "folder": "content/codelab/003_Mirror-Field",
+   "num": 3,
+   "title": "Mirror Field",
+   "settings": [
+    "whole"
+   ],
+   "info": "Web app, screens only. A kaleidoscopic field generator with a parameter panel (placeholder).",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Tech",
+     "JavaScript · WebGL"
+    ],
+    [
+     "Type",
+     "Web app"
+    ],
+    [
+     "Status",
+     "Screens only"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Source repository",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Panel + field",
+     "type": "shot",
+     "img": "content/codelab/003_Mirror-Field/01.jpg?v=8194e0a949"
+    },
+    {
+     "title": "Variation",
+     "type": "shot",
+     "img": "content/codelab/003_Mirror-Field/02.jpg?v=ef66a041ce"
+    },
+    {
+     "title": "Ring mode",
+     "type": "shot",
+     "img": "content/codelab/003_Mirror-Field/03.jpg?v=d73e4c0354"
+    }
+   ],
+   "cover": {
+    "img": "content/codelab/003_Mirror-Field/01.jpg?v=8194e0a949",
+    "subs": [
+     "A kaleidoscopic field generator",
+     "Parameter panel + mirrored output"
+    ]
+   }
+  },
+  "conscious-architecture/001_Presence-Pavilion": {
+   "id": "presence-pavilion",
+   "key": "conscious-architecture/001_Presence-Pavilion",
+   "folder": "content/conscious-architecture/001_Presence-Pavilion",
+   "num": 1,
+   "title": "Presence Pavilion",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A small pavilion designed around one continuous movement of light through the day.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Type",
+     "Pavilion · built study"
+    ],
+    [
+     "Status",
+     "Concept"
+    ],
+    [
+     "Tools",
+     "Physical model · 3D"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Drawings set (PDF)",
+     "kind": "placeholder"
+    },
+    {
+     "label": "Radial study (placeholder drawing)",
+     "kind": "image",
+     "href": "content/conscious-architecture/001_Presence-Pavilion/02.svg?v=33ed1d96fb"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Presence\npavilion",
+     "type": "concept",
+     "lede": "Placeholder concept text. A room you enter slowly; the plan is a single curve that keeps the visitor in the present.",
+     "meta": [
+      [
+       "Area",
+       "40 m² (placeholder)"
+      ],
+      [
+       "Material",
+       "Placeholder"
+      ]
+     ]
+    },
+    {
+     "title": "Presence, radial",
+     "type": "full",
+     "img": "content/conscious-architecture/001_Presence-Pavilion/02.svg?v=33ed1d96fb",
+     "text": "Placeholder drawing. Presence over a day, rings by hour; heat marks where people stay."
+    },
+    {
+     "title": "Construction",
+     "type": "shot",
+     "img": "content/conscious-architecture/001_Presence-Pavilion/03.svg?v=db561fb171",
+     "text": "Placeholder drawing. The plan figure built from a radial grid in three steps."
+    },
+    {
+     "title": "Passage detail",
+     "type": "full",
+     "img": "content/conscious-architecture/001_Presence-Pavilion/04.svg?v=0deed27f32",
+     "text": "Placeholder drawing. Section through the entry passage, numbered legend and scale bar."
+    },
+    {
+     "title": "Notes",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/conscious-architecture/001_Presence-Pavilion/02.svg?v=33ed1d96fb",
+    "subs": []
+   }
+  },
+  "conscious-architecture/002_Threshold-Rooms": {
+   "id": "threshold-rooms",
+   "key": "conscious-architecture/002_Threshold-Rooms",
+   "folder": "content/conscious-architecture/002_Threshold-Rooms",
+   "num": 2,
+   "title": "Threshold Rooms",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A series of studies on the moment of crossing from outside to inside.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Type",
+     "Spatial research"
+    ],
+    [
+     "Status",
+     "Ongoing"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Research notes",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Thresholds",
+     "kicker": "Theory",
+     "type": "text",
+     "body": [
+      "Placeholder text. A short paragraph on the threshold as the place where attention changes.",
+      "Placeholder text. A second paragraph on light, sound and material at the edge of a room."
+     ]
+    },
+    {
+     "title": "Threshold plan",
+     "type": "full",
+     "img": "content/conscious-architecture/002_Threshold-Rooms/02.svg?v=517a02541f",
+     "text": "Placeholder drawing. The rooms in plan; red marks the measured crossing."
+    },
+    {
+     "title": "Relations",
+     "type": "full",
+     "img": "content/conscious-architecture/002_Threshold-Rooms/03.svg?v=ce2f1afc3d",
+     "text": "Placeholder drawing. Rooms as a network; red nodes are thresholds."
+    },
+    {
+     "title": "Notes",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/conscious-architecture/002_Threshold-Rooms/02.svg?v=517a02541f",
+    "subs": []
+   }
+  },
+  "conscious-architecture/003_On-Conscious-Space": {
+   "id": "on-conscious-space",
+   "key": "conscious-architecture/003_On-Conscious-Space",
+   "folder": "content/conscious-architecture/003_On-Conscious-Space",
+   "num": 3,
+   "title": "On Conscious Space",
+   "info": "Placeholder text. The theory text of the practice, in three short parts.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Type",
+     "Essay · theory"
+    ],
+    [
+     "Length",
+     "3 parts"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Full essay",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Attention",
+     "kicker": "Part 1",
+     "type": "text",
+     "body": [
+      "Placeholder text. What a room asks of the person inside it.",
+      "Placeholder text. Consciousness as something a plan can support or disturb."
+     ]
+    },
+    {
+     "title": "Presence",
+     "kicker": "Part 2",
+     "type": "text",
+     "body": [
+      "Placeholder text. Proportion, slowness and the single view."
+     ]
+    },
+    {
+     "title": "Practice",
+     "kicker": "Part 3",
+     "type": "text",
+     "body": [
+      "Placeholder text. How the company works: listening, drawing, building."
+     ]
+    }
+   ]
+  },
+  "fashion/001_Text-collection": {
+   "id": "text-collection",
+   "key": "fashion/001_Text-collection",
+   "folder": "content/fashion/001_Text-collection",
+   "num": 1,
+   "title": "Text collection",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. Slogans written by hand on cloth, walls and bodies.",
+   "links": [
+    {
+     "label": "Lookbook",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Words\nworn",
+     "type": "concept",
+     "lede": "Placeholder concept text. A collection where slogans are written by hand on cloth, walls and bodies.",
+     "meta": [
+      [
+       "Season",
+       "AW"
+      ],
+      [
+       "Looks",
+       "12"
+      ],
+      [
+       "Medium",
+       "Print, hand lettering"
+      ]
+     ]
+    },
+    {
+     "title": "The wall",
+     "kicker": "Origin",
+     "type": "full",
+     "img": "content/fashion/001_Text-collection/02.jpg?v=7d9a9c8dde",
+     "text": "Placeholder: the text first appears on a gallery wall."
+    },
+    {
+     "title": "Writing",
+     "kicker": "Process",
+     "type": "full",
+     "img": "content/fashion/001_Text-collection/03.jpg?v=4fa839fbbb",
+     "text": "Placeholder: lettering transferred from wall to fabric."
+    },
+    {
+     "title": "Knit",
+     "kicker": "Detail",
+     "type": "shot",
+     "cover": true,
+     "img": "content/fashion/001_Text-collection/04.jpg?v=6cebdd4beb",
+     "text": "Placeholder: hand-lettered knit, grey on grey."
+    },
+    {
+     "title": "Suits",
+     "kicker": "Detail",
+     "type": "shot",
+     "cover": true,
+     "img": "content/fashion/001_Text-collection/05.jpg?v=9214b3ead1",
+     "text": "Placeholder: full-body text print on tailoring."
+    },
+    {
+     "title": "Moss coat",
+     "kicker": "Detail",
+     "type": "shot",
+     "cover": true,
+     "img": "content/fashion/001_Text-collection/06.jpg?v=a64e01dace",
+     "text": "Placeholder: moss-dyed coat with scattered lettering."
+    },
+    {
+     "title": "Back",
+     "kicker": "Detail",
+     "type": "shot",
+     "cover": true,
+     "img": "content/fashion/001_Text-collection/07.jpg?v=a24891a675",
+     "text": "Placeholder: the back panel carries the longest line."
+    },
+    {
+     "title": "Line-up",
+     "kicker": "Line-up",
+     "type": "full",
+     "img": "content/fashion/001_Text-collection/08.jpg?v=e724d56829",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Finale",
+     "kicker": "Runway",
+     "type": "full",
+     "img": "content/fashion/001_Text-collection/09.jpg?v=1ea602c3b2",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Looks",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/fashion/001_Text-collection/02.jpg?v=7d9a9c8dde",
+    "subs": []
+   }
+  },
+  "fashion/002_Procession": {
+   "id": "procession",
+   "key": "fashion/002_Procession",
+   "folder": "content/fashion/002_Procession",
+   "num": 2,
+   "title": "Procession",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. The collection shown as a street parade.",
+   "links": [
+    {
+     "label": "Runway video",
+     "kind": "video",
+     "href": "content/fashion/002_Procession/04.mp4?v=8678fb5f33"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Procession",
+     "type": "concept",
+     "lede": "Placeholder concept text. The collection shown as a street parade instead of a runway.",
+     "meta": [
+      [
+       "Season",
+       "SS"
+      ],
+      [
+       "Venue",
+       "Old town square"
+      ]
+     ]
+    },
+    {
+     "title": "Square",
+     "kicker": "Street",
+     "type": "full",
+     "img": "content/fashion/002_Procession/02.jpg?v=d5ce8335a5",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Passage",
+     "kicker": "Street",
+     "type": "full",
+     "img": "content/fashion/002_Procession/03.jpg?v=95a70b4ebb",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Runway video",
+     "type": "video",
+     "video": "content/fashion/002_Procession/04.mp4?v=8678fb5f33",
+     "fit": "contain",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Looks",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/fashion/002_Procession/02.jpg?v=d5ce8335a5",
+    "subs": []
+   }
+  },
+  "generative-design/001_Symmetry-Engine": {
+   "id": "symmetry-engine",
+   "key": "generative-design/001_Symmetry-Engine",
+   "folder": "content/generative-design/001_Symmetry-Engine",
+   "num": 1,
+   "title": "Symmetry Engine",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A live generative canvas: press ▶ to draw with n-fold symmetry. The app keeps its own mini menu (≡ Gen, Folds). Press ▶, swipe in from the left edge or ← to return.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Tech",
+     "JavaScript · Canvas 2D"
+    ],
+    [
+     "Type",
+     "Live generative canvas"
+    ],
+    [
+     "Input",
+     "Touch / mouse / keys"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Open the live canvas",
+     "kind": "live app",
+     "href": "apps/gen-canvas.html"
+    },
+    {
+     "label": "Source repository",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Symmetry\nengine",
+     "type": "concept",
+     "lede": "Placeholder concept text. One gesture, repeated around a centre: the system turns a line into a figure.",
+     "meta": [
+      [
+       "Folds",
+       "4 – 12"
+      ],
+      [
+       "Medium",
+       "Live canvas"
+      ]
+     ]
+    },
+    {
+     "title": "Cross",
+     "type": "shot",
+     "img": "content/generative-design/001_Symmetry-Engine/02.jpg?v=d2ce3e50dc",
+     "text": "Placeholder caption. A four-fold output."
+    },
+    {
+     "title": "Draw it",
+     "type": "app",
+     "src": "apps/gen-canvas.html"
+    },
+    {
+     "title": "Blue axis",
+     "type": "shot",
+     "img": "content/generative-design/001_Symmetry-Engine/04.jpg?v=54f922ddd8",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Red / blue",
+     "type": "shot",
+     "img": "content/generative-design/001_Symmetry-Engine/05.jpg?v=82e9b983ae",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Outputs",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/generative-design/001_Symmetry-Engine/02.jpg?v=d2ce3e50dc",
+    "subs": []
+   }
+  },
+  "generative-design/002_Mirror-Studies": {
+   "id": "mirror-studies",
+   "key": "generative-design/002_Mirror-Studies",
+   "folder": "content/generative-design/002_Mirror-Studies",
+   "num": 2,
+   "title": "Mirror Studies",
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. Prints from the mirrored field generator.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Type",
+     "Generative prints"
+    ],
+    [
+     "Edition",
+     "Placeholder"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Print edition",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Red field",
+     "type": "full",
+     "img": "content/generative-design/002_Mirror-Studies/01.jpg?v=4d1fe64c80",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Violet field",
+     "type": "full",
+     "img": "content/generative-design/002_Mirror-Studies/02.jpg?v=873b025f13",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Generator",
+     "type": "shot",
+     "img": "content/generative-design/002_Mirror-Studies/03.jpg?v=8194e0a949",
+     "text": "Placeholder caption. The field generator with its panel."
+    }
+   ],
+   "cover": {
+    "img": "content/generative-design/002_Mirror-Studies/01.jpg?v=4d1fe64c80",
+    "subs": []
+   }
+  },
+  "generative-design/003_Flow-Prints": {
+   "id": "flow-prints",
+   "key": "generative-design/003_Flow-Prints",
+   "folder": "content/generative-design/003_Flow-Prints",
+   "num": 3,
+   "title": "Flow Prints",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. Particle-flow drawings captured as stills and a rendered loop.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Type",
+     "Generative stills + video"
+    ],
+    [
+     "Tech",
+     "Canvas 2D"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Rendered loop",
+     "kind": "video",
+     "href": "content/generative-design/003_Flow-Prints/03.mp4?v=147a44f157"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Flow",
+     "type": "full",
+     "img": "content/generative-design/003_Flow-Prints/01.jpg?v=176928fb95",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Attractors",
+     "type": "full",
+     "img": "content/generative-design/003_Flow-Prints/02.jpg?v=57b3a9c3aa",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Loop",
+     "type": "video",
+     "video": "content/generative-design/003_Flow-Prints/03.mp4?v=147a44f157",
+     "text": "Placeholder caption."
+    }
+   ],
+   "cover": {
+    "img": "content/generative-design/003_Flow-Prints/01.jpg?v=176928fb95",
+    "subs": []
+   }
+  },
+  "hub/001_Gallery": {
+   "id": "gallery",
+   "key": "hub/001_Gallery",
+   "folder": "content/hub/001_Gallery",
+   "num": 1,
+   "title": "Gallery — November",
+   "settings": [
+    "whole"
+   ],
+   "code": "#002FA7",
+   "info": "Work of the month: Symmetry studies by Andy Point (placeholder text).",
+   "links": [
+    {
+     "label": "Print edition",
+     "kind": "placeholder"
+    },
+    {
+     "label": "Pigment room image",
+     "kind": "image",
+     "href": "content/hub/001_Gallery/02.jpg?v=010344dafb"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Symmetry\nstudies",
+     "type": "concept",
+     "lede": "Work of the month. Placeholder text: a short curatorial note about the series, its method and why it is shown this month.",
+     "meta": [
+      [
+       "Month",
+       "11 / 2026"
+      ],
+      [
+       "Series",
+       "Symmetry studies"
+      ],
+      [
+       "Artist",
+       "Andy Point"
+      ],
+      [
+       "Works",
+       "3"
+      ]
+     ]
+    },
+    {
+     "title": "Pigment room",
+     "kicker": "Room",
+     "type": "full",
+     "img": "content/hub/001_Gallery/02.jpg?v=010344dafb",
+     "text": "Placeholder image (Midjourney). How the series is hung: one blue room before the three studies."
+    },
+    {
+     "title": "Blue axis",
+     "kicker": "Work 1 / 3",
+     "type": "shot",
+     "img": "content/hub/001_Gallery/03.jpg?v=54f922ddd8",
+     "text": "Placeholder caption. One line on how the form was generated and mirrored."
+    },
+    {
+     "title": "Red / blue",
+     "kicker": "Work 2 / 3",
+     "type": "shot",
+     "img": "content/hub/001_Gallery/04.jpg?v=82e9b983ae",
+     "text": "Placeholder caption. The second study adds a counter-colour layer."
+    },
+    {
+     "title": "Cross",
+     "kicker": "Work 3 / 3",
+     "type": "shot",
+     "img": "content/hub/001_Gallery/05.jpg?v=d2ce3e50dc",
+     "text": "Placeholder caption. Four-fold symmetry closes the series."
+    },
+    {
+     "title": "List of works",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/hub/001_Gallery/02.jpg?v=010344dafb",
+    "subs": []
+   }
+  },
+  "hub/002_News": {
+   "id": "news",
+   "key": "hub/002_News",
+   "folder": "content/hub/002_News",
+   "num": 2,
+   "title": "News",
+   "code": "#D8261C",
+   "info": "News and blog entries from all Pointlab sites (placeholder text).",
+   "kind": "news",
+   "entries": [
+    {
+     "date": "10.11.2026",
+     "title": "November gallery: Symmetry studies",
+     "iso": "2026-11-10",
+     "img": "content/hub/002_News/01.jpg?v=54f922ddd8",
+     "alt": "Blue symmetry study",
+     "lede": "Placeholder text. Three works, shown for one month.",
+     "body": [
+      "Placeholder text — replace with the real article. This paragraph introduces the November gallery and why the Symmetry studies were chosen for it.",
+      "Placeholder text. A second paragraph on the method: how each form is generated, mirrored and coloured, and how the three works relate.",
+      "Placeholder text. A closing paragraph with dates, where to see the works and a link to the gallery suite."
+     ]
+    },
+    {
+     "date": "02.11.2026",
+     "title": "Studio: furniture series",
+     "iso": "2026-11-02",
+     "img": "content/hub/002_News/02.jpg?v=3c4cfe8b3f",
+     "alt": "Sofa and table, studio photograph",
+     "lede": "Placeholder text. Sofa and table designs from the studio.",
+     "body": [
+      "Placeholder text — replace with the real article. A short introduction to the studio’s sofa and table series.",
+      "Placeholder text. Materials, dimensions and production notes go here."
+     ]
+    },
+    {
+     "date": "20.10.2026",
+     "title": "Codelab: Field Toy is live",
+     "iso": "2026-10-20",
+     "img": "content/hub/002_News/03.jpg?v=79f90bb3c5",
+     "alt": "Field Toy, orbit law",
+     "lede": "Placeholder text. A playable web app inside the site.",
+     "body": [
+      "Placeholder text — replace with the real article. Field Toy is the first live web app on Codelab; this paragraph says what it does.",
+      "Placeholder text. How to play it: open Codelab, go to Field Toy and press ▶ on the live-app slide."
+     ]
+    }
+   ]
+  },
+  "hub/003_Sites": {
+   "id": "sites",
+   "key": "hub/003_Sites",
+   "folder": "content/hub/003_Sites",
+   "num": 3,
+   "title": "Sites",
+   "code": "#D8261C",
+   "info": "All Pointlab sites: live ones open, planned ones listed.",
+   "slides": [
+    {
+     "title": "Sites",
+     "type": "links"
+    }
+   ]
+  },
+  "stage/001_Production-1": {
+   "id": "production-1",
+   "key": "stage/001_Production-1",
+   "folder": "content/stage/001_Production-1",
+   "num": 1,
+   "title": "Production 1",
+   "tags": [
+    "stage design"
+   ],
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. A stage / scenography production: the set as built, a model or render, and a production video. Swap this stand-in for the real production.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Type",
+     "Stage design · scenography"
+    ],
+    [
+     "Venue",
+     "Placeholder"
+    ],
+    [
+     "Role",
+     "Set and space (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Production video",
+     "kind": "video",
+     "href": "content/stage/001_Production-1/03.mp4?v=8678fb5f33"
+    },
+    {
+     "label": "Credits (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Stage photograph",
+     "type": "full",
+     "img": "content/stage/001_Production-1/01.jpg?v=df2ff9583f",
+     "text": "Placeholder caption. The set as built, photographed on stage."
+    },
+    {
+     "title": "Model / render",
+     "type": "shot",
+     "img": "content/stage/001_Production-1/02.jpg?v=49f816bdf8",
+     "text": "Placeholder caption. The model or render for the production."
+    },
+    {
+     "title": "Production video",
+     "type": "video",
+     "video": "content/stage/001_Production-1/03.mp4?v=8678fb5f33",
+     "text": "Placeholder caption. A short from the production."
+    },
+    {
+     "title": "Space",
+     "type": "full",
+     "img": "content/stage/001_Production-1/04.jpg?v=010344dafb",
+     "text": "Placeholder caption. A second photograph of the space."
+    }
+   ],
+   "cover": {
+    "img": "content/stage/001_Production-1/01.jpg?v=df2ff9583f",
+    "subs": []
+   }
+  },
+  "stage/002_Production-2": {
+   "id": "production-2",
+   "key": "stage/002_Production-2",
+   "folder": "content/stage/002_Production-2",
+   "num": 2,
+   "title": "Production 2",
+   "tags": [
+    "stage design"
+   ],
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. A second stage / scenography production. Photographs, a model or render, and a production video. Swap this stand-in for the real production.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Type",
+     "Stage design · scenography"
+    ],
+    [
+     "Venue",
+     "Placeholder"
+    ],
+    [
+     "Role",
+     "Set and space (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Production video",
+     "kind": "video",
+     "href": "content/stage/002_Production-2/03.mp4?v=d84d35e411"
+    },
+    {
+     "label": "Credits (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Stage photograph",
+     "type": "full",
+     "img": "content/stage/002_Production-2/01.jpg?v=4304b2a395",
+     "text": "Placeholder caption. The set as built."
+    },
+    {
+     "title": "Model / render",
+     "type": "shot",
+     "img": "content/stage/002_Production-2/02.jpg?v=d73e4c0354",
+     "text": "Placeholder caption. The model or render."
+    },
+    {
+     "title": "Production video",
+     "type": "video",
+     "video": "content/stage/002_Production-2/03.mp4?v=d84d35e411",
+     "text": "Placeholder caption. A short from the production."
+    },
+    {
+     "title": "Detail",
+     "type": "full",
+     "img": "content/stage/002_Production-2/04.jpg?v=4d1fe64c80",
+     "text": "Placeholder caption. A detail of the set."
+    }
+   ],
+   "cover": {
+    "img": "content/stage/002_Production-2/01.jpg?v=4304b2a395",
+    "subs": []
+   }
+  },
+  "system8/001_System-8": {
+   "id": "system-8",
+   "key": "system8/001_System-8",
+   "folder": "content/system8/001_System-8",
+   "num": 1,
+   "title": "System 8",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. The overall System 8 concept: a set of Codelab tools, each a row in this grid. The main explanation lives here in the left panel; the promo video fills the screen. Swap this stand-in for the real campaign film and copy.",
+   "facts": [
+    [
+     "Type",
+     "Concept · promo"
+    ],
+    [
+     "Set",
+     "System 8"
+    ],
+    [
+     "Campaign",
+     "Coming soon"
+    ],
+    [
+     "Launch",
+     "Date (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Promo video (placeholder)",
+     "kind": "video",
+     "href": "content/system8/001_System-8/01.mp4?v=d84d35e411"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Promo",
+     "type": "video",
+     "video": "content/system8/001_System-8/01.mp4?v=d84d35e411",
+     "text": "Placeholder caption. A promo video for System 8."
+    },
+    {
+     "title": "Still",
+     "type": "full",
+     "img": "content/system8/001_System-8/02.jpg?v=79f90bb3c5",
+     "text": "Placeholder caption. A still from the promo."
+    }
+   ],
+   "cover": {
+    "img": "content/system8/001_System-8/02.jpg?v=79f90bb3c5",
+    "subs": []
+   }
+  },
+  "system8/002_App-1": {
+   "id": "app-1",
+   "key": "system8/002_App-1",
+   "folder": "content/system8/002_App-1",
+   "num": 2,
+   "title": "App 1",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. App 1 of System 8 — one of the Codelab tools in the set. Swap this stand-in for the real software.",
+   "facts": [
+    [
+     "Set",
+     "System 8"
+    ],
+    [
+     "Row",
+     "App 1 of 4"
+    ],
+    [
+     "Status",
+     "Coming soon"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Live app (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "help": [
+    "Placeholder help for App 1. This text lives in the left panel. One short paragraph on how to open the app, what the main tools do, and where to find the demo projects. Swap this stand-in for the real help."
+   ],
+   "slides": [
+    {
+     "title": "Overview",
+     "type": "full",
+     "img": "content/system8/002_App-1/01.jpg?v=79f90bb3c5",
+     "text": "Placeholder caption. Overview of App 1."
+    },
+    {
+     "title": "Tools",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/002_App-1/02.jpg?v=f4f15d87b6",
+     "text": "Placeholder caption. The tools in App 1."
+    },
+    {
+     "title": "Demo projects",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/002_App-1/03.jpg?v=57b3a9c3aa",
+     "text": "Placeholder caption. Demo projects in App 1."
+    },
+    {
+     "title": "Example videos",
+     "type": "video",
+     "video": "content/system8/002_App-1/04.mp4?v=147a44f157",
+     "text": "Placeholder caption. An example video from App 1."
+    },
+    {
+     "title": "Functionalities",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/002_App-1/05.jpg?v=176928fb95",
+     "text": "Placeholder caption. Functionalities of App 1."
+    },
+    {
+     "title": "Help",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/002_App-1/06.jpg?v=b08d239ef8",
+     "text": "Placeholder caption. A help screenshot for App 1. The help text is in the left panel."
+    }
+   ],
+   "cover": {
+    "img": "content/system8/002_App-1/01.jpg?v=79f90bb3c5",
+    "subs": []
+   }
+  },
+  "system8/003_App-2": {
+   "id": "app-2",
+   "key": "system8/003_App-2",
+   "folder": "content/system8/003_App-2",
+   "num": 3,
+   "title": "App 2",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. App 2 of System 8 — one of the Codelab tools in the set. Swap this stand-in for the real software.",
+   "facts": [
+    [
+     "Set",
+     "System 8"
+    ],
+    [
+     "Row",
+     "App 2 of 4"
+    ],
+    [
+     "Status",
+     "Coming soon"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Live app (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "help": [
+    "Placeholder help for App 2. This text lives in the left panel. One short paragraph on how to open the app, what the main tools do, and where to find the demo projects. Swap this stand-in for the real help."
+   ],
+   "slides": [
+    {
+     "title": "Overview",
+     "type": "full",
+     "img": "content/system8/003_App-2/01.jpg?v=8194e0a949",
+     "text": "Placeholder caption. Overview of App 2."
+    },
+    {
+     "title": "Tools",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/003_App-2/02.jpg?v=ef66a041ce",
+     "text": "Placeholder caption. The tools in App 2."
+    },
+    {
+     "title": "Demo projects",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/003_App-2/03.jpg?v=e2f94cdc5a",
+     "text": "Placeholder caption. Demo projects in App 2."
+    },
+    {
+     "title": "Example videos",
+     "type": "video",
+     "video": "content/system8/003_App-2/04.mp4?v=8ab69148c3",
+     "text": "Placeholder caption. An example video from App 2."
+    },
+    {
+     "title": "Functionalities",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/003_App-2/05.jpg?v=d73e4c0354",
+     "text": "Placeholder caption. Functionalities of App 2."
+    },
+    {
+     "title": "Help",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/003_App-2/06.jpg?v=8194e0a949",
+     "text": "Placeholder caption. A help screenshot for App 2. The help text is in the left panel."
+    }
+   ],
+   "cover": {
+    "img": "content/system8/003_App-2/01.jpg?v=8194e0a949",
+    "subs": []
+   }
+  },
+  "system8/004_App-3": {
+   "id": "app-3",
+   "key": "system8/004_App-3",
+   "folder": "content/system8/004_App-3",
+   "num": 4,
+   "title": "App 3",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. App 3 of System 8 — one of the Codelab tools in the set. Swap this stand-in for the real software.",
+   "facts": [
+    [
+     "Set",
+     "System 8"
+    ],
+    [
+     "Row",
+     "App 3 of 4"
+    ],
+    [
+     "Status",
+     "Coming soon"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Live app (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "help": [
+    "Placeholder help for App 3. This text lives in the left panel. One short paragraph on how to open the app, what the main tools do, and where to find the demo projects. Swap this stand-in for the real help."
+   ],
+   "slides": [
+    {
+     "title": "Overview",
+     "type": "full",
+     "img": "content/system8/004_App-3/01.jpg?v=77fb033950",
+     "text": "Placeholder caption. Overview of App 3."
+    },
+    {
+     "title": "Tools",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/004_App-3/02.jpg?v=cfb1d2668e",
+     "text": "Placeholder caption. The tools in App 3."
+    },
+    {
+     "title": "Demo projects",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/004_App-3/03.jpg?v=49f816bdf8",
+     "text": "Placeholder caption. Demo projects in App 3."
+    },
+    {
+     "title": "Example videos",
+     "type": "video",
+     "video": "content/system8/004_App-3/04.mp4?v=0a483986c7",
+     "text": "Placeholder caption. An example video from App 3."
+    },
+    {
+     "title": "Functionalities",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/004_App-3/05.jpg?v=ef66a041ce",
+     "text": "Placeholder caption. Functionalities of App 3."
+    },
+    {
+     "title": "Help",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/004_App-3/06.jpg?v=d73e4c0354",
+     "text": "Placeholder caption. A help screenshot for App 3. The help text is in the left panel."
+    }
+   ],
+   "cover": {
+    "img": "content/system8/004_App-3/01.jpg?v=77fb033950",
+    "subs": []
+   }
+  },
+  "system8/005_App-4": {
+   "id": "app-4",
+   "key": "system8/005_App-4",
+   "folder": "content/system8/005_App-4",
+   "num": 5,
+   "title": "App 4",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. App 4 of System 8 — one of the Codelab tools in the set. Swap this stand-in for the real software.",
+   "facts": [
+    [
+     "Set",
+     "System 8"
+    ],
+    [
+     "Row",
+     "App 4 of 4"
+    ],
+    [
+     "Status",
+     "Coming soon"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Live app (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "help": [
+    "Placeholder help for App 4. This text lives in the left panel. One short paragraph on how to open the app, what the main tools do, and where to find the demo projects. Swap this stand-in for the real help."
+   ],
+   "slides": [
+    {
+     "title": "Overview",
+     "type": "full",
+     "img": "content/system8/005_App-4/01.jpg?v=e2f94cdc5a",
+     "text": "Placeholder caption. Overview of App 4."
+    },
+    {
+     "title": "Tools",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/005_App-4/02.jpg?v=49f816bdf8",
+     "text": "Placeholder caption. The tools in App 4."
+    },
+    {
+     "title": "Demo projects",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/005_App-4/03.jpg?v=176928fb95",
+     "text": "Placeholder caption. Demo projects in App 4."
+    },
+    {
+     "title": "Example videos",
+     "type": "video",
+     "video": "content/system8/005_App-4/04.mp4?v=d84d35e411",
+     "text": "Placeholder caption. An example video from App 4."
+    },
+    {
+     "title": "Functionalities",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/005_App-4/05.jpg?v=57b3a9c3aa",
+     "text": "Placeholder caption. Functionalities of App 4."
+    },
+    {
+     "title": "Help",
+     "type": "shot",
+     "cover": true,
+     "img": "content/system8/005_App-4/06.jpg?v=77fb033950",
+     "text": "Placeholder caption. A help screenshot for App 4. The help text is in the left panel."
+    }
+   ],
+   "cover": {
+    "img": "content/system8/005_App-4/01.jpg?v=e2f94cdc5a",
+    "subs": []
+   }
+  },
+  "vjsh1ft/001_Live-Sets": {
+   "id": "live-sets",
+   "key": "vjsh1ft/001_Live-Sets",
+   "folder": "content/vjsh1ft/001_Live-Sets",
+   "num": 1,
+   "title": "Live Sets",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. Recordings of live sets: each clip is one layer stack, played by hand.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Type",
+     "Live visuals"
+    ],
+    [
+     "Software",
+     "Resolume-style rig (placeholder)"
+    ],
+    [
+     "Output",
+     "1080p / LED"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Set recording",
+     "kind": "video",
+     "href": "content/vjsh1ft/001_Live-Sets/01.mp4?v=0a483986c7"
+    },
+    {
+     "label": "Booking (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Glitch layer",
+     "type": "video",
+     "video": "content/vjsh1ft/001_Live-Sets/01.mp4?v=0a483986c7",
+     "text": "Placeholder caption. Feedback layer, hand-played."
+    },
+    {
+     "title": "Circuit",
+     "type": "video",
+     "video": "content/vjsh1ft/001_Live-Sets/02.mp4?v=8ab69148c3",
+     "text": "Placeholder caption. Generative circuit source."
+    },
+    {
+     "title": "Sea",
+     "type": "video",
+     "video": "content/vjsh1ft/001_Live-Sets/03.mp4?v=12ac8f0ef5",
+     "text": "Placeholder caption. Slow water loop under the beat."
+    },
+    {
+     "title": "Deck",
+     "type": "full",
+     "img": "content/vjsh1ft/001_Live-Sets/04.jpg?v=ca575ddd43",
+     "text": "Placeholder caption. The Sh1ft deck screen."
+    },
+    {
+     "title": "Clips",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/vjsh1ft/001_Live-Sets/04.jpg?v=ca575ddd43",
+    "subs": []
+   }
+  },
+  "vjsh1ft/002_Loop-Bank": {
+   "id": "loop-bank",
+   "key": "vjsh1ft/002_Loop-Bank",
+   "folder": "content/vjsh1ft/002_Loop-Bank",
+   "num": 2,
+   "title": "Loop Bank",
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. Loops built for the sets, rendered from Pointlab code instruments.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Type",
+     "Loop library"
+    ],
+    [
+     "Format",
+     "MP4 / H.264"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Loop preview",
+     "kind": "video",
+     "href": "content/vjsh1ft/002_Loop-Bank/01.mp4?v=147a44f157"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Flow output",
+     "type": "video",
+     "video": "content/vjsh1ft/002_Loop-Bank/01.mp4?v=147a44f157",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Session",
+     "type": "video",
+     "video": "content/vjsh1ft/002_Loop-Bank/02.mp4?v=d84d35e411",
+     "text": "Placeholder caption."
+    },
+    {
+     "title": "Red plant",
+     "type": "full",
+     "img": "content/vjsh1ft/002_Loop-Bank/03.jpg?v=059c79778b",
+     "text": "Placeholder caption. A still used as a source layer."
+    },
+    {
+     "title": "Clips",
+     "type": "notes"
+    }
+   ],
+   "cover": {
+    "img": "content/vjsh1ft/002_Loop-Bank/03.jpg?v=059c79778b",
+    "subs": []
+   }
+  },
+  "we-are-the-nature/001_Commercial-project-1": {
+   "id": "commercial-project-1",
+   "key": "we-are-the-nature/001_Commercial-project-1",
+   "folder": "content/we-are-the-nature/001_Commercial-project-1",
+   "num": 1,
+   "title": "Commercial project 1",
+   "tags": [
+    "photography",
+    "commercial film"
+   ],
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. A commercial film and stills series in which nature fills the frame and is given the hero space. Swap this stand-in for the real We Are The Nature project.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Type",
+     "Commercial film · photography"
+    ],
+    [
+     "Brand",
+     "We Are The Nature"
+    ],
+    [
+     "Format",
+     "4K / stills (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Film (placeholder)",
+     "kind": "video",
+     "href": "content/we-are-the-nature/001_Commercial-project-1/02.mp4?v=12ac8f0ef5"
+    },
+    {
+     "label": "Client (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Still 1",
+     "type": "full",
+     "img": "content/we-are-the-nature/001_Commercial-project-1/01.jpg?v=676bf3b5f6",
+     "text": "Placeholder caption. A still from the film: nature fills the frame."
+    },
+    {
+     "title": "Film",
+     "type": "video",
+     "video": "content/we-are-the-nature/001_Commercial-project-1/02.mp4?v=12ac8f0ef5",
+     "text": "Placeholder caption. The commercial film, muted loop."
+    },
+    {
+     "title": "Still 2",
+     "type": "full",
+     "img": "content/we-are-the-nature/001_Commercial-project-1/03.jpg?v=4a7df8df53",
+     "text": "Placeholder caption. A second still from the same project."
+    }
+   ],
+   "cover": {
+    "img": "content/we-are-the-nature/001_Commercial-project-1/01.jpg?v=676bf3b5f6",
+    "subs": []
+   }
+  },
+  "we-are-the-nature/002_Commercial-project-2": {
+   "id": "commercial-project-2",
+   "key": "we-are-the-nature/002_Commercial-project-2",
+   "folder": "content/we-are-the-nature/002_Commercial-project-2",
+   "num": 2,
+   "title": "Commercial project 2",
+   "tags": [
+    "photography",
+    "commercial film"
+   ],
+   "settings": [
+    "autoplay"
+   ],
+   "info": "Placeholder text. A second commercial project for We Are The Nature: drone-scale landscape stills and a nature film. Swap this stand-in for the real work.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Type",
+     "Commercial film · photography"
+    ],
+    [
+     "Brand",
+     "We Are The Nature"
+    ],
+    [
+     "Format",
+     "4K / stills (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Film (placeholder)",
+     "kind": "video",
+     "href": "content/we-are-the-nature/002_Commercial-project-2/03.mp4?v=12ac8f0ef5"
+    },
+    {
+     "label": "Client (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Landscape",
+     "type": "full",
+     "img": "content/we-are-the-nature/002_Commercial-project-2/01.jpg?v=873b025f13",
+     "text": "Placeholder caption. A wide still in which the land takes the frame."
+    },
+    {
+     "title": "Close",
+     "type": "full",
+     "img": "content/we-are-the-nature/002_Commercial-project-2/02.jpg?v=059c79778b",
+     "text": "Placeholder caption. A closer still from the same series."
+    },
+    {
+     "title": "Film",
+     "type": "video",
+     "video": "content/we-are-the-nature/002_Commercial-project-2/03.mp4?v=12ac8f0ef5",
+     "text": "Placeholder caption. The commercial film, muted loop."
+    }
+   ],
+   "cover": {
+    "img": "content/we-are-the-nature/002_Commercial-project-2/01.jpg?v=873b025f13",
+    "subs": []
+   }
+  },
+  "works/001_Brand-identity": {
+   "id": "brand-identity",
+   "key": "works/001_Brand-identity",
+   "folder": "content/works/001_Brand-identity",
+   "num": 1,
+   "title": "Brand identity",
+   "tags": [
+    "brand identity"
+   ],
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A client brand-identity project: wordmark, applications and a typographic system. Swap this stand-in for the real work.",
+   "facts": [
+    [
+     "Year",
+     "2026 (placeholder)"
+    ],
+    [
+     "Discipline",
+     "Brand identity"
+    ],
+    [
+     "Client",
+     "Placeholder"
+    ],
+    [
+     "Deliverables",
+     "Wordmark, system (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Case study (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Wordmark",
+     "type": "full",
+     "img": "content/works/001_Brand-identity/01.jpg?v=7d9a9c8dde",
+     "text": "Placeholder caption. The wordmark on a wall."
+    },
+    {
+     "title": "Application",
+     "type": "shot",
+     "cover": true,
+     "img": "content/works/001_Brand-identity/02.jpg?v=4fa839fbbb",
+     "text": "Placeholder caption. The mark applied to a surface."
+    },
+    {
+     "title": "System",
+     "type": "full",
+     "img": "content/works/001_Brand-identity/03.jpg?v=1ea602c3b2",
+     "text": "Placeholder caption. A later application of the same system."
+    }
+   ],
+   "cover": {
+    "img": "content/works/001_Brand-identity/01.jpg?v=7d9a9c8dde",
+    "subs": []
+   }
+  },
+  "works/002_Graphic-design": {
+   "id": "graphic-design",
+   "key": "works/002_Graphic-design",
+   "folder": "content/works/002_Graphic-design",
+   "num": 2,
+   "title": "Graphic design",
+   "tags": [
+    "graphic design"
+   ],
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A client graphic-design project: printed and worn applications of a typographic idea. Swap this stand-in for the real work.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Discipline",
+     "Graphic design"
+    ],
+    [
+     "Client",
+     "Placeholder"
+    ],
+    [
+     "Deliverables",
+     "Print, application (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Case study (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Print",
+     "type": "shot",
+     "cover": true,
+     "img": "content/works/002_Graphic-design/01.jpg?v=9214b3ead1",
+     "text": "Placeholder caption. A printed application."
+    },
+    {
+     "title": "Knit",
+     "type": "shot",
+     "cover": true,
+     "img": "content/works/002_Graphic-design/02.jpg?v=6cebdd4beb",
+     "text": "Placeholder caption. The graphic on cloth."
+    },
+    {
+     "title": "Panel",
+     "type": "shot",
+     "cover": true,
+     "img": "content/works/002_Graphic-design/03.jpg?v=a24891a675",
+     "text": "Placeholder caption. A back-panel application."
+    }
+   ],
+   "cover": {
+    "img": "content/works/002_Graphic-design/01.jpg?v=9214b3ead1",
+    "subs": []
+   }
+  },
+  "works/003_Typography": {
+   "id": "typography",
+   "key": "works/003_Typography",
+   "folder": "content/works/003_Typography",
+   "num": 3,
+   "title": "Typography",
+   "tags": [
+    "typography"
+   ],
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. A typographic commission: lettering built as a system and applied at scale. Swap this stand-in for the real work.",
+   "facts": [
+    [
+     "Year",
+     "2025 (placeholder)"
+    ],
+    [
+     "Discipline",
+     "Typography"
+    ],
+    [
+     "Client",
+     "Placeholder"
+    ],
+    [
+     "Deliverables",
+     "Lettering, applications (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Type specimen (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Lettering",
+     "type": "full",
+     "img": "content/works/003_Typography/01.jpg?v=4fa839fbbb",
+     "text": "Placeholder caption. The lettering at full scale."
+    },
+    {
+     "title": "Detail",
+     "type": "shot",
+     "cover": true,
+     "img": "content/works/003_Typography/02.jpg?v=6cebdd4beb",
+     "text": "Placeholder caption. A closer typographic detail."
+    },
+    {
+     "title": "Line-up",
+     "type": "full",
+     "img": "content/works/003_Typography/03.jpg?v=e724d56829",
+     "text": "Placeholder caption. The type in a sequence."
+    }
+   ],
+   "cover": {
+    "img": "content/works/003_Typography/01.jpg?v=4fa839fbbb",
+    "subs": []
+   }
+  },
+  "works/004_Illustration": {
+   "id": "illustration",
+   "key": "works/004_Illustration",
+   "folder": "content/works/004_Illustration",
+   "num": 4,
+   "title": "Illustration",
+   "tags": [
+    "illustration"
+   ],
+   "settings": [
+    "whole"
+   ],
+   "info": "Placeholder text. An illustration series for a client: form, colour and a repeated motif. Swap this stand-in for the real work.",
+   "facts": [
+    [
+     "Year",
+     "2024 (placeholder)"
+    ],
+    [
+     "Discipline",
+     "Illustration"
+    ],
+    [
+     "Client",
+     "Placeholder"
+    ],
+    [
+     "Deliverables",
+     "Series (placeholder)"
+    ]
+   ],
+   "links": [
+    {
+     "label": "Series (placeholder)",
+     "kind": "placeholder"
+    }
+   ],
+   "slides": [
+    {
+     "title": "Figure",
+     "type": "full",
+     "img": "content/works/004_Illustration/01.jpg?v=4d1fe64c80",
+     "text": "Placeholder caption. The first plate of the series."
+    },
+    {
+     "title": "Study",
+     "type": "full",
+     "img": "content/works/004_Illustration/02.jpg?v=d2ce3e50dc",
+     "text": "Placeholder caption. A second plate."
+    },
+    {
+     "title": "Variation",
+     "type": "full",
+     "img": "content/works/004_Illustration/03.jpg?v=54f922ddd8",
+     "text": "Placeholder caption. A third plate."
+    }
+   ],
+   "cover": {
+    "img": "content/works/004_Illustration/01.jpg?v=4d1fe64c80",
+    "subs": []
+   }
+  }
+ },
+ "hash": "f7ccb170e8"
+}

@@ -1,0 +1,37 @@
+Name: App 3
+Set: System 8
+Row: App 3 of 4
+Status: Coming soon
+Settings: autoplay
+Layout: framed fill
+Link: Live app (placeholder)
+
+Placeholder text. App 3 of System 8 — one of the Codelab tools in the set. Swap this stand-in for the real software.
+
+# Help
+Placeholder help for App 3. This text lives in the left panel. One short paragraph on how to open the app, what the main tools do, and where to find the demo projects. Swap this stand-in for the real help.
+
+# 01 Overview
+Layout: full
+
+Placeholder caption. Overview of App 3.
+
+# 02 Tools
+
+Placeholder caption. The tools in App 3.
+
+# 03 Demo projects
+
+Placeholder caption. Demo projects in App 3.
+
+# 04 Example videos
+
+Placeholder caption. An example video from App 3.
+
+# 05 Functionalities
+
+Placeholder caption. Functionalities of App 3.
+
+# 06 Help
+
+Placeholder caption. A help screenshot for App 3. The help text is in the left panel.

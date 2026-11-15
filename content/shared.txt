@@ -1,0 +1,6 @@
+Tools label: Tools
+Contact: Email (placeholder) = hello@pointlab.example
+Contact: Instagram (placeholder) = @pointlab
+Contact: Studio (placeholder) = Helsinki
+
+Shared by every site: the Contact list in the right ||| panel. One "Contact:" line per row: Label = what is shown -> optional link. An e-mail address becomes a mail link by itself.

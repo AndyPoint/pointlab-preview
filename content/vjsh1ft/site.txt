@@ -1,0 +1,12 @@
+Name: VJSH1FT
+Role: VJ · live visuals
+Page title: VJSH1FT — Pointlab (mockup)
+Wordmark: VJSH[1]FT
+Intro: Placeholder: live visuals and VJ sets by Sh1ft. Layers, loops and feedback played in real time.
+Artist: Andy Point
+Artist role: VJ · Sh1ft
+Artist bio: Placeholder bio. Two or three lines about the live visual practice, the rig and the clubs and stages.
+Label video: Clip
+Label full: Screen
+
+Placeholder text. Resolume-style layer stack, controllers, generative sources and recorded loops.

@@ -1,0 +1,20 @@
+Name: Radial Sequencer
+Year: 2025 (placeholder)
+Tech: JavaScript · Web Audio
+Type: Web app
+Status: Screens only
+Settings: autoplay
+Layout: framed
+Cover image: 01.jpg
+Cover line: A circular score: each ring a voice, each segment a step
+Cover line: Screens only / web app
+Link: Source repository
+Link: Output video -> 03.mp4
+
+Web app, screens only. A circular score where each ring is a voice and each segment a step (placeholder).
+
+# 01 Score view
+
+# 02 Dense pattern
+
+# 03 Video output

@@ -1,0 +1,23 @@
+Name: Illustration
+Year: 2024 (placeholder)
+Discipline: Illustration
+Client: Placeholder
+Deliverables: Series (placeholder)
+Tags: illustration
+Settings: whole
+Layout: full
+Link: Series (placeholder)
+
+Placeholder text. An illustration series for a client: form, colour and a repeated motif. Swap this stand-in for the real work.
+
+# 01 Figure
+
+Placeholder caption. The first plate of the series.
+
+# 02 Study
+
+Placeholder caption. A second plate.
+
+# 03 Variation
+
+Placeholder caption. A third plate.

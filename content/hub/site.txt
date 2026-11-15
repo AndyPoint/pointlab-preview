@@ -1,0 +1,11 @@
+Name: Pointlab
+Role: Hub · gallery · news
+Page title: Pointlab — hub (mockup v2.2)
+Wordmark: POINT[LAB]
+Intro: Hub for the monthly gallery, news and the Pointlab sites.
+Artist: Andy Point
+Artist role: Artist · Pointlab
+Artist bio: Placeholder bio. Two or three lines about the artist, the studio and the way the work is made.
+Thumbnail: 001_Gallery/03.jpg
+
+Placeholder identity text. One short paragraph describing Pointlab goes here.

@@ -1,0 +1,10 @@
+Name: Generative Design
+Role: Generative · algorithmic works
+Page title: Generative Design — Pointlab (mockup)
+Wordmark: GENERATIVE [DESIGN]
+Intro: Placeholder: generative and algorithmic works — systems that draw, played live or printed.
+Artist: Andy Point
+Artist role: Generative works · Pointlab
+Artist bio: Placeholder bio. Two or three lines about the generative practice and its systems.
+
+Swipe or ←→ through a work. ▶ appears when a slide holds a live canvas.

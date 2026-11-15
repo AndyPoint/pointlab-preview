@@ -1,0 +1,24 @@
+Name: Commercial project 1
+Year: 2026 (placeholder)
+Type: Commercial film · photography
+Brand: We Are The Nature
+Format: 4K / stills (placeholder)
+Tags: photography, commercial film
+Settings: autoplay
+Layout: full
+Link: Film (placeholder) -> 02.mp4
+Link: Client (placeholder)
+
+Placeholder text. A commercial film and stills series in which nature fills the frame and is given the hero space. Swap this stand-in for the real We Are The Nature project.
+
+# 01 Still 1
+
+Placeholder caption. A still from the film: nature fills the frame.
+
+# 02 Film
+
+Placeholder caption. The commercial film, muted loop.
+
+# 03 Still 2
+
+Placeholder caption. A second still from the same project.

@@ -1,0 +1,19 @@
+Name: Mirror Field
+Year: 2025 (placeholder)
+Tech: JavaScript · WebGL
+Type: Web app
+Status: Screens only
+Settings: whole
+Layout: framed
+Cover image: 01.jpg
+Cover line: A kaleidoscopic field generator
+Cover line: Parameter panel + mirrored output
+Link: Source repository
+
+Web app, screens only. A kaleidoscopic field generator with a parameter panel (placeholder).
+
+# 01 Panel + field
+
+# 02 Variation
+
+# 03 Ring mode

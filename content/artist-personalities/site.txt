@@ -1,0 +1,5 @@
+Name: Artist personalities
+Role: Artists
+Status: planned
+
+Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list.

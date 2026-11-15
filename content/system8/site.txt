@@ -1,0 +1,21 @@
+Name: System 8
+Role: Kickstarter · Codelab tools
+Page title: System 8 — Pointlab (mockup)
+Wordmark: SYSTEM 8
+Intro: Placeholder: System 8 is a set of Codelab tools. A Kickstarter campaign is coming soon.
+Artist: Andy Point
+Artist role: Code · System 8
+Artist bio: Placeholder bio. Two or three lines about System 8, the Codelab tools and the upcoming Kickstarter campaign.
+Campaign status: Coming soon
+Launch: Date (placeholder)
+Kickstarter: Coming to Kickstarter -> #
+Label project: Row
+Label rows: Rows
+Label slides: Pages
+Label full: Overview
+Label shot: Page
+Label video: Video
+Label help: Help
+Thumbnail: top.jpg
+
+Placeholder text. The campaign is not live yet. A launch date will be announced here.

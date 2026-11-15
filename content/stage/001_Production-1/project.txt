@@ -1,0 +1,29 @@
+Name: Production 1
+Year: 2026 (placeholder)
+Type: Stage design · scenography
+Venue: Placeholder
+Role: Set and space (placeholder)
+Tags: stage design
+Settings: autoplay
+Layout: full
+Link: Production video -> 03.mp4
+Link: Credits (placeholder)
+
+Placeholder text. A stage / scenography production: the set as built, a model or render, and a production video. Swap this stand-in for the real production.
+
+# 01 Stage photograph
+
+Placeholder caption. The set as built, photographed on stage.
+
+# 02 Model / render
+Layout: framed
+
+Placeholder caption. The model or render for the production.
+
+# 03 Production video
+
+Placeholder caption. A short from the production.
+
+# 04 Space
+
+Placeholder caption. A second photograph of the space.

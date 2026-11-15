@@ -1,0 +1,24 @@
+Name: Commercial project 2
+Year: 2025 (placeholder)
+Type: Commercial film · photography
+Brand: We Are The Nature
+Format: 4K / stills (placeholder)
+Tags: photography, commercial film
+Settings: autoplay
+Layout: full
+Link: Film (placeholder) -> 03.mp4
+Link: Client (placeholder)
+
+Placeholder text. A second commercial project for We Are The Nature: drone-scale landscape stills and a nature film. Swap this stand-in for the real work.
+
+# 01 Landscape
+
+Placeholder caption. A wide still in which the land takes the frame.
+
+# 02 Close
+
+Placeholder caption. A closer still from the same series.
+
+# 03 Film
+
+Placeholder caption. The commercial film, muted loop.

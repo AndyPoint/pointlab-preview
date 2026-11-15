@@ -1,0 +1,22 @@
+Name: Mirror Studies
+Year: 2025 (placeholder)
+Type: Generative prints
+Edition: Placeholder
+Settings: whole
+Layout: full
+Link: Print edition
+
+Placeholder text. Prints from the mirrored field generator.
+
+# 01 Red field
+
+Placeholder caption.
+
+# 02 Violet field
+
+Placeholder caption.
+
+# 03 Generator
+Layout: framed
+
+Placeholder caption. The field generator with its panel.

@@ -1,0 +1,14 @@
+Name: Stage / Scenography
+Role: Stage design · scenography
+Page title: Stage / Scenography — Pointlab (mockup)
+Wordmark: STAGE
+Intro: Placeholder: stage design and scenography — sets, models and production films.
+Artist: Andy Point
+Artist role: Stage design · scenography
+Artist bio: Placeholder bio. Two or three lines about the stage and scenography practice, the productions and the spaces.
+Label full: Stage photograph
+Label shot: Model / render
+Label video: Production video
+Label project: Production
+
+Placeholder text. Productions shown as they were built, as models or renders, and as film from the performance.

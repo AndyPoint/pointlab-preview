@@ -1,0 +1,23 @@
+Name: Pigment Textures
+Type: Textures
+Format: JPG · 4K (placeholder)
+Items: 24 (placeholder)
+Licence: Placeholder
+Settings: whole
+Price: € — (placeholder)
+Layout: framed
+Link: Licence terms
+
+Placeholder text. High-resolution pigment and field textures for 3D and print.
+
+# 01 Violet field
+
+Placeholder caption.
+
+# 02 Green orb
+
+Placeholder caption.
+
+# 03 Ice
+
+Placeholder caption.

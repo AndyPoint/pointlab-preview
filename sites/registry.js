@@ -1,26 +1,20 @@
-/* All Pointlab sites. href:null = planned, not part of this mockup. thumb = representative work. */
+/* All Pointlab sites (v2.6). Names, roles and Sites-list pictures come from content/<folder>/site.txt.
+   id = the engine id used by sites/<page>.js; folder = content/<folder>/; href:null = planned (no page yet). */
 window.PL_REGISTRY=[
-  {id:'hub',      name:'Pointlab',                     role:'Hub · gallery · news',            href:'index.html',                  thumb:'media/art-blue-symmetry.jpg'},
-  {id:'conscious',name:'Conscious Architecture Company',role:'Architecture · practice + theory', href:'conscious-architecture.html', thumb:'media/cac-construction-sequence.svg'},
-  {id:'vj',       name:'VJSH1FT',                      role:'VJ · live visuals',                href:'vjsh1ft.html',                thumb:'media/vj-sh1ft.jpg'},
-  {id:'assets',   name:'Asset Store',                  role:'Digital assets',                   href:'asset-store.html',            thumb:'media/code-tool-3d.jpg'},
-  {id:'generative',name:'Generative Design',           role:'Generative · algorithmic works',   href:'generative-design.html',      thumb:'media/art-cross-symmetry.jpg'},
-  {id:'codelab',  name:'Codelab',                      role:'Code projects',                    href:'codelab.html',                thumb:'media/code-tool-radial.jpg'},
-  {id:'system8',  name:'System 8',                      role:'Kickstarter · Codelab tools',      href:'system8.html',                thumb:'media/toy-controls.jpg'},
-  {id:'fashion',  name:'Atelier',                      role:'Fashion brand',                    href:'fashion.html',                thumb:'media/fashion-white-line.jpg'},
-  {id:'nature',   name:'We Are The Nature',            role:'Photography · nature film',        href:'we-are-the-nature.html',      thumb:'media/art-ice.jpg'},
-  {id:'stage',    name:'Stage / Scenography',          role:'Stage design · scenography',       href:'stage.html',                  thumb:'media/art-blue-room.jpg'},
-  {id:'works',    name:'Works',                        role:'Client work · design studio',      href:'works.html',                  thumb:'media/fashion-gallery.jpg'},
-  {id:'artists',  name:'Artist personalities',         role:'Artists',                          href:null,                          thumb:'media/art-blue-room.jpg'},
-  {id:'studio',   name:'Studio',                       role:'Interior / furniture design',      href:null,                          thumb:'media/studio-sofa.jpg'},
-  {id:'art',      name:'Art',                          role:'Art',                              href:null,                          thumb:'media/art-red-figure.jpg'}
+  {id:'hub',       folder:'hub',                    href:'index.html'},
+  {id:'conscious', folder:'conscious-architecture', href:'conscious-architecture.html'},
+  {id:'vj',        folder:'vjsh1ft',                href:'vjsh1ft.html'},
+  {id:'assets',    folder:'asset-store',            href:'asset-store.html'},
+  {id:'generative',folder:'generative-design',      href:'generative-design.html'},
+  {id:'codelab',   folder:'codelab',                href:'codelab.html'},
+  {id:'system8',   folder:'system8',                href:'system8.html'},
+  {id:'fashion',   folder:'fashion',                href:'fashion.html'},
+  {id:'nature',    folder:'we-are-the-nature',      href:'we-are-the-nature.html'},
+  {id:'stage',     folder:'stage',                  href:'stage.html'},
+  {id:'works',     folder:'works',                  href:'works.html'},
+  {id:'artists',   folder:'artist-personalities',   href:null},
+  {id:'studio',    folder:'studio',                 href:null},
+  {id:'art',       folder:'art',                    href:null}
 ];
-
-/* Shared across every site: the right ||| panel (tools, settings, contact). Placeholder contact details — replace. */
-window.PL_SHARED={
-  toolsLabel:'Tools',
-  contact:[
-    {label:'Email (placeholder)',value:'hello@pointlab.example',href:'mailto:hello@pointlab.example'},
-    {label:'Instagram (placeholder)',value:'@pointlab',href:null},
-    {label:'Studio (placeholder)',value:'Helsinki',href:null}]
-};
+/* Shared across every site (right ||| panel contact list etc.): content/shared.txt */
+window.PL_SHARED={toolsLabel:'Tools',contact:[]};

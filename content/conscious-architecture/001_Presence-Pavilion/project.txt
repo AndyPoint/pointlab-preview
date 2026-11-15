@@ -1,0 +1,34 @@
+Name: Presence Pavilion
+Year: 2026 (placeholder)
+Type: Pavilion · built study
+Status: Concept
+Tools: Physical model · 3D
+Settings: whole
+Layout: full
+Link: Drawings set (PDF)
+Link: Radial study (placeholder drawing) -> 02.svg
+
+Placeholder text. A small pavilion designed around one continuous movement of light through the day.
+
+# 01 Presence | pavilion
+Layout: concept
+Area: 40 m² (placeholder)
+Material: Placeholder
+
+Placeholder concept text. A room you enter slowly; the plan is a single curve that keeps the visitor in the present.
+
+# 02 Presence, radial
+
+Placeholder drawing. Presence over a day, rings by hour; heat marks where people stay.
+
+# 03 Construction
+Layout: framed
+
+Placeholder drawing. The plan figure built from a radial grid in three steps.
+
+# 04 Passage detail
+
+Placeholder drawing. Section through the entry passage, numbered legend and scale bar.
+
+# 05 Notes
+Layout: notes

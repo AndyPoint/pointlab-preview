@@ -1,0 +1,47 @@
+Name: Field Toy
+Year: 2026 (placeholder)
+Tech: JavaScript · Canvas 2D
+Type: Live web app
+Input: Touch / mouse / keys
+Settings: autoplay
+Layout: framed fill
+Cover image: 03.jpg
+Cover line: Particles follow a vector field you shape with your hand
+Cover line: Press ▶ to play · drag to pull · tap for an attractor
+Cover line: Keys 1–3: orbit / flow / repel · Esc returns to the site
+Link: Open the live app -> apps/field-toy.html
+Link: Source repository
+Link: Session video -> 07.mp4
+
+Live web app by Pointlab Instruments. Press ▶ beside the top-right symbol to play: drag to pull the field, tap for an attractor, keys 1–3 switch orbit / flow / repel, Space clears. Press ▶ again or Esc to return.
+
+# 01 Controls
+
+The control strip is only visible in play mode.
+
+# 02 Try it
+App: apps/field-toy.html
+
+# 03 Orbit
+
+Law 1. Particles circle the attractor and condense into rings.
+
+# 04 Several attractors
+
+Taps add up to six attractors.
+
+# 05 Flow
+
+Law 2. A slow noise field carries the particles.
+
+# 06 Repel
+
+Law 3. Attractors push particles away.
+
+# 07 Video example
+
+Screen recording of a session (placeholder).
+
+# 08 Video output
+
+Rendered output of the flow law (placeholder).

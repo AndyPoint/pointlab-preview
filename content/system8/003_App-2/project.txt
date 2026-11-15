@@ -1,0 +1,37 @@
+Name: App 2
+Set: System 8
+Row: App 2 of 4
+Status: Coming soon
+Settings: autoplay
+Layout: framed fill
+Link: Live app (placeholder)
+
+Placeholder text. App 2 of System 8 — one of the Codelab tools in the set. Swap this stand-in for the real software.
+
+# Help
+Placeholder help for App 2. This text lives in the left panel. One short paragraph on how to open the app, what the main tools do, and where to find the demo projects. Swap this stand-in for the real help.
+
+# 01 Overview
+Layout: full
+
+Placeholder caption. Overview of App 2.
+
+# 02 Tools
+
+Placeholder caption. The tools in App 2.
+
+# 03 Demo projects
+
+Placeholder caption. Demo projects in App 2.
+
+# 04 Example videos
+
+Placeholder caption. An example video from App 2.
+
+# 05 Functionalities
+
+Placeholder caption. Functionalities of App 2.
+
+# 06 Help
+
+Placeholder caption. A help screenshot for App 2. The help text is in the left panel.

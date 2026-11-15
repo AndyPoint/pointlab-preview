@@ -1,0 +1,25 @@
+Name: Orbit Loop Pack
+Type: Video loops
+Format: MP4 · 1080p · 8 s
+Items: 10 (placeholder)
+Licence: Placeholder
+Settings: autoplay, whole
+Price: € — (placeholder)
+Layout: framed
+Link: Preview loop -> 01.mp4
+Link: Licence terms
+
+Placeholder text. Ten seamless particle loops rendered from the Field Toy instrument.
+
+# 01 Loop preview
+Layout: whole
+
+Placeholder caption.
+
+# 02 Orbit still
+
+Placeholder caption.
+
+# 03 Flow still
+
+Placeholder caption.

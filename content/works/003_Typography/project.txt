@@ -1,0 +1,24 @@
+Name: Typography
+Year: 2025 (placeholder)
+Discipline: Typography
+Client: Placeholder
+Deliverables: Lettering, applications (placeholder)
+Tags: typography
+Settings: whole
+Layout: full
+Link: Type specimen (placeholder)
+
+Placeholder text. A typographic commission: lettering built as a system and applied at scale. Swap this stand-in for the real work.
+
+# 01 Lettering
+
+Placeholder caption. The lettering at full scale.
+
+# 02 Detail
+Layout: framed fill
+
+Placeholder caption. A closer typographic detail.
+
+# 03 Line-up
+
+Placeholder caption. The type in a sequence.

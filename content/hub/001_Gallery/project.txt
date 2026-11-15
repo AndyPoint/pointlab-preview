@@ -1,0 +1,41 @@
+Name: Gallery — November
+Settings: whole
+Accent: #002FA7
+Layout: framed
+Link: Print edition
+Link: Pigment room image -> 02.jpg
+
+Work of the month: Symmetry studies by Andy Point (placeholder text).
+
+# 01 Symmetry | studies
+Layout: concept
+Month: 11 / 2026
+Series: Symmetry studies
+Artist: Andy Point
+Works: 3
+
+Work of the month. Placeholder text: a short curatorial note about the series, its method and why it is shown this month.
+
+# 02 Pigment room
+Kicker: Room
+Layout: full
+
+Placeholder image (Midjourney). How the series is hung: one blue room before the three studies.
+
+# 03 Blue axis
+Kicker: Work 1 / 3
+
+Placeholder caption. One line on how the form was generated and mirrored.
+
+# 04 Red / blue
+Kicker: Work 2 / 3
+
+Placeholder caption. The second study adds a counter-colour layer.
+
+# 05 Cross
+Kicker: Work 3 / 3
+
+Placeholder caption. Four-fold symmetry closes the series.
+
+# 06 List of works
+Layout: notes
