@@ -31,7 +31,7 @@ window.PL_CONTENT={
     "line": "",
     "blocks": [
      {
-      "p": "Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list."
+      "p": "Planned site (no page yet): listed in the Sites menus. thumb.jpg is its picture in the Sites list."
      }
     ]
    },
@@ -2683,5 +2683,5 @@ window.PL_CONTENT={
    }
   }
  },
- "hash": "f7ccb170e8"
+ "hash": "5c73708322"
 };
