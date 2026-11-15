@@ -2,4 +2,4 @@ Name: Art
 Role: Art
 Status: planned
 
-Planned site: listed in the Sites menus, no page yet. thumb.jpg is its picture in the Sites list.
+Planned site (no page yet): listed in the Sites menus. thumb.jpg is its picture in the Sites list.
